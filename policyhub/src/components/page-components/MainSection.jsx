@@ -1,7 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 
 import './MainSection.css';
-
+import CustomerCard from '../CustomerCard';
 
 const MainSection = () => {
   return (
@@ -18,13 +18,13 @@ const MainSection = () => {
               <option>Gender</option>
             </select>
           </div>
-          <div className="displaycustomers d-flex">
-            <h1>Customer</h1>
-            <h1>Customer</h1>
-            <h1>Customer</h1>
-            <h1>Customer</h1>
-            <h1>Customer</h1>
-            <h1>Customer</h1>
+          <div className="displaycustomers">
+            <CustomerCard
+              name='Benjamin Franklin'
+              type="Person"
+              address='Benjavej 24'
+              city="Copenhagen"
+            />
           </div>
         </Col>
       </Row>

@@ -17,6 +17,7 @@
   border-radius: 200px;
   margin-left: 20px;
   height: 30px;
+  width: 180px;
 }
 
 input {
@@ -25,4 +26,9 @@ input {
 
 .displaycustomers > h1 {
   margin: 20px 20px;
+}
+
+.displaycustomers {
+  display: flex;
+  overflow: scroll;
 }
