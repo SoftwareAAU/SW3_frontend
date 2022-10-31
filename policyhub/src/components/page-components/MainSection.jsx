@@ -1,8 +1,9 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
+import CustomerCard from './CustomerCard';
+
 import './MainSection.css';
-import CustomerCard from '../CustomerCard';
 import Axios from 'axios';
 
 const MainSection = () => {
@@ -12,7 +13,6 @@ const MainSection = () => {
   useEffect(() => {
     getAllCustomers();
     console.log(customers)
-    console.log(customers[0].name)
   }, []);
   
 
@@ -28,19 +28,12 @@ const MainSection = () => {
 
   
 
-
-
-
-
   return (
-    <div className='mainsection'>
-      <h1 className="text-center">Customers</h1>
+    <div className='mainsection my-4'>
       <div className="customer-cards">
+      <CustomerCard className=" fw-bold" customer={{id: "Customer ID", name: "Name", address: "Address"}} />
         {customers.map((customer) => ( 
-          <>
-          <h1>Address: {customer.address} | id: {customer.id}</h1>
-          <br />
-          </>
+          <CustomerCard key={customer.id} customer={customer} />
         ))}
       </div>
     </div>
