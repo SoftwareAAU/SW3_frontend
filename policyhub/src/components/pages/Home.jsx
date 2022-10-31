@@ -6,8 +6,8 @@ import Sidebar from '../Sidebar';
 const Home = () => {
   return (
     <>
-      <Container fluid>
-        <Row>
+      <Container fluid className='mx-0'>
+        <Row className='mx-0'>
           <Col sm={3}>
             <Sidebar/>  
           </Col>

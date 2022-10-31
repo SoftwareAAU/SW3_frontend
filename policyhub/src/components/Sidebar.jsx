@@ -1,7 +1,7 @@
 import { Container, Row, Col, } from 'react-bootstrap';
 import Stack from 'react-bootstrap/Stack';
 
-import siteLogo from '../assets/sitelogoblue.png';
+import siteLogo from '../assets/sitelogo.svg';
 
 import "./Sidebar.css";
 
@@ -10,16 +10,18 @@ const Sidebar = () => {
     
       <Col className='sidebar my-4'>
         <Stack direction="vertical" className='links' gap={3}>
-          <a href="/" className='navbar-logo mx-auto'><img src={siteLogo} height="50px" alt="LOGO" /></a>
+
+          <a href="/" className='sidebar-logo mx-auto'><img src={siteLogo} height="50px" alt="LOGO" />Frankly Insure</a>
+
 
           <Row className="mx-auto">
-          <a href="">Dashboard</a>
+          <a className='link' href="">Dashboard</a>
           </Row>
           <Row className="mx-auto">
-          <a href="">Dashboard</a>
+          <a className='link' href="">Dashboard</a>
           </Row>
           <Row className="mx-auto">
-          <a href="">Dashboard</a>
+          <a className='link' href="">Dashboard</a>
           </Row>
        
        

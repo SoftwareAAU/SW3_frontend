@@ -4,10 +4,27 @@
 
 }
 
-.links a{
+.sidebar-logo{
+  color: #FF4E75;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: all ease-in-out 200ms;
+}
+.sidebar-logo :hover{
+  color: #000000;
+  text-decoration: none;
+}
+.sidebar .link{
   color: black;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
-
 }
+.sidebar .link :hover{
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
