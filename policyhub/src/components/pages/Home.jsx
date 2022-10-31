@@ -1,14 +1,20 @@
 import { Container, Row, Col } from 'react-bootstrap';
 
-import Navbar from '../Navbar';
 import MainSection from '../page-components/MainSection';
+import Sidebar from '../Sidebar';
 
 const Home = () => {
   return (
     <>
       <Container fluid>
-        <Navbar/>
-        <MainSection/>
+        <Row>
+          <Col sm={3}>
+            <Sidebar/>  
+          </Col>
+          <Col sm={9}>
+            <MainSection/>
+          </Col>
+        </Row>
       </Container>
     </>
   );
