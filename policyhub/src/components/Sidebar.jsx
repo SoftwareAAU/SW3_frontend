@@ -8,7 +8,7 @@ import "./Sidebar.css";
 const Sidebar = () => {
   return (
     
-      <Col className='sidebar my-4'>
+      <Col className='sidebar my-4 p-5'>
         <Stack direction="vertical" className='links' gap={3}>
 
           <a href="/" className='sidebar-logo mx-auto'><img src={siteLogo} height="50px" alt="LOGO" />Frankly Insure</a>

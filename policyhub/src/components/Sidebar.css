@@ -1,5 +1,6 @@
 .sidebar {
   background: white;;
+  height: 94vh;
   
 
 }
@@ -7,24 +8,27 @@
 .sidebar-logo{
   color: #FF4E75;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.2rem;
   transition: all ease-in-out 200ms;
 }
-.sidebar-logo :hover{
-  color: #000000;
+.sidebar-logo:hover{
+  color: #112035;
   text-decoration: none;
 }
 .sidebar .link{
   color: black;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: none;
+  transition: all ease-in-out 200ms;
 }
-.sidebar .link :hover{
-  color: black;
-  font-size: 1rem;
-  font-weight: 600;
+.sidebar .link:hover{
+  color: #FF4E75;
+  font-size: 1.05rem;
+  font-weight: 400;
   text-decoration: none;
+  transform: translateY(-1px);
+  transition: all ease-in-out 200ms;
 }
 
