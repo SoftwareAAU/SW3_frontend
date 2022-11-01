@@ -21,26 +21,27 @@
   text-decoration: none;
 }
 .sidebar .link {
-  color: black;
-  font-size: 1.7rem;
+  color: grey;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 400;
   text-decoration: none;
-  transition: all ease-in-out 200ms;
+  transition: all ease-in-out 100ms;
   margin-bottom: 16px;
 }
 .sidebar .link:hover {
-  color: #ff4e75;
-  font-size: 1.8rem;
-  font-weight: bold;
+  color: black;
+  font-size: 1.2rem;
   text-decoration: none;
-  transform: translateY(-1px);
-  transition: all ease-in-out 200ms;
+  transition: all ease-in-out 100ms;
+  
+
+  /* this is a way of animating boldness */
 }
 .sidebar .active {
-  color: #ff4e75;
-  font-size: 1.8rem;
-  font-weight: bold;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 400;
   text-decoration: none;
 }
 
