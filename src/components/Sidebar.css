@@ -43,3 +43,26 @@
   font-weight: bold;
   text-decoration: none;
 }
+
+.sign-out-button{
+  background: var(--pink);
+  color: white;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 20px;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-top: 20px;
+  transition: all ease-in-out 200ms;
+}
+
+.sign-out-button:hover{
+  background: var(--darkBlue);
+  
+  transition: all ease-in-out 200ms;
+}
+.sign-out-button:active{
+  background: var(--pink);
+  color: white;
+  transition: all ease-in-out 200ms;
+}

@@ -4,8 +4,16 @@ import Stack from "react-bootstrap/Stack";
 import siteLogo from "../assets/sitelogo.svg";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
+import Cookies from "js-cookie";
+
+
 
 const Sidebar = () => {
+
+  function signOut() {
+    Cookies.remove("token");
+    window.location.href = "/";
+  }
   return (
     <Col className="sidebar p-5">
       <Stack direction="vertical" className="links" gap={3}>
@@ -24,6 +32,9 @@ const Sidebar = () => {
           <Link to="/analytics" className="link">
             Analytics
           </Link>
+        </div>
+        <div>
+          <button onClick={signOut} className="btn-primary sign-out-button" >Sign out</button>
         </div>
       </Stack>
     </Col>
