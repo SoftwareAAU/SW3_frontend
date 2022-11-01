@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import {Row, Col, Container} from 'react-bootstrap';
 import Sidebar from "./components/Sidebar";
-import Customers from './components/page-components/Customers';
+import Customers from './components/pages/Customers';
 import Dashboard from "./components/pages/Dashboard";
 import Login from "./components/pages/Login";
 import {useState, useEffect} from 'react';
@@ -30,11 +30,8 @@ function App() {
   }
 
   return (
-    <Row className="page">
-       
-        
-    
-      <BrowserRouter className="App">
+    <BrowserRouter className="App">
+      <Row className="page">
       <Col sm={3}>
           <Sidebar />
       </Col>
@@ -45,8 +42,8 @@ function App() {
           <Route exact path="/analytics" element={ <Analytics />} />
         </Routes>
       </Col>
+      </Row>
       </BrowserRouter>
-    </Row>
   );
 }
 

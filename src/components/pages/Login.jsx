@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import "./Login.css";
 
+
 import girl from "../../assets/girl.png";
 
 const Login = () => {
@@ -38,28 +39,41 @@ const Login = () => {
   };
 
   return (
+
     <div className="login row">
       <div className="col-8">
         <img className="loginImage" src={girl}></img>
       </div>
-      <div className="col-4">
-        <div class="mb-3">
+
+      <div className="col-4 ">
+        <div class="mb-3 ">
           <label class="form-label">Username</label>
-          <input
-            type="email"
-            class="form-control"
-            onChange={handleUsernameChange}
+          <input type="text" className="form-control"
+            onChange={handleUsernameChange} 
+            //login if enter is pressed
+            onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                    login();
+                }
+            }}
           />
         </div>
         <div class="mb-3">
-          <label class="form-label">Password</label>
+          <label className="form-label">Password</label>
+
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             onChange={handlePasswordChange}
+              //login if enter is pressed
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                    login();
+                }
+            }}
           />
         </div>
-        <button type="submit" class="btn btn-primary" onClick={login}>
+        <button type="submit" className="btn btn-primary" onClick={login}>
           Login
         </button>
       </div>

@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
-import CustomerCard from "./CustomerCard";
+import CustomerCard from "../page-components/CustomerCard";
 
 import "./Customers.css";
 import Axios from "axios";

@@ -4,7 +4,6 @@ import Stack from "react-bootstrap/Stack";
 import siteLogo from "../assets/sitelogo.svg";
 import { Link } from "react-router-dom";
 
-import "./Sidebar.css";
 
 const Sidebar = () => {
   return (
