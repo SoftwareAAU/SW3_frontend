@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Stack from "react-bootstrap/Stack";
 
-import siteLogo from "../assets/sitelogo.svg";
+import siteLogo from "../assets/siteLogo.svg";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import Cookies from "js-cookie";
@@ -33,10 +33,12 @@ const Sidebar = () => {
             Analytics
           </Link>
         </div>
-        <div>
-          <button onClick={signOut} className="btn-primary sign-out-button" >Sign out</button>
-        </div>
+
+        
       </Stack>
+      <Row className="sign-out-box">
+          <button onClick={signOut} className="btn-primary sign-out-button" >Sign out</button>
+          </Row>
     </Col>
   );
 };
