@@ -12,7 +12,7 @@ const CustomerCard = (prop) => {
         <Col>
         
         <p className="px-4 py-3 text-center">
-        <img src={personLogo} height="28px" align-baseline alt="LOGO"/>
+        <img src={personLogo} height="28px" alt="LOGO"/>
         {customer.name}
         {customer.surName}
         </p>
