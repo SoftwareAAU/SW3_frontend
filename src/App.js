@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <Row className="page">
+    <Row>
        
         
     
