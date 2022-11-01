@@ -19,7 +19,7 @@ const Sidebar = () => {
             Dashboard
           </a>
           <a className="link" href="">
-            Costumer
+            Custumer
           </a>
           <a className="link" href="">
             Analytics
