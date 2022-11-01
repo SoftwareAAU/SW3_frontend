@@ -10,10 +10,12 @@ const CustomerCard = (prop) => {
     <Container className="">
       <Row>
         <Col>
-        <img src={personLogo} height="28px" alt="LOGO"/>
-        </Col>
-        <Col>
-          <p className="px-4 py-3 text-center">Jens</p>
+        
+        <p className="px-4 py-3 text-center">
+        <img src={personLogo} height="28px" align-baseline alt="LOGO"/>
+        {customer.name}
+        {customer.surName}
+        </p>
         </Col>
         <Col>
           <p className="px-4 py-3 text-center">{customer.id}</p>

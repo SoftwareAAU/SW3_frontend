@@ -27,7 +27,7 @@ const MainSection = () => {
       <div className="customer-cards">
         <CustomerCard
           className=" fw-bold"
-          customer={{ id: "Customer ID", name: "Name", address: "Address" }}
+          customer={{ id: "Customer ID", name: "Name", surName: "Surname", address: "Address" }}
         />
         {customers.map((customer) => (
           <CustomerCard key={customer.id} customer={customer} />
