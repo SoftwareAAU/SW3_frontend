@@ -1,8 +1,7 @@
 .sidebar {
   background: white;;
   height: 94vh;
-  
-
+  border-radius: 0px 50px 50px 0px;
 }
 
 .sidebar-logo{
