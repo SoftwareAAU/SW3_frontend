@@ -13,7 +13,7 @@
   color: #ff4e75;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   transition: all ease-in-out 200ms;
 }
 .sidebar-logo:hover {
@@ -22,16 +22,24 @@
 }
 .sidebar .link {
   color: black;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: bold;
   text-decoration: none;
   transition: all ease-in-out 200ms;
+  margin-bottom: 16px;
 }
 .sidebar .link:hover {
   color: #ff4e75;
-  font-size: 1.05rem;
-  font-weight: 400;
+  font-size: 1.8rem;
+  font-weight: bold;
   text-decoration: none;
   transform: translateY(-1px);
   transition: all ease-in-out 200ms;
+}
+.sidebar .active {
+  color: #ff4e75;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
 }

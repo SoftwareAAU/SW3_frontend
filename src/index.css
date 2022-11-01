@@ -3,9 +3,9 @@
 :root {
   --tintColor: #fcd7e0;
   --textColor: #000;
-  --lightPink: #FCE8ED;
+  --lightPink: #fce8ed;
   --sitePadding: 30px;
-  --borderRadius: 40px;
+  --borderRadius: 20px;
 }
 
 body {

@@ -10,10 +10,10 @@ const Sidebar = () => {
     <Col className="sidebar p-5">
       <Stack direction="vertical" className="links" gap={3}>
         <Link to="/" className="sidebar-logo mx-auto">
-          <img src={siteLogo} height="50px" alt="LOGO" />
+          <img src={siteLogo} height="70px" alt="LOGO" />
           Frankly Insure
         </Link>
-
+        <hr></hr>
         <div className="sidebar-links text-center">
           <Link to="/" className="link">
             Dashboard
