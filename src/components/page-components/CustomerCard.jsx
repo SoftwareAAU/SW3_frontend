@@ -1,7 +1,7 @@
 import "./CustomerCard.css";
 import { Container, Row, Col } from "react-bootstrap";
 
-import personLogo from "../assets/person.png";
+import personLogo from "../../assets/person.png";
 
 const CustomerCard = (prop) => {
   const customer = prop.customer;
@@ -9,9 +9,9 @@ const CustomerCard = (prop) => {
   return (
     <Container className="">
       <Row>
-        <col>
-        <img src={personLogo} height="50px" alt="LOGO" />
-        </col>
+        <Col>
+        <img src={personLogo} height="28px" alt="LOGO"/>
+        </Col>
         <Col>
           <p className="px-4 py-3 text-center">Jens</p>
         </Col>
