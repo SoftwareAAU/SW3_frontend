@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 
 import CustomerCard from "./CustomerCard";
 
-import "./MainSection.css";
+import "./Customers.css";
 import Axios from "axios";
 
-const MainSection = () => {
+const Customers = () => {
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const MainSection = () => {
   };
 
   return (
-    <div className="mainsection">
+    <div className="customers">
       <div className="customer-cards">
         <CustomerCard
           className=" fw-bold"
@@ -37,4 +37,4 @@ const MainSection = () => {
   );
 };
 
-export default MainSection;
+export default Customers;
