@@ -30,8 +30,8 @@ function App() {
   }
 
   return (
-    <BrowserRouter className="App">
-      <Row className="page">
+    <Row>
+      <BrowserRouter className="App">
       <Col sm={3}>
           <Sidebar />
       </Col>
@@ -42,8 +42,8 @@ function App() {
           <Route exact path="/analytics" element={ <Analytics />} />
         </Routes>
       </Col>
-      </Row>
       </BrowserRouter>
+      </Row>
   );
 }
 

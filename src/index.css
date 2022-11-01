@@ -18,3 +18,10 @@ body {
   height: 100vh;
   padding: var(--sitePadding);
 }
+
+.page {
+  background: white;
+  height: calc(100vh - var(--sitePadding) * 2);
+  border-radius: var(--borderRadius);
+  padding: var(--sitePadding);
+}
