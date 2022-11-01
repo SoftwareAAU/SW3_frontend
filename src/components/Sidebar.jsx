@@ -19,10 +19,10 @@ const Sidebar = () => {
             Dashboard
           </a>
           <a className="link" href="">
-            Dashboard
+            Costumer
           </a>
           <a className="link" href="">
-            Dashboard
+            Analytics
           </a>
         </div>
       </Stack>
