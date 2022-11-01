@@ -1,12 +1,13 @@
 .mainsection {
-  background: #FFE8EE;
+  background: white;
+  height: calc(100vh - var(--sitePadding) * 2);
+  border-radius: 16px;
 }
 
 .divider {
   height: 1px;
   background: black;
 }
-
 
 .inputField {
   border-radius: 200px;

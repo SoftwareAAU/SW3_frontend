@@ -1,4 +1,18 @@
-body{
-    background: #FCD7E0;
-    margin: 0px;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+
+:root {
+  --tintColor: #fcd7e0;
+  --textColor: #000;
+  --sitePadding: 30px;
+}
+
+body {
+  line-height: 24px;
+  font-size: 14px;
+  font-family: Rubik;
+  font-weight: 500;
+  color: var(--textColor);
+  background-color: var(--tintColor);
+  height: 100vh;
+  padding: var(--sitePadding);
 }

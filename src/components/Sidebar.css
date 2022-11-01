@@ -1,34 +1,37 @@
 .sidebar {
-  background: white;;
-  height: 94vh;
-  
-
+  background: white;
+  height: calc(100vh - var(--sitePadding) * 2);
+  border-radius: 16px;
 }
 
-.sidebar-logo{
-  color: #FF4E75;
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo {
+  color: #ff4e75;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.2rem;
   transition: all ease-in-out 200ms;
 }
-.sidebar-logo:hover{
+.sidebar-logo:hover {
   color: #112035;
   text-decoration: none;
 }
-.sidebar .link{
+.sidebar .link {
   color: black;
   font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
   transition: all ease-in-out 200ms;
 }
-.sidebar .link:hover{
-  color: #FF4E75;
+.sidebar .link:hover {
+  color: #ff4e75;
   font-size: 1.05rem;
   font-weight: 400;
   text-decoration: none;
   transform: translateY(-1px);
   transition: all ease-in-out 200ms;
 }
-
