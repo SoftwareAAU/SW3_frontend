@@ -4,8 +4,30 @@ import {Row, Col, Container} from 'react-bootstrap';
 import Sidebar from "./components/Sidebar";
 import Customers from './components/page-components/Customers';
 import Dashboard from "./components/pages/Dashboard";
+import Login from "./components/pages/Login";
+import {useState, useEffect} from 'react';
+import Cookies from "js-cookie";
 
 function App() {
+
+  const [token, setToken] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    
+    if (Cookies.get('token')) {
+      setToken(Cookies.get('token'));
+      setLoggedIn(true);
+    }
+
+  }, []);
+
+  if (!loggedIn) {
+    return(
+      <Login></Login>
+    );
+  }
+
   return (
     <Row className="page">
         <Col sm={3}>
@@ -18,7 +40,6 @@ function App() {
         <Routes>
           <Route exact path="/" element={ <Dashboard />} />
           <Route exact path="/customers" element={ <Customers />} />
-          <Route exact path="/customers/:id" element={ <Customers />} />
         </Routes>
       </BrowserRouter>
     </Col>
