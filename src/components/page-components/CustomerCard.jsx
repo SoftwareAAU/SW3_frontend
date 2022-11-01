@@ -5,7 +5,7 @@ const CustomerCard = (prop) => {
   const customer = prop.customer;
   console.log(customer);
   return (
-    <Container className="bg-white">
+    <Container className="">
       <Row>
         <Col>
           <p className="px-4 py-3 text-center">Jens</p>
