@@ -1,15 +1,11 @@
 .loginImage {
-  
   height: 100vh;
 }
-/* remove body margin and padding */
-
-.row>*
-{
+.login .row > * {
   padding: 0;
 }
-.login{
+.login {
   background: white;
-  margin: calc(var(--sitePadding)*-1);
+  margin: calc(var(--sitePadding) * -1);
   height: 100vh;
 }

@@ -3,7 +3,7 @@ import Stack from "react-bootstrap/Stack";
 
 import siteLogo from "../assets/sitelogo.svg";
 import { Link } from "react-router-dom";
-
+import "./Sidebar.css";
 
 const Sidebar = () => {
   return (
@@ -15,9 +15,15 @@ const Sidebar = () => {
         </Link>
 
         <div className="sidebar-links text-center">
-          <Link to="/" className="link" >Dashboard</Link>
-          <Link to="/customers" className="link" >Customers</Link>
-          <Link to="/analytics" className="link" >Analytics</Link>
+          <Link to="/" className="link">
+            Dashboard
+          </Link>
+          <Link to="/customers" className="link">
+            Customers
+          </Link>
+          <Link to="/analytics" className="link">
+            Analytics
+          </Link>
         </div>
       </Stack>
     </Col>

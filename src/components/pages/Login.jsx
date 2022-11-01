@@ -3,7 +3,6 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import "./Login.css";
 
-
 import girl from "../../assets/girl.png";
 
 const Login = () => {
@@ -39,43 +38,46 @@ const Login = () => {
   };
 
   return (
-
-    <div className="login row">
-      <div className="col-8">
-        <img className="loginImage" src={girl}></img>
-      </div>
-
-      <div className="col-4 ">
-        <div class="mb-3 ">
-          <label class="form-label">Username</label>
-          <input type="text" className="form-control"
-            onChange={handleUsernameChange} 
-            //login if enter is pressed
-            onKeyPress={(e) => {
-                if (e.key === "Enter") {
-                    login();
-                }
-            }}
-          />
+    <div className="login">
+      <div className="row">
+        <div className="col-8">
+          <img className="loginImage" src={girl}></img>
         </div>
-        <div class="mb-3">
-          <label className="form-label">Password</label>
 
-          <input
-            type="password"
-            className="form-control"
-            onChange={handlePasswordChange}
+        <div className="col-4 ">
+          <div class="mb-3 ">
+            <label class="form-label">Username</label>
+            <input
+              type="text"
+              className="form-control"
+              onChange={handleUsernameChange}
               //login if enter is pressed
               onKeyPress={(e) => {
                 if (e.key === "Enter") {
-                    login();
+                  login();
                 }
-            }}
-          />
+              }}
+            />
+          </div>
+          <div class="mb-3">
+            <label className="form-label">Password</label>
+
+            <input
+              type="password"
+              className="form-control"
+              onChange={handlePasswordChange}
+              //login if enter is pressed
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  login();
+                }
+              }}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary" onClick={login}>
+            Login
+          </button>
         </div>
-        <button type="submit" className="btn btn-primary" onClick={login}>
-          Login
-        </button>
       </div>
     </div>
   );
