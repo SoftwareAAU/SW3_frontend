@@ -1,4 +1,4 @@
-.mainsection {
+.customers {
   background: white;
   height: calc(100vh - var(--sitePadding) * 2);
   border-radius: var(--borderRadius);
