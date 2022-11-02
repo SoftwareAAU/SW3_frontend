@@ -211,7 +211,7 @@ const Customers = () => {
             </tr>
           </thead>
           <tbody>
-            {dummyCustomers.fi.map((customer) => (
+            {dummyCustomers.map((customer) => (
               <tr
                 key={customer.id}
                 className=" my-4"
