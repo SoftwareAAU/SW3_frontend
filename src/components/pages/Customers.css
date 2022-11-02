@@ -29,51 +29,54 @@ input {
   display: flex;
   overflow: scroll;
 }
-
-.customer-table thead tr{
-  
+.customer-card-search {
+  padding: 10px 24px 0px 24px;
+  background-color: var(--pink);
+  color: #fff;
+}
+.customer-card-searchbar {
+  border-radius: var(--borderRadius);
+}
+.customer-table {
+  margin-top: -1em;
+}
+.customer-table thead tr {
   font-size: 1.2rem;
   color: white;
   background: var(--pink);
   transition: all ease-in-out 200ms;
-  padding: 10px 20px;
   border: 4px solid var(--pink);
 }
-.customer-table thead th{
-  
+.customer-table thead th {
   font-weight: 400;
-  padding: 10px 20px;
   border: 4px solid var(--pink);
   transition: all ease-in-out 200ms;
 }
 
-.customer-table-image{
+.customer-table-image {
   width: 50px;
 }
 
-
-.customer-table tbody tr{
-  
+.customer-table tbody tr {
   transition: all ease-in-out 200ms;
   padding: 10px 20px;
   border: 4px solid var(--lightPink);
-  
 }
 
-.customer-table tbody tr{
+.customer-table tbody tr {
   cursor: pointer;
   background: white;
   transition: all ease-in-out 200ms;
 }
-.customer-table tbody tr:hover{
+.customer-table tbody tr:hover {
   background: var(--lightPink);
   transition: all ease-in-out 200ms;
 }
-.customer-table tbody tr:active{
+.customer-table tbody tr:active {
   background: var(--pink);
   transition: all ease-in-out 200ms;
 }
-.customer-table tbody tr td{
+.customer-table tbody tr td {
   font-size: 1.1rem;
   font-weight: 400;
   padding: 10px 20px;
