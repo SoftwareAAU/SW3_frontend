@@ -1,8 +1,8 @@
-.login-image {
-  height: 100vh;
-}
 .login .row > * {
   padding: 0;
+}
+.login-image {
+  height: 100vh;
 }
 .login {
   background: white;
@@ -31,13 +31,13 @@
   transition: all ease-in-out 200ms;
 }
 .sign-in-button:active{
+
   background: var(--pink);
   color: white;
   transition: all ease-in-out 200ms;
 }
 
 .login-form-group{
-  width: 60%;
 }
 
 .form-control input{
@@ -67,7 +67,6 @@
 }
 
 .form-control:focus{
-
   border-radius: 200px;
   background: var(--semiPink);
   transition: all ease-in-out 100ms;
@@ -93,3 +92,4 @@
   color: var(--pink);
   
 }
+

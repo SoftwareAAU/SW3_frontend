@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import "./Login.css";
 
-import girl from "../../assets/girl.png";
+import girl from "../../assets/girl2.png";
 
 import siteLogo from "../../assets/siteLogo.svg";
 
@@ -46,7 +46,7 @@ const Login = () => {
           <img className="login-image" src={girl}></img>
         </div>
 
-        <div className="col-4 mx-auto d-flex flex-column justify-content-center align-items-center ">
+        <div className="col-4 d-flex flex-column justify-content-center align-items-center ">
 
             <div className="login-logo">
             <img src={siteLogo} alt="LOGO" width={120}  />
@@ -63,7 +63,7 @@ const Login = () => {
               }}
             />
           </div>
-          <div class="mb-3 login-form-group">
+          <div class="mb-2 login-form-group">
             <input type="password" className="form-control" onChange={handlePasswordChange} placeholder="Enter password"
               //login if enter is pressed
               onKeyPress={(e) => {
