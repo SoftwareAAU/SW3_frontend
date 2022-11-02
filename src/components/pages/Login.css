@@ -1,5 +1,6 @@
 .login .row > * {
   padding: 0;
+  margin: 0;
 }
 .login-image {
   height: 100vh;
@@ -10,11 +11,11 @@
   height: 100vh;
 }
 
-.login-image-div{
+.login-image-div {
   width: fit-content;
 }
 
-.sign-in-button{
+.sign-in-button {
   background: var(--pink);
   color: white;
   border-radius: 20px;
@@ -25,40 +26,38 @@
   margin-top: 20px;
   transition: all ease-in-out 200ms;
 }
-.sign-in-button:hover{
+.sign-in-button:hover {
   background: var(--darkBlue);
-  
+
   transition: all ease-in-out 200ms;
 }
-.sign-in-button:active{
-
+.sign-in-button:active {
   background: var(--pink);
   color: white;
   transition: all ease-in-out 200ms;
 }
 
-.login-form-group{
+.login-form-group {
 }
 
-.form-control input{
+.form-control input {
   border-radius: 200px;
   background: var(--lightPink);
   transition: all ease-in-out 200ms;
-  
 }
-.form-control input:focus{
+.form-control input:focus {
   border-radius: 200px;
   background: var(--semiPink);
   transition: all ease-in-out 200ms;
 }
 
-.form-control ::placeholder{
+.form-control ::placeholder {
   color: grey;
   font-weight: 300;
   transition: all ease-in-out 200ms;
 }
 
-.form-control{
+.form-control {
   border: none;
   border-radius: 200px;
   background: var(--lightPink);
@@ -66,30 +65,28 @@
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
-.form-control:focus{
+.form-control:focus {
   border-radius: 200px;
   background: var(--semiPink);
   transition: all ease-in-out 100ms;
   box-shadow: 0 0px 2px 1px var(--pink);
 }
 
-.form-control ::placeholder{
+.form-control ::placeholder {
   color: grey;
   font-weight: 300;
   transition: all ease-in-out 200ms;
 }
 
-.login-logo{
+.login-logo {
   text-align: center;
   align-items: center;
   margin-bottom: 200px;
 }
 
-.login-logo-text{
+.login-logo-text {
   margin-top: 20px;
   font-size: 2rem;
   font-weight: 500;
   color: var(--pink);
-  
 }
-

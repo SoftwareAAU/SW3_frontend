@@ -5,7 +5,7 @@ import "./Login.css";
 
 import girl from "../../assets/girl2.png";
 
-import siteLogo from "../../assets/siteLogo.svg";
+import siteLogo from "../../assets/sitelogo.svg";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -47,14 +47,17 @@ const Login = () => {
         </div>
 
         <div className="col-4 d-flex flex-column justify-content-center align-items-center ">
-
-            <div className="login-logo">
-            <img src={siteLogo} alt="LOGO" width={120}  />
+          <div className="login-logo">
+            <img src={siteLogo} alt="LOGO" width={120} />
             <p className="login-logo-text">Frankly Insure</p>
-            </div>
-        
+          </div>
+
           <div class="mb-3 login-form-group ">
-            <input type="text" className="form-control" onChange={handleUsernameChange} placeholder="Enter username" 
+            <input
+              type="text"
+              className="form-control"
+              onChange={handleUsernameChange}
+              placeholder="Enter username"
               //login if enter is pressed
               onKeyPress={(e) => {
                 if (e.key === "Enter") {
@@ -64,7 +67,11 @@ const Login = () => {
             />
           </div>
           <div class="mb-2 login-form-group">
-            <input type="password" className="form-control" onChange={handlePasswordChange} placeholder="Enter password"
+            <input
+              type="password"
+              className="form-control"
+              onChange={handlePasswordChange}
+              placeholder="Enter password"
               //login if enter is pressed
               onKeyPress={(e) => {
                 if (e.key === "Enter") {
