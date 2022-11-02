@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 import Sidebar from "./components/Sidebar";
 import Customers from "./components/pages/Customers";
@@ -35,6 +35,7 @@ function App() {
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/customers" element={<Customers />} />
             <Route exact path="/analytics" element={<Analytics />} />
+            <Route path="/" element={<Navigate to="/dashboard" />} />
           </Routes>
         </Col>
       </BrowserRouter>
