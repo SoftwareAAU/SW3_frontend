@@ -3,7 +3,9 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import "./Login.css";
 
-import girl from "../../assets/girl.png";
+import girl from "../../assets/girl2.png";
+
+import siteLogo from "../../assets/siteLogo.svg";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -40,32 +42,19 @@ const Login = () => {
   return (
     <div className="login">
       <div className="row">
-        <div className="col-8">
-          <img className="loginImage" src={girl}></img>
+        <div className="col-8 login-image-div">
+          <img className="login-image" src={girl}></img>
         </div>
 
-        <div className="col-4 ">
-          <div class="mb-3 ">
-            <label class="form-label">Username</label>
-            <input
-              type="text"
-              className="form-control"
-              onChange={handleUsernameChange}
-              //login if enter is pressed
-              onKeyPress={(e) => {
-                if (e.key === "Enter") {
-                  login();
-                }
-              }}
-            />
-          </div>
-          <div class="mb-3">
-            <label className="form-label">Password</label>
+        <div className="col-4 d-flex flex-column justify-content-center align-items-center ">
 
-            <input
-              type="password"
-              className="form-control"
-              onChange={handlePasswordChange}
+            <div className="login-logo">
+            <img src={siteLogo} alt="LOGO" width={120}  />
+            <p className="login-logo-text">Frankly Insure</p>
+            </div>
+        
+          <div class="mb-3 login-form-group ">
+            <input type="text" className="form-control" onChange={handleUsernameChange} placeholder="Enter username" 
               //login if enter is pressed
               onKeyPress={(e) => {
                 if (e.key === "Enter") {
@@ -74,8 +63,18 @@ const Login = () => {
               }}
             />
           </div>
-          <button type="submit" className="btn btn-primary" onClick={login}>
-            Login
+          <div class="mb-2 login-form-group">
+            <input type="password" className="form-control" onChange={handlePasswordChange} placeholder="Enter password"
+              //login if enter is pressed
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  login();
+                }
+              }}
+            />
+          </div>
+          <button type="submit" className="sign-in-button" onClick={login}>
+            Sign in
           </button>
         </div>
       </div>

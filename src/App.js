@@ -32,7 +32,7 @@ function App() {
         </Col>
         <Col sm={9}>
           <Routes>
-            <Route exact path="/" element={<Dashboard />} />
+            <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/customers" element={<Customers />} />
             <Route exact path="/analytics" element={<Analytics />} />
           </Routes>
