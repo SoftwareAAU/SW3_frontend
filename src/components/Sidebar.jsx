@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Stack from "react-bootstrap/Stack";
 
-import siteLogo from "../assets/sitelogo.svg";
+import siteLogo from "../assets/logo.svg";
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 import Cookies from "js-cookie";

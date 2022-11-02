@@ -5,7 +5,7 @@ import "./Login.css";
 
 import girl from "../../assets/girl2.png";
 
-import siteLogo from "../../assets/sitelogo.svg";
+import siteLogo from "../../assets/logo.svg";
 
 const Login = () => {
   const [username, setUsername] = useState("");
