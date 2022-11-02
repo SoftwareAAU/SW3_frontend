@@ -1,15 +1,12 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Stack from "react-bootstrap/Stack";
 
-import siteLogo from "../assets/siteLogo.svg";
+import siteLogo from "../assets/sitelogo.svg";
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 import Cookies from "js-cookie";
 
-
-
 const Sidebar = () => {
-
   function signOut() {
     Cookies.remove("token");
     window.location.href = "/";
@@ -33,12 +30,12 @@ const Sidebar = () => {
             Analytics
           </NavLink>
         </div>
-
-        
       </Stack>
       <Row className="sign-out-box">
-          <button onClick={signOut} className="btn-primary sign-out-button" >Sign out</button>
-          </Row>
+        <button onClick={signOut} className="btn-primary sign-out-button">
+          Sign out
+        </button>
+      </Row>
     </Col>
   );
 };
