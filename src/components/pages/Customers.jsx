@@ -9,38 +9,129 @@ import "./Customers.css";
 import Axios from "axios";
 
 const Customers = () => {
+  
   const [customers, setCustomers] = useState([]);
-
-  const dummyCustomers = [
+  const [dummyCustomers, setDummyCustomers] = useState([
     {
       name: "John",
       surName: "Doe",
-      id: "123456789",
+      id: "asd8vjd8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "Karen",
+      surName: "Doe",
+      id: "add9s0ad9",
+      address: "1234 Main Street",
+      type: "company",
+    },
+    {
+      name: "Carl",
+      surName: "Pik",
+      id: "asda8dsa8d",
+      address: "4444 penisvej",
+      type: "company",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
       address: "1234 Main Street",
       type: "person",
     },
     {
       name: "John",
       surName: "Doe",
-      id: "123456789",
-      address: "1234 Main Street",
-      type: "company",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "123456789",
-      address: "1234 Main Street",
-      type: "company",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "123456789",
+      id: "adlæaa90das8d8",
       address: "1234 Main Street",
       type: "person",
     },
-  ];
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+    {
+      name: "John",
+      surName: "Doe",
+      id: "adlæaa90das8d8",
+      address: "1234 Main Street",
+      type: "person",
+    },
+  ]);
 
   useEffect(() => {
     getAllCustomers();
@@ -56,19 +147,21 @@ const Customers = () => {
   };
 
   const navigate = useNavigate();
-
+  
   const handleRowClick = (row) => {
     console.log(row);
     navigate(`/customers/${row.id}`);
   };
+
+
 
   return (
     <div className="customers">
       <div className="customer-cards">
         <div className="customer-card-search row">
           <div className="col-4">
-            <div class="mb-3">
-              <label for="disabledSelect" class="form-label">
+            <div className="mb-3">
+              <label for="disabledSelect" className="form-label">
                 Search
               </label>
               <input
@@ -79,21 +172,21 @@ const Customers = () => {
             </div>
           </div>
           <div className="col-4">
-            <div class="mb-3">
-              <label for="disabledSelect" class="form-label">
+            <div className="mb-3">
+              <label for="disabledSelect" className="form-label">
                 Filter by
               </label>
-              <select id="disabledSelect" class="form-select">
+              <select id="disabledSelect" className="form-select">
                 <option>Filter by</option>
               </select>
             </div>
           </div>
           <div className="col-4">
-            <div class="mb-3">
-              <label for="disabledSelect" class="form-label">
+            <div className="mb-3">
+              <label for="disabledSelect" className="form-label">
                 Sort by
               </label>
-              <select id="disabledSelect" class="form-select">
+              <select id="disabledSelect" className="form-select">
                 <option>Sort by</option>
               </select>
             </div>
@@ -122,12 +215,11 @@ const Customers = () => {
               <tr
                 key={customer.id}
                 className=" my-4"
-                onClick={() => handleRowClick(customer)}
-              >
+                onClick={() => handleRowClick(customer)}>
                 <td className="p-4">
                   <img
                     height={40}
-                    src={customer.type == "person" ? personLogo : firmLogo}
+                    src={customer.type === "person" ? personLogo : firmLogo}
                     alt=""
                   />
                 </td>
