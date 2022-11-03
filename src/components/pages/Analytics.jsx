@@ -1,39 +1,70 @@
 import {Col, Row, Container} from 'react-bootstrap'
 import person from "../../assets/person.png";
-import {anal} from './Analytics.css'
+import './Analytics.css';
+import { Chart } from 'primereact/chart';
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+
 
 
 const Analytics = () => {
-    return ( 
+    const { id } = useParams();
 
-            <div className="page">
-                <div className='row'>
-                    <div className="col-auto">
+    const pink = "#FF4E75";
+    const darkBlue = "#FFE8EE";
+  
+    const [chartData] = useState({
+      labels: ['Claims used', 'Claims Remaining'],
+      datasets: [
+          {
+              data: [8, 2],
+              backgroundColor: [
+                  pink,
+                  darkBlue,
+              ],
+              hoverBackgroundColor: [
+                  pink,
+                  darkBlue,
+              ]
+          }]
+  });
+  
+  const [lightOptions] = useState({
+      plugins: {
+          legend: {
+              labels: {
+                  color: '#495057'
+              }
+          }
+      }
+  });
+
+    return ( 
+        <>
+                <Row className="page">
+                <Col xs={{span: "2"}}>
                         <img height="50" src={person} />
-                    </div>
                     <div className='col'>
                         <span>Carl Ryskov</span><br />
                         <span>Aagesen</span>
                     </div>
-                    </div>
-                <Row>
-                    <Col>
-                    <div className='col-2'>
                         <div className='anal'>
-                        <p>CustomerID</p>
-                        <hr />
-                        <p>Address</p>
-                        <hr />
-                        <p>CPR-number</p>
-                        <hr />
-                        </div>
+                            <p>CustomerID</p>
+                            <hr />
+                            <p>Address</p>
+                            <hr />
+                            <p>CPR-number</p>
+                            <hr />
                         </div>
                     </Col>
-                    <Col>
-                        <h2>Pie diagrams</h2>
+                    <Col xs={{span: "2", offset:"4"}} className="col-2 piecharts">
+                        <Chart className="mx-auto" type="doughnut" data={chartData} options={lightOptions} />
+                    </Col>
+                    <Col xs={2} className="col-2 piecharts">
+                        <Chart className="mx-auto" type="doughnut" data={chartData} options={lightOptions} />
                     </Col>
                 </Row>
-            </div>
+        </>
 
      );
 }

@@ -1,11 +1,15 @@
 .anal {
-position: absolute;
 width: 123px;
 height: 24px;
-left: 588px;
-top: 304px;
 line-height: 24px;
 font-size: 14px;
 font-family: Rubik;
 font-weight: 500;
+margin: 200px 0 0 0;
+}
+
+
+
+.piecharts {
+    margin-top: 200px;
 }
