@@ -41,29 +41,42 @@ const Analytics = () => {
 
     return ( 
         <>
-                <Row className="page">
-                <Col xs={{span: "2"}}>
+        <div className="page">
+                <Row className="">
+                <Col xs={4} className="d-flex">
                         <img height="50" src={person} />
-                    <div className='col'>
-                        <span>Carl Ryskov</span><br />
-                        <span>Aagesen</span>
-                    </div>
+                        <div className="gg">
+                            <div className='d-flex'>
+                                <span>Cral Pryskov</span>
+                                <br />
+                            </div>
+                            <span className='d-block analtext'>Mogensen</span> 
+                        </div>
+                    </Col>
+                    <Col xs={{span: "1", offset: "9"}} >
+                        <button>Fuck me</button>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
                         <div className='anal'>
-                            <p>CustomerID</p>
+                            <p>CustomerID: 42069666</p>
                             <hr />
-                            <p>Address</p>
+                            <p>Adresse: Pikvej 69, 2300 København P (for Pik)</p>
                             <hr />
-                            <p>CPR-number</p>
+                            <p>CPR-Number: 030201-6969</p>
                             <hr />
                         </div>
                     </Col>
-                    <Col xs={{span: "2", offset:"4"}} className="col-2 piecharts">
+                    <Col xs={{span: "2", offset:"3"}} className="col-2 piecharts">
                         <Chart className="mx-auto" type="doughnut" data={chartData} options={lightOptions} />
                     </Col>
                     <Col xs={2} className="col-2 piecharts">
                         <Chart className="mx-auto" type="doughnut" data={chartData} options={lightOptions} />
                     </Col>
                 </Row>
+
+        </div>
         </>
 
      );
