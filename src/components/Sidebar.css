@@ -13,7 +13,7 @@
   color: #ff4e75;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   transition: all ease-in-out 200ms;
 }
 .sidebar-logo:hover {
@@ -21,17 +21,58 @@
   text-decoration: none;
 }
 .sidebar .link {
-  color: black;
-  font-size: 1rem;
+  color: grey;
+  font-size: 1.2rem;
+  text-transform: uppercase;
   font-weight: 400;
   text-decoration: none;
-  transition: all ease-in-out 200ms;
+  transition: all ease-in-out 100ms;
+  margin-bottom: 16px;
 }
 .sidebar .link:hover {
-  color: #ff4e75;
-  font-size: 1.05rem;
+  color: black;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all ease-in-out 100ms;
+  
+
+  /* this is a way of animating boldness */
+}
+.sidebar .active {
+  color: black;
+  font-size: 1.2rem;
   font-weight: 400;
   text-decoration: none;
-  transform: translateY(-1px);
+}
+
+.sign-out-button{
+  background: var(--pink);
+  color: white;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 20px;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-top: 20px;
   transition: all ease-in-out 200ms;
+}
+
+.sign-out-button:hover{
+  background: var(--darkBlue);
+  
+  transition: all ease-in-out 200ms;
+}
+.sign-out-button:active{
+  background: var(--pink);
+  color: white;
+  transition: all ease-in-out 200ms;
+}
+
+.sign-out-box{
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

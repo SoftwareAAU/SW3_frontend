@@ -2,6 +2,7 @@ import {Col, Row, Container} from 'react-bootstrap'
 import person from "../../assets/person.png";
 import {anal} from './Analytics.css'
 
+
 const Analytics = () => {
     return ( 
 

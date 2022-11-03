@@ -3,8 +3,12 @@
 :root {
   --tintColor: #fcd7e0;
   --textColor: #000;
+  --lightPink: #fce8ed;
+  --semiPink: #FFE8EE;
+  --pink: #FF4E75;
   --sitePadding: 30px;
-  --borderRadius: 40px;
+  --borderRadius: 20px;
+  --darkBlue: #112035;
 }
 
 body {
