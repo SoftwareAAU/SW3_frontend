@@ -9,7 +9,6 @@ import "./Customers.css";
 import Axios from "axios";
 
 const Customers = () => {
-  
   const [customers, setCustomers] = useState([]);
   const [dummyCustomers, setDummyCustomers] = useState([
     {
@@ -26,111 +25,6 @@ const Customers = () => {
       address: "1234 Main Street",
       type: "company",
     },
-    {
-      name: "Carl",
-      surName: "Pik",
-      id: "asda8dsa8d",
-      address: "4444 penisvej",
-      type: "company",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "John",
-      surName: "Doe",
-      id: "adlæaa90das8d8",
-      address: "1234 Main Street",
-      type: "person",
-    },
   ]);
 
   useEffect(() => {
@@ -140,20 +34,21 @@ const Customers = () => {
 
   //fetching all customers from the database
   const getAllCustomers = async () => {
-    Axios.get("http://130.225.39.66:8080/customers").then((res) => {
-      setCustomers(res.data);
-      console.log(res.data);
+    // axios get request with token header
+    const response = await Axios.get("http://130.225.39.66:8080/customers", {
+      headers: {
+        token: "7c038b81-8fb0-4817-80a0-d4821f1e3a6a",
+      },
     });
+    setCustomers(response.data);
   };
 
   const navigate = useNavigate();
-  
+
   const handleRowClick = (row) => {
     console.log(row);
     navigate(`/customers/${row.id}`);
   };
-
-
 
   return (
     <div className="customers">
@@ -161,9 +56,7 @@ const Customers = () => {
         <div className="customer-card-search row">
           <div className="col-4">
             <div className="mb-3">
-              <label for="disabledSelect" className="form-label">
-                Search
-              </label>
+              <label className="form-label">Search</label>
               <input
                 type="text"
                 placeholder="Search"
@@ -173,9 +66,7 @@ const Customers = () => {
           </div>
           <div className="col-4">
             <div className="mb-3">
-              <label for="disabledSelect" className="form-label">
-                Filter by
-              </label>
+              <label className="form-label">Filter by</label>
               <select id="disabledSelect" className="form-select">
                 <option>Filter by</option>
               </select>
@@ -183,9 +74,7 @@ const Customers = () => {
           </div>
           <div className="col-4">
             <div className="mb-3">
-              <label for="disabledSelect" className="form-label">
-                Sort by
-              </label>
+              <label className="form-label">Sort by</label>
               <select id="disabledSelect" className="form-select">
                 <option>Sort by</option>
               </select>
@@ -215,7 +104,8 @@ const Customers = () => {
               <tr
                 key={customer.id}
                 className=" my-4"
-                onClick={() => handleRowClick(customer)}>
+                onClick={() => handleRowClick(customer)}
+              >
                 <td className="p-4">
                   <img
                     height={40}
