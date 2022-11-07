@@ -45,6 +45,7 @@ const getAllCustomerByIdWithToken = async () => {
 
     //setCustomerDetails(response.data.customers);
     console.log(response.data);
+    setCustomerDetails(response.data);
   }
 
 
@@ -89,8 +90,14 @@ useEffect(() => {
                 <img src={customerDetails.type == 0? personLogo: firmLogo} height={80} alt="Logo" />
             </Col>
             <Col>
-                <h1 className="fw-normal">{customerDetails.type === 0 ? (customerDetails.firstName + "\n" + customerDetails.surname) : customerDetails.companyName}</h1>
-
+                { customerDetails.type == 0? 
+                <>
+                <h1>{customerDetails.firstName}</h1>
+                <h1>{customerDetails.surname}</h1>
+                </>
+                
+                :
+                <h1>{customerDetails.companyName}</h1>}
             </Col>
             
         
