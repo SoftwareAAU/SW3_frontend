@@ -11,13 +11,52 @@ import firmLogo from "../../assets/firm.png";
 
 import "./CustomerDetails.css";
 
+import { useEffect } from "react";
+
+import Cookies from "js-cookie";
+
+import axios from "axios";
+
+import globals from "../../globals";
+
 const CustomerDetails = () => {
   const { id } = useParams();
 
   const pink = "#FF4E75";
   const darkBlue = "#FFE8EE";
 
-  const [chartData] = useState({
+
+
+const [customerDetails, setCustomerDetails] = useState({
+});
+
+//fetch customer by id from the database
+const getAllCustomerByIdWithToken = async () => {
+
+    const headers = {
+      "token": `${Cookies.get("token")}`,
+    };
+
+    const url = globals.ip + "/customers/" + id;
+
+    const response = await axios.get(url, {
+      headers: headers,
+    });
+
+    //setCustomerDetails(response.data.customers);
+    console.log(response.data);
+  }
+
+
+
+
+useEffect(() => {
+    getAllCustomerByIdWithToken();
+
+}, []);
+
+//data for graphs below
+    const [chartData] = useState({
     labels: ['Claims used', 'Claims Remaining'],
     datasets: [
         {
@@ -31,9 +70,9 @@ const CustomerDetails = () => {
                 darkBlue,
             ]
         }]
-});
+    });
 
-const [lightOptions] = useState({
+    const [lightOptions] = useState({
     plugins: {
         legend: {
             labels: {
@@ -41,17 +80,17 @@ const [lightOptions] = useState({
             }
         }
     }
-});
+    });
 
   return (
     <div className="page">
         <Row className=" justify-content-center align-items-center">
             <Col className="col-1">
-                <img src={personLogo} height={80} alt="" />
+                <img src={customerDetails.type == 0? personLogo: firmLogo} height={80} alt="Logo" />
             </Col>
             <Col>
-                <h1 className="fw-normal">Dummy Name</h1>
-                <h3 className="customer-details-surname  fw-normal">Dummy Surname</h3>
+                <h1 className="fw-normal">{customerDetails.type === 0 ? (customerDetails.firstName + "\n" + customerDetails.surname) : customerDetails.companyName}</h1>
+
             </Col>
             
         
