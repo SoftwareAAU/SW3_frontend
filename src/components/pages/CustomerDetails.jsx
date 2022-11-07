@@ -92,12 +92,12 @@ useEffect(() => {
             <Col>
                 { customerDetails.type == 0? 
                 <>
-                <h1>{customerDetails.firstName}</h1>
-                <h1>{customerDetails.surname}</h1>
+                <h1 className="fw-normal cd-first-name" >{customerDetails.firstName}</h1>
+                <h1 className="fw-normal cd-surname" >{customerDetails.surname}</h1>
                 </>
                 
                 :
-                <h1>{customerDetails.companyName}</h1>}
+                <h1 className="fw-normal cd-first-name">{customerDetails.companyName}</h1>}
             </Col>
             
         
@@ -106,23 +106,22 @@ useEffect(() => {
             <Col className="4">
 
             <div className="customer-details-birthday mt-5">
-                    <h4>Birthday</h4>
+                    <h4>{customerDetails.type == 0? "CPR" : "CVR"}</h4>
                     <hr className=" my-2" />
-                    <h3 className="fw-light">12-34-5678</h3>
+                    <h3 className="fw-light">{customerDetails.type == 0? customerDetails.cprNumber: customerDetails.cvr}</h3>
                 </div>
               
                 
                 <div className="customer-details-address mt-5">
                     <h4>Address</h4>
                     <hr className=" my-2" />
-                    <h3 className="fw-light">Dummyroad 12 - 1 tv,</h3>
-                    <h3 className="fw-light">2120 DummyTown</h3>
+                    <h3 className="fw-light">{customerDetails.address}</h3>
                  </div>
 
                  <div className="customer-details-id mt-5">
                     <h4>Customer ID</h4>
                     <hr className=" my-2" />
-                    <h3 className="fw-light">ask12j3jk2lasdk</h3>
+                    <h3 className="fw-light">{customerDetails.id}</h3>
                 </div>
 
             </Col>
