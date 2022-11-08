@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import Analytics from "./components/pages/Analytics";
 import CustomerDetails from "./components/pages/CustomerDetails";
+import CustomerPolicies from "./components/pages/CustomerPolicies";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -36,6 +37,7 @@ function App() {
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/customers" element={<Customers />} />
             <Route exact path="/customers/:id" element={<CustomerDetails />} />
+            <Route exact path="/customers/:id/policies" element={<CustomerPolicies/>} />
             <Route exact path="/analytics" element={<Analytics />} />
             <Route path="/" element={<Navigate to="/dashboard" />} />
           </Routes>
