@@ -34,6 +34,7 @@ const Sidebar = () => {
       <Row className="sign-out-box">
         <button onClick={signOut} className="btn-primary sign-out-button">
           Sign out
+          <i class="fa fa-telegram" aria-hidden="true"></i>
         </button>
       </Row>
     </Col>
