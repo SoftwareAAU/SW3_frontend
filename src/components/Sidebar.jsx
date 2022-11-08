@@ -21,6 +21,7 @@ const Sidebar = () => {
         <hr></hr>
         <div className="sidebar-links text-center">
           <NavLink to="/dashboard" className="link">
+          <i class="fa fa-home"></i>
             Dashboard
           </NavLink>
           <NavLink to="/customers" className="link">
@@ -34,7 +35,6 @@ const Sidebar = () => {
       <Row className="sign-out-box">
         <button onClick={signOut} className="btn-primary sign-out-button">
           Sign out
-          <i class="fa fa-telegram" aria-hidden="true"></i>
         </button>
       </Row>
     </Col>
