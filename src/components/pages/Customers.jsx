@@ -16,10 +16,46 @@ const Customers = () => {
   
   const [customers, setCustomers] = useState([]);
 
+  //test stuff
+  const [persons, setPersons] = useState([]);
+  const [companies, setCompanies] = useState([]);
+
   useEffect(() => {
     getAllCustomersWithToken();
+
+    //test;
+    getAllCompaniesWithToken();
+    getAllPersonsWithToken();
     
   }, []);
+
+  const getAllPersonsWithToken = async () => {
+
+    const headers = {
+      "token": `${Cookies.get("token")}`,
+    };
+    const url = globals.ip + "/persons";
+    const response = await axios.get(url, {
+      headers: headers,
+    });
+    setPersons(response.data.persons);
+    console.log("persons-test:\n");
+    console.log(response.data.persons);
+  }
+
+  const getAllCompaniesWithToken = async () => {
+    const headers = {
+      "token": `${Cookies.get("token")}`,
+    };
+    const url = globals.ip + "/companies";
+    const response = await axios.get(url, {
+      headers: headers,
+    });
+    setCompanies(response.data.companies);
+    console.log("companies-test:\n")
+    console.log(response.data.companies);
+
+  }
 
 
   //fetching all customers from the database with token in the body
