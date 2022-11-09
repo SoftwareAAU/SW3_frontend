@@ -1,11 +1,23 @@
 .anal {
-position: absolute;
 width: 123px;
 height: 24px;
-left: 588px;
-top: 304px;
 line-height: 24px;
 font-size: 14px;
 font-family: Rubik;
 font-weight: 500;
+margin: 100px 0 0 0;
+}
+
+.analtext {
+width: 123px;
+height: 24px;
+line-height: 24px;
+font-size: 14px;
+font-family: Rubik;
+color: grey
+}
+
+.piecharts {
+    margin-top: 100px;
+    width: 30%;
 }

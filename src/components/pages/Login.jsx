@@ -52,7 +52,7 @@ const Login = () => {
             <p className="login-logo-text">Frankly Insure</p>
           </div>
 
-          <div class="mb-3 login-form-group ">
+          <div className="mb-3 login-form-group ">
             <input
               type="text"
               className="form-control"
@@ -66,7 +66,7 @@ const Login = () => {
               }}
             />
           </div>
-          <div class="mb-2 login-form-group">
+          <div className="mb-2 login-form-group">
             <input
               type="password"
               className="form-control"

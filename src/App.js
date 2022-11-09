@@ -12,7 +12,7 @@ import CustomerDetails from "./components/pages/CustomerDetails";
 
 function App() {
   const [token, setToken] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     if (Cookies.get("token")) {
@@ -35,7 +35,7 @@ function App() {
           <Routes>
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/customers" element={<Customers />} />
-            <Route exact path="/customers/:id" element={<CustomerDetails/>} />
+            <Route exact path="/customers/:id" element={<CustomerDetails />} />
             <Route exact path="/analytics" element={<Analytics />} />
             <Route path="/" element={<Navigate to="/dashboard" />} />
           </Routes>
