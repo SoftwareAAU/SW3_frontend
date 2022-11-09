@@ -2,51 +2,86 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
+import globals from "../../globals";
+
 import personLogo from "../../assets/person.png";
 import firmLogo from "../../assets/firm.png";
 
 import "./Customers.css";
-import Axios from "axios";
+import axios from "axios";
+
+import Cookies from "js-cookie";
 
 const Customers = () => {
+  
   const [customers, setCustomers] = useState([]);
-  const [dummyCustomers, setDummyCustomers] = useState([
-    {
-      name: "John",
-      surName: "Doe",
-      id: "asd8vjd8",
-      address: "1234 Main Street",
-      type: "person",
-    },
-    {
-      name: "Karen",
-      surName: "Doe",
-      id: "add9s0ad9",
-      address: "1234 Main Street",
-      type: "company",
-    },
-  ]);
+
+  //test stuff
+  const [persons, setPersons] = useState([]);
+  const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
-    getAllCustomers();
-    console.log(customers);
+    getAllCustomersWithToken();
+
+    //test;
+    getAllCompaniesWithToken();
+    getAllPersonsWithToken();
+    
   }, []);
 
-  //fetching all customers from the database
-  const getAllCustomers = async () => {
-    // axios get request with token header
-    const response = await Axios.get("http://130.225.39.66:8080/customers", {
-      headers: {
-        token: "7c038b81-8fb0-4817-80a0-d4821f1e3a6a",
-      },
+  const getAllPersonsWithToken = async () => {
+
+    const headers = {
+      "token": `${Cookies.get("token")}`,
+    };
+    const url = globals.ip + "/persons";
+    const response = await axios.get(url, {
+      headers: headers,
     });
-    setCustomers(response.data);
-  };
+    setPersons(response.data.persons);
+    console.log("persons-test:\n");
+    console.log(response.data.persons);
+  }
+
+  const getAllCompaniesWithToken = async () => {
+    const headers = {
+      "token": `${Cookies.get("token")}`,
+    };
+    const url = globals.ip + "/companies";
+    const response = await axios.get(url, {
+      headers: headers,
+    });
+    setCompanies(response.data.companies);
+    console.log("companies-test:\n")
+    console.log(response.data.companies);
+
+  }
+
+
+  //fetching all customers from the database with token in the body
+  const getAllCustomersWithToken = async () => {
+ 
+      const headers = {
+        "token": `${Cookies.get("token")}`,
+      };
+
+      //correct link
+      //130.225.39.66:8080/customers";
+
+      //dev link
+      const url = globals.ip + "/customers";
+
+      const response = await axios.get(url, {
+        headers: headers,
+      });
+
+      setCustomers(response.data.customers);
+      console.log(response.data.customers);
+    };
 
   const navigate = useNavigate();
-
+  
   const handleRowClick = (row) => {
-    console.log(row);
     navigate(`/customers/${row.id}`);
   };
 
@@ -56,7 +91,9 @@ const Customers = () => {
         <div className="customer-card-search row">
           <div className="col-4">
             <div className="mb-3">
-              <label className="form-label">Search</label>
+              <label htmlFor="disabledSelect" className="form-label">
+                Search
+              </label>
               <input
                 type="text"
                 placeholder="Search"
@@ -66,7 +103,9 @@ const Customers = () => {
           </div>
           <div className="col-4">
             <div className="mb-3">
-              <label className="form-label">Filter by</label>
+              <label htmlFor="disabledSelect" className="form-label">
+                Filter by
+              </label>
               <select id="disabledSelect" className="form-select">
                 <option>Filter by</option>
               </select>
@@ -74,7 +113,9 @@ const Customers = () => {
           </div>
           <div className="col-4">
             <div className="mb-3">
-              <label className="form-label">Sort by</label>
+              <label htmlFor="disabledSelect" className="form-label">
+                Sort by
+              </label>
               <select id="disabledSelect" className="form-select">
                 <option>Sort by</option>
               </select>
@@ -100,26 +141,54 @@ const Customers = () => {
             </tr>
           </thead>
           <tbody>
-            {dummyCustomers.map((customer) => (
+          {customers.length > 0 ? (
+            customers.map((customer) => (
+
+              
               <tr
                 key={customer.id}
                 className=" my-4"
-                onClick={() => handleRowClick(customer)}
-              >
+                onClick={() => handleRowClick(customer)}>
                 <td className="p-4">
                   <img
                     height={40}
-                    src={customer.type === "person" ? personLogo : firmLogo}
+                    src={customer.type == 0 ? personLogo : firmLogo}
                     alt=""
                   />
                 </td>
                 <td className="p-4">
-                  {customer.name} <br /> {customer.surName}
+                  {customer.type == 0? 
+                    (
+                      customer.firstName +"\n"+ customer.surname)
+                    : customer.companyName}
+                  
                 </td>
                 <td className="p-4">{customer.id}</td>
                 <td className="p-4">{customer.address}</td>
               </tr>
-            ))}
+            ))
+          ) : (
+            <>
+            <tr >
+              <td><div className="spinner-grow"></div></td>
+              <td><div className="spinner-grow"></div></td>
+              <td><div className="spinner-grow"></div></td>
+              <td><div className="spinner-grow"></div></td>
+            </tr>
+            <tr >
+              <td><div className="spinner-grow"></div></td>
+              <td><div className="spinner-grow"></div></td>
+              <td><div className="spinner-grow"></div></td>
+              <td><div className="spinner-grow"></div></td>
+            </tr>
+            <tr >
+              <td><div className="spinner-grow"></div></td>
+              <td><div className="spinner-grow"></div></td>
+              <td><div className="spinner-grow"></div></td>
+              <td><div className="spinner-grow"></div></td>
+            </tr>
+            </>
+          )}
           </tbody>
         </table>
       </div>

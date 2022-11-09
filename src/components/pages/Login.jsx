@@ -3,6 +3,10 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import "./Login.css";
 
+
+//imports ip
+import globals from "../../globals";
+
 import girl from "../../assets/girl2.png";
 
 import siteLogo from "../../assets/logo.svg";
@@ -12,10 +16,16 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   function login() {
-    console.log(username, password);
-    Axios.post("http://130.225.39.66:8080/login", {
-      username: username,
-      password: password,
+    
+    var bodyFormData = new FormData();
+    bodyFormData.append("username", username);
+    bodyFormData.append("password", password);
+    
+    Axios({
+      method: "post",
+      url: globals.ip + "/login",
+      data: bodyFormData,
+      headers: { "Content-Type": "multipart/form-data" },
     }).then((res) => {
       const { status, token } = res.data;
 
@@ -24,6 +34,8 @@ const Login = () => {
         window.location.href = "/";
         return;
       }
+
+      console.log(res.data);
 
       alert("Wrong username or password");
     });
