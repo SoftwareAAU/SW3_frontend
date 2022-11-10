@@ -19,16 +19,17 @@ const Sidebar = () => {
           Frankly Insure
         </NavLink>
         <hr></hr>
-        <div className="sidebar-links text-center">
+        <div className="sidebar-links text-left">
           <NavLink to="/dashboard" className="link">
-          <i class="fa fa-home"></i>
-            Dashboard
+          <i class="fa fa-compass"> Dashboard</i>
+          
           </NavLink>
           <NavLink to="/customers" className="link">
-            Customers
+          <i class="fa fa-users"> Customers</i>
+
           </NavLink>
           <NavLink to="/analytics" className="link">
-            Analytics
+          <i class="fa fa-pie-chart" aria-hidden="true"> Analytics</i>
           </NavLink>
           <NavLink to="/create/customer" className="link">
             Create Customer
