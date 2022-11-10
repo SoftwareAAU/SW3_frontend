@@ -30,6 +30,9 @@ const Sidebar = () => {
           <NavLink to="/analytics" className="link">
             Analytics
           </NavLink>
+          <NavLink to="/create/customer" className="link">
+            Create Customer
+          </NavLink>
         </div>
       </Stack>
       <Row className="sign-out-box">
