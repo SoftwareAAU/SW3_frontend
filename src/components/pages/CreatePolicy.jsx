@@ -1,5 +1,5 @@
 import {Col, Row} from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -9,64 +9,69 @@ import globals from "../../globals";
 const CreatePolicy = () => {
 
 
-    //handle select change
-    const [customerType, setcustomerType] = useState(0);
-
     //policy requiredments
-    const customer = 828256;
-    const [start, setStartDate] = useState("");
-    const [termination, setTerminationDate] = useState("");
-    const [totalPremium , setTotalPremium] = useState("");
-    const [type, setType] = useState("");
-
-    const handleSelectChange = (e) => {
-        setcustomerType(e.target.value);
-    }
-
-   const handleSubmit = (e) => {
-
-     //create person policy
-     const policy = {
-        customer: customer,
-        start: start,
-        termination: termination,
-        totalPremium: totalPremium,
-        type: type,
-    }
-    console.log(policy);
-
-    const bodyFormData = new FormData();
-    bodyFormData.append("customer", customer);
-    bodyFormData.append("start", start);
-    bodyFormData.append("termination", termination);
-    bodyFormData.append("totalPremium", totalPremium);
-    bodyFormData.append("type", type);
-    createPolicyInDB(bodyFormData);
-
-   }
-
-   function createPolicyInDB(formData) {
-    const token = Cookies.get("token");
-
-    axios({
-        method: "post",
-        url: globals.ip + "/create/policy",
-        data: formData,
-        headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
-      }).then((res) => {
-        const { status } = res.data;
-
-        if (status === true) {
-          alert("Policy created");
-          return;
-        }
-
-        console.log(res.data);
-
-        alert("Something went wrong");
-      });
+    const [customer, setCustomer] = useState(0);
+   const [start, setStart] = useState("");
+   const [termination, setTermination] = useState("");
+   const [totalPremium, setTotalPremium] = useState(0.0);
+   const [type, setType] = useState(0);
+   const [policyType, setPolicyType] = useState(0);
   
-}
+
+    useEffect(() => {
+    }, []);
+
+    const handleSubmit = (e) => {
+        //e.preventDefault();
+        console.log("form submitted");
+
+            //create person object
+            const policy = {
+                type: type,
+                customer: customer,
+                start: start,
+                termination: termination,
+                totalPremium: totalPremium,
+                policyType: policyType,
+
+            }
+            console.log(policy);
+
+            const bodyFormData = new FormData();
+            bodyFormData.append("type", type);
+            bodyFormData.append("customer", customer);
+            bodyFormData.append("start", start);
+            bodyFormData.append("termination", termination);
+            bodyFormData.append("totalPremium", totalPremium);
+            bodyFormData.append("policyType", policyType);
+            
+            createPolicy(bodyFormData);
+    }
+
+    //create customer in db
+    function createPolicy(formData) {
+        const token = Cookies.get("token");
+
+        axios({
+            method: "post",
+            url: globals.ip + "/createpolicy",
+            data: formData,
+            headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
+          }).then((res) => {
+            const { status } = res.data;
+    
+            if (status === true) {
+              alert("Policy created");
+              return;
+            }
+    
+            console.log(res.data);
+    
+            alert("Something went wrong");
+          });
+      
+       
+    }
 
     return ( 
         <div className="page">
@@ -76,22 +81,22 @@ const CreatePolicy = () => {
             <Row className="mx-2 mt-4">
                 <Col>
                     <h3>Customer Type</h3>
-                    <select required className="form-select" onChange={(e)=> setcustomerType(e.target.value)} >
+                    <select required className="form-select" onChange={(e)=> setType(e.target.value)} >
                         <option defaultValue={0} value="0">Person</option>
                         <option value="1">Company</option>
                     </select>
                     <br />
                     <h3>Start dato</h3>
-                    <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setStartDate(e.target.value)} />
+                    <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setStart(e.target.value)} />
                     <br />
                     <h3>Termination date</h3>
-                    <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setTerminationDate(e.target.value)} />
+                    <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setTermination(e.target.value)} />
                     <br />
                     <h3>Total Premium</h3>
-                    <input required type="number" className="form-control" placeholder="Total Premium" onChange={(e)=> setTotalPremium(e.target.value)} />
+                    <input required type="double" className="form-control" placeholder="Total Premium" onChange={(e)=> setTotalPremium(e.target.value)} />
                     <br />
                     <h3>Type</h3>
-                    <select required className="form-select" onChange={(e)=> setType(e.target.value)}>
+                    <select required className="form-select" onChange={(e)=> setPolicyType(e.target.value)}>
                         <option value="0">Household Insurance</option>
                         <option value="1">Car Insurance</option>
                         <option value="2">Travel Insurance</option>
