@@ -37,6 +37,7 @@ function App() {
             <Route exact path="/customers" element={<Customers />} />
             <Route exact path="/customers/:id" element={<CustomerDetails />} />
             <Route exact path="/analytics" element={<Analytics />} />
+            <Route exact path="/create/policy" element={<CreatePolicy />} />
             <Route path="/" element={<Navigate to="/dashboard" />} />
           </Routes>
         </Col>
