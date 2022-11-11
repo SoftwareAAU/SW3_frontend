@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import Analytics from "./components/pages/Analytics";
 import CustomerDetails from "./components/pages/CustomerDetails";
+import CreatePolicy from "./components/pages/CreatePolicy";
 
 function App() {
   const [token, setToken] = useState(null);

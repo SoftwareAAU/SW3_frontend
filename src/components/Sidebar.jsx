@@ -29,6 +29,12 @@ const Sidebar = () => {
           <NavLink to="/analytics" className="link">
             Analytics
           </NavLink>
+          <NavLink to="/create/customer" className="link">
+            Create Customer
+          </NavLink>
+          <NavLink to="/create/policy" className="link">
+            Create Policy
+          </NavLink>
         </div>
       </Stack>
       <Row className="sign-out-box">
