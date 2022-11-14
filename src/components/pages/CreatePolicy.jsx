@@ -24,30 +24,20 @@ const CreatePolicy = () => {
     const handleSubmit = (e) => {
         //e.preventDefault();
         console.log("form submitted");
-        setCustomer(window.location.href.split("/")[5]);
-        console.log(customer);
 
-            //create person object
-            const policy = {
-                type: type,
-                customer: customer,
-                start: start,
-                termination: termination,
-                totalPremium: totalPremium,
-                policyType: policyType,
+        //get id from create/policy/id
+        const id = window.location.pathname.split("/")[3];
+        setCustomer(id);
 
-            }
-            console.log(policy);
-
-            const bodyFormData = new FormData();
-            bodyFormData.append("type", type);
-            bodyFormData.append("customer", customer);
-            bodyFormData.append("start", start);
-            bodyFormData.append("termination", termination);
-            bodyFormData.append("totalPremium", totalPremium);
-            bodyFormData.append("policyType", policyType);
-            
-            createPolicy(bodyFormData);
+        const bodyFormData = new FormData();
+        bodyFormData.append("type", type);
+        bodyFormData.append("customer", customer);
+        bodyFormData.append("start", start);
+        bodyFormData.append("termination", termination);
+        bodyFormData.append("totalPremium", totalPremium);
+        bodyFormData.append("policyType", policyType);
+        
+        createPolicy(bodyFormData);
     }
 
     //create customer in db
