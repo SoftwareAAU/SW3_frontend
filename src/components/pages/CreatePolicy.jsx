@@ -11,12 +11,12 @@ const CreatePolicy = () => {
 
     //policy requiredments
     const [customer, setCustomer] = useState(0);
-   const [start, setStart] = useState("");
-   const [termination, setTermination] = useState("");
-   const [totalPremium, setTotalPremium] = useState(0.0);
-   const [type, setType] = useState(0);
-   const [policyType, setPolicyType] = useState(0);
-  
+    const [start, setStart] = useState("");
+    const [termination, setTermination] = useState("");
+    const [totalPremium, setTotalPremium] = useState(0.0);
+    const [type, setType] = useState(0);
+    const [policyType, setPolicyType] = useState(0);
+
 
     useEffect(() => {
     }, []);
@@ -24,6 +24,8 @@ const CreatePolicy = () => {
     const handleSubmit = (e) => {
         //e.preventDefault();
         console.log("form submitted");
+        setCustomer(window.location.href.split("/")[5]);
+        console.log(customer);
 
             //create person object
             const policy = {
