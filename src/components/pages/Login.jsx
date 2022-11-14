@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 import "./Login.css";
 
+import {Row, Col} from 'react-bootstrap'
 
 //imports ip
 import globals from "../../globals";
@@ -54,50 +55,35 @@ const Login = () => {
   return (
     <div className="login">
       <div className="row">
-        <div className="col-8 login-image-div">
-          <img className="login-image" src={girl}></img>
-        </div>
-
-        <div className="col-4 d-flex flex-column justify-content-center align-items-center ">
-          <div className="login-logo">
-            <img src={siteLogo} alt="LOGO" width={120} />
-            <p className="login-logo-text">Frankly Insure</p>
-          </div>
-
-          <div className="mb-3 login-form-group ">
-            <input
-              type="text"
-              className="form-control"
-              onChange={handleUsernameChange}
-              placeholder="Enter username"
-              //login if enter is pressed
-              onKeyPress={(e) => {
-                if (e.key === "Enter") {
-                  login();
-                }
-              }}
-            />
-          </div>
-          <div className="mb-2 login-form-group">
-            <input
-              type="password"
-              className="form-control"
-              onChange={handlePasswordChange}
-              placeholder="Enter password"
-              //login if enter is pressed
-              onKeyPress={(e) => {
-                if (e.key === "Enter") {
-                  login();
-                }
-              }}
-            />
-          </div>
-          <button type="submit" className="sign-in-button" onClick={login}>
-            Sign in
-          </button>
-        </div>
+    
+      <div className=" left-side col overflow-hidden">
+      <img src={girl} className="login-image" alt="" />
       </div>
+     
+        <div className="right-side col col-4 d-flex flex-column align-items-center justify-content-center">
+          
+        
+        <div className="login-logo">
+              <img src={siteLogo} alt="LOGO" width={120} />
+              <p className="login-logo-text">Frankly Insure</p>
+            </div>
+
+            <div className="mb-3 px-5 login-form-group ">
+              <input type="text" className="form-control" onChange={handleUsernameChange} placeholder="Enter username" onKeyPress={(e) => { if (e.key === "Enter") { login(); }}}
+              />
+            </div>
+            <div className="mb-2 px-5 login-form-group">
+              <input type="password" className="form-control" onChange={handlePasswordChange} placeholder="Enter password" onKeyPress={(e) => { if (e.key === "Enter") { login(); }}}/>
+            </div>
+            <button type="submit" className="sign-in-button" onClick={login}>
+              Sign in
+            </button>
+
+        </div>
+        </div>
+     
     </div>
+
   );
 };
 
