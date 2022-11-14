@@ -24,8 +24,8 @@ const Customers = () => {
     getAllCustomersWithToken();
 
     //test;
-    getAllCompaniesWithToken();
-    getAllPersonsWithToken();
+    //getAllCompaniesWithToken();
+    //getAllPersonsWithToken();
     
   }, []);
 
@@ -141,7 +141,7 @@ const Customers = () => {
             </tr>
           </thead>
           <tbody>
-          {customers.length > 0 ? (
+          {customers && customers.length > 0 ? (
             customers.map((customer) => (
 
               
