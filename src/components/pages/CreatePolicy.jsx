@@ -11,12 +11,12 @@ const CreatePolicy = () => {
 
     //policy requiredments
     const [customer, setCustomer] = useState(0);
-   const [start, setStart] = useState("");
-   const [termination, setTermination] = useState("");
-   const [totalPremium, setTotalPremium] = useState(0.0);
-   const [type, setType] = useState(0);
-   const [policyType, setPolicyType] = useState(0);
-  
+    const [start, setStart] = useState("");
+    const [termination, setTermination] = useState("");
+    const [totalPremium, setTotalPremium] = useState(0.0);
+    const [type, setType] = useState(0);
+    const [policyType, setPolicyType] = useState(0);
+
 
     useEffect(() => {
     }, []);
@@ -25,27 +25,19 @@ const CreatePolicy = () => {
         //e.preventDefault();
         console.log("form submitted");
 
-            //create person object
-            const policy = {
-                type: type,
-                customer: customer,
-                start: start,
-                termination: termination,
-                totalPremium: totalPremium,
-                policyType: policyType,
+        //get id from create/policy/id
+        const id = window.location.pathname.split("/")[3];
+        setCustomer(id);
 
-            }
-            console.log(policy);
-
-            const bodyFormData = new FormData();
-            bodyFormData.append("type", type);
-            bodyFormData.append("customer", customer);
-            bodyFormData.append("start", start);
-            bodyFormData.append("termination", termination);
-            bodyFormData.append("totalPremium", totalPremium);
-            bodyFormData.append("policyType", policyType);
-            
-            createPolicy(bodyFormData);
+        const bodyFormData = new FormData();
+        bodyFormData.append("type", type);
+        bodyFormData.append("customer", customer);
+        bodyFormData.append("start", start);
+        bodyFormData.append("termination", termination);
+        bodyFormData.append("totalPremium", totalPremium);
+        bodyFormData.append("policyType", policyType);
+        
+        createPolicy(bodyFormData);
     }
 
     //create customer in db

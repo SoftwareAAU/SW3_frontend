@@ -127,6 +127,7 @@ const CustomerDetails = () => {
                 <h3 className="fw-light">{policy.id}</h3>
               </div>
             ))}
+            <button><a href={`/create/policy/${customerDetails.id}`} style={{textDecoration:"none", color: "black"}}>Create New Policy</a></button>
           </div>
         </Col>
 
