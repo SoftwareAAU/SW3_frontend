@@ -44,7 +44,7 @@ const Sidebar = () => {
                 Carl
               </h1>
               <h1 className="fw-normal cd-surname">
-                Gayskov
+                Rygskov
               </h1>
               <button onClick={signOut} className="btn-primary sign-out-button">
               Sign out
