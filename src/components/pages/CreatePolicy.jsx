@@ -8,13 +8,11 @@ import globals from "../../globals";
 
 const CreatePolicy = () => {
 
-
     //policy requiredments
     const [customer, setCustomer] = useState(0);
     const [start, setStart] = useState("");
     const [termination, setTermination] = useState("");
     const [totalPremium, setTotalPremium] = useState(0.0);
-    const [type, setType] = useState(0);
     const [policyType, setPolicyType] = useState(0);
 
 
@@ -30,12 +28,11 @@ const CreatePolicy = () => {
         setCustomer(id);
 
         const bodyFormData = new FormData();
-        bodyFormData.append("type", type);
-        bodyFormData.append("customer", customer);
-        bodyFormData.append("start", start);
-        bodyFormData.append("termination", termination);
-        bodyFormData.append("totalPremium", totalPremium);
-        bodyFormData.append("policyType", policyType);
+        bodyFormData.append("customer", customer);//
+        bodyFormData.append("start", start);//
+        bodyFormData.append("termination", termination);//
+        bodyFormData.append("totalPremium", 0);//
+        bodyFormData.append("type", policyType);//Type
         
         createPolicy(bodyFormData);
     }
@@ -72,21 +69,21 @@ const CreatePolicy = () => {
         <Col>
             <Row className="mx-2 mt-4">
                 <Col>
-                    <h3>Customer Type</h3>
-                    <select required className="form-select" onChange={(e)=> setType(e.target.value)} >
+                    {/* <h3>Customer Type</h3> */}
+                    {/* <select required className="form-select" onChange={(e)=> setType(e.target.value)} >
                         <option defaultValue={0} value="0">Person</option>
                         <option value="1">Company</option>
                     </select>
-                    <br />
+                    <br /> */}
                     <h3>Start dato</h3>
                     <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setStart(e.target.value)} />
                     <br />
                     <h3>Termination date</h3>
                     <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setTermination(e.target.value)} />
                     <br />
-                    <h3>Total Premium</h3>
+                    {/* <h3>Total Premium</h3>
                     <input required type="double" className="form-control" placeholder="Total Premium" onChange={(e)=> setTotalPremium(e.target.value)} />
-                    <br />
+                    <br /> */}
                     <h3>Type</h3>
                     <select required className="form-select" onChange={(e)=> setPolicyType(e.target.value)}>
                         <option value="0">Household Insurance</option>

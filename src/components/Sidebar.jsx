@@ -41,7 +41,10 @@ const Sidebar = () => {
       </Stack>
       <Row className="sign-out-box">
           <h1 className="fw-normal cd-first-name">
-                Welcome
+                Carl
+              </h1>
+              <h1 className="fw-normal cd-surname">
+                Gayskov
               </h1>
               <button onClick={signOut} className="btn-primary sign-out-button">
               Sign out
