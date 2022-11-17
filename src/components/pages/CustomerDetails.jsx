@@ -26,6 +26,8 @@ const CustomerDetails = () => {
   const darkBlue = "#FFE8EE";
 
   const [customerDetails, setCustomerDetails] = useState({});
+  const [coverage, setCoverage] = useState({});
+
 
   //fetch customer by id from the database
   const getCustomerPolicies = async () => {
@@ -42,8 +44,24 @@ const CustomerDetails = () => {
     setCustomerDetails(response.data);
   };
 
+  //fetch coverage from the database
+  const getCoverage = async () => {
+    const headers = {
+      token: `${Cookies.get("token")}`,
+    };
+
+    const url = globals.ip + "/coverage/" + id;
+
+    const response = await axios.get(url, {
+      headers: headers,
+    });
+
+    setCoverage(response.data);
+  };
+
   useEffect(() => {
     getCustomerPolicies();
+    getCoverage();
   }, []);
 
   //data for graphs below
@@ -124,7 +142,8 @@ const CustomerDetails = () => {
             <hr className=" my-2" />
             {customerDetails.policies?.map((policy) => (
               <div className="policy" key={policy.id}>
-                <h3 className="fw-light">{policy.id}</h3>
+                <h3 className="fw-light">{policy.id}<button><a href={`/coverage/:id/${coverage.id}`} style={{textDecoration:"none", color: "black"}}>Browse Coverage</a></button>
+</h3>
               </div>
             ))}
           </div>
