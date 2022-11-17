@@ -45,10 +45,9 @@ const CreatePolicy = () => {
 
         //get id from create/policy/id
         const id = window.location.pathname.split("/")[3];
-        setCustomer(id);
 
         const bodyFormData = new FormData();
-        bodyFormData.append("customer", customer);//
+        bodyFormData.append("customer", id);//
         bodyFormData.append("start", start);//
         bodyFormData.append("termination", termination);//
         bodyFormData.append("type", policyType);//Type
