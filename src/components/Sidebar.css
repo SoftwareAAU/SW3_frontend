@@ -20,29 +20,32 @@
   color: #112035;
   text-decoration: none;
 }
+
 .sidebar .link {
+  opacity: 0.5;
   color: grey;
   font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: 400;
   text-decoration: none;
-  transition: all ease-in-out 100ms;
+  transition: all ease-in-out 200ms;
   margin-bottom: 16px;
 }
 .sidebar .link:hover {
+  opacity: 1;
   color: black;
   font-size: 1.2rem;
   text-decoration: none;
-  transition: all ease-in-out 100ms;
-  
-
-  /* this is a way of animating boldness */
+  transition: all ease-in-out 200ms;
 }
+
 .sidebar .active {
-  color: black;
+  opacity: 1;
+  color: rgb(0, 0, 0);
   font-size: 1.2rem;
   font-weight: 400;
   text-decoration: none;
+  
 }
 
 .sign-out-button{
@@ -73,4 +76,8 @@
   margin: auto;
   display: flex;
   flex-direction: column;
+}
+
+.image {
+  height: 30px;
 }
