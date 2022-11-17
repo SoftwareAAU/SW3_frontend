@@ -44,7 +44,7 @@ function App() {
             <Route exact path="/customers/:id/policies" element={<CustomerPolicies/>} />
             <Route exact path="/analytics" element={<Analytics />} />
             <Route exact path="/create/policy/:id" element={<CreatePolicy/>} />
-            <Route exact path="/coverage/:id" element={<Coverage/>} />
+            <Route exact path="/customers/:id/:id" element={<Coverage/>} />
             <Route path="/" element={<Navigate to="/dashboard" />} />
           </Routes>
         </Col>

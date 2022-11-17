@@ -13,26 +13,40 @@ const Coverage = () => {
 
     const  {id}  = useParams();
     const [coverage, setCoverage] = useState({
+        id: 12312312,
+        maxClaim: 100000,
+        claimsUsed: 50000,
+        claimsRemaining: 50000,
+        claims: [
+            {
+                id: 12312312,
+                amount: 10000,
+                date: "2021-01-01",
+            },
+        ],
 
     });
+
          //fetch customer by id from the database
-        const getCoveragesFromPolicyId = async () => {
+        const getCustomerPolicies = async () => {
             const headers = {
             token: `${Cookies.get("token")}`,
             };
 
-            const url = globals.ip + "/coverage/" + id;
+            const url = globals.ip + "/customers/" + id + "/policies";
 
             const response = await axios.get(url, {
             headers: headers,
             });
 
-            console.log(response.data);
+            setCustomerDetails(response.data);
         };
 
-    const [customerDetails, setCustomerDetails] = useState({});
+        const [customerDetails, setCustomerDetails] = useState({});
 
        
+
+
 //fetch coverage from the database
 const getCoverage = async () => {
         const headers = {
@@ -48,33 +62,18 @@ const getCoverage = async () => {
     setCoverage(response.data);
 }
 
-//fetch customerDetails from the database
-// const getCustomerDetails = async () => {
-//     const headers = {
-//         token: `${Cookies.get("token")}`,
-//     };
-
-//     const url = globals.ip + "/customers/" + id;
-
-//     const response = await axios.get(url, {
-//         headers: headers,
-//     });
-
-//     setCustomerDetails(response.data);
-// }
-
-
 useEffect(() => {
-    getCoveragesFromPolicyId();
+    getCustomerPolicies();
     getCoverage();
-    // getCustomerDetails();
+
 
 }, []);
  
 
+
+
 return (
     <div className="page">
-
         <Row className=" justify-content-center align-items-center">
         <Col className="col-1">
           <img
@@ -93,6 +92,9 @@ return (
                 {customerDetails.companyName}
             </h1>
             )}
+            <h1 className="fw-normal cd-surname">
+            {customerDetails.lastName}
+            </h1>
         </Col>
         </Row>
         <Row className="align-items-center">

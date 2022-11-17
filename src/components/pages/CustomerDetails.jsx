@@ -142,8 +142,8 @@ const CustomerDetails = () => {
             <hr className=" my-2" />
             {customerDetails.policies?.map((policy) => (
               <div className="policy" key={policy.id}>
-                <h3 className="fw-light">{policy.id}<button><a href={`/coverage/:id/${coverage.id}`} style={{textDecoration:"none", color: "black"}}>Browse Coverage</a></button>
-</h3>
+                <h4 className="fw-light">{policy.id}</h4>
+                <button><a href={`${id}/${policy.id}`} style={{textDecoration:"none", color: "black"}}>Browse Coverage</a></button>
               </div>
             ))}
             <button><a href={`/create/policy/${customerDetails.id}`} style={{textDecoration:"none", color: "black"}}>Create New Policy</a></button>
