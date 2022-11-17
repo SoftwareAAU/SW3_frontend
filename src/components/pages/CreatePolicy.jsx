@@ -14,10 +14,30 @@ const CreatePolicy = () => {
     const [termination, setTermination] = useState("");
     const [totalPremium, setTotalPremium] = useState(0.0);
     const [policyType, setPolicyType] = useState(0);
+    const id = window.location.pathname.split("/")[3];
 
+    const [customerDetails, setCustomerDetails] = useState({type: 0, firstName:"Loading Customer...", surname: " "});
 
+      //fetch customer by id from the database
+    const getCustomerPolicies = async () => {
+    const headers = {
+      token: `${Cookies.get("token")}`,
+    };
+
+    const url = globals.ip + "/customers/" + id + "/policies";
+
+    const response = await axios.get(url, {
+      headers: headers,
+    });
+
+    setCustomerDetails(response.data);
+  };
+
+  //UseEffect to fetch customer details
     useEffect(() => {
+        getCustomerPolicies();
     }, []);
+
 
     const handleSubmit = (e) => {
         //e.preventDefault();
@@ -58,32 +78,23 @@ const CreatePolicy = () => {
     
             alert("Something went wrong");
           });
-      
-       
     }
 
     return ( 
         <div className="page">
             <h1>Create Policy</h1>
+            <p className="text-muted">{`For customer: ${customerDetails.type == 0 ? (customerDetails.firstName + " " + customerDetails.surname) : (customerDetails.companyName)}`}</p>
+            
         <form onSubmit={(formData) => handleSubmit(formData)}>
         <Col>
             <Row className="mx-2 mt-4">
                 <Col>
-                    {/* <h3>Customer Type</h3> */}
-                    {/* <select required className="form-select" onChange={(e)=> setType(e.target.value)} >
-                        <option defaultValue={0} value="0">Person</option>
-                        <option value="1">Company</option>
-                    </select>
-                    <br /> */}
                     <h3>Start dato</h3>
                     <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setStart(e.target.value)} />
                     <br />
                     <h3>Termination date</h3>
                     <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setTermination(e.target.value)} />
                     <br />
-                    {/* <h3>Total Premium</h3>
-                    <input required type="double" className="form-control" placeholder="Total Premium" onChange={(e)=> setTotalPremium(e.target.value)} />
-                    <br /> */}
                     <h3>Type</h3>
                     <select required className="form-select" onChange={(e)=> setPolicyType(e.target.value)}>
                         <option value="0">Household Insurance</option>
