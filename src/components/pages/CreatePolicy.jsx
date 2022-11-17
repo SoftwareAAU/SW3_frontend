@@ -16,7 +16,7 @@ const CreatePolicy = () => {
     const [policyType, setPolicyType] = useState(0);
     const id = window.location.pathname.split("/")[3];
 
-    const [customerDetails, setCustomerDetails] = useState({type: 0, firstName:"Loading Customer...", surname: " "});
+    const [customerDetails, setCustomerDetails] = useState({type: 0, firstName:"Loading customer...", surname: " "});
 
       //fetch customer by id from the database
     const getCustomerPolicies = async () => {
