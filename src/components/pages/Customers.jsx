@@ -20,12 +20,17 @@ const Customers = () => {
   const [persons, setPersons] = useState([]);
   const [companies, setCompanies] = useState([]);
 
+  const [filteredCustomers, setFilteredCustomers] = useState([]);
+
   useEffect(() => {
     getAllCustomersWithToken();
 
     //test;
-    getAllCompaniesWithToken();
-    getAllPersonsWithToken();
+    //getAllCompaniesWithToken();
+    //getAllPersonsWithToken();
+  }, []);
+
+  useEffect(() => {
     
   }, []);
 
@@ -57,6 +62,34 @@ const Customers = () => {
 
   }
 
+  const handleSearch = (e) => {
+    const search = e.target.value;
+    console.log(search);
+
+    const currentList = filteredCustomers;
+    const newList = currentList.filter((c) => {
+      if(c.type == 0)
+      {
+        return c.firstName.toLowerCase().includes(search.toLowerCase()
+        ) || c.surname.toLowerCase().includes(search.toLowerCase()
+        ) || c.customer.toString().includes(search.toLowerCase()
+        ) || c.address.toLowerCase().includes(search.toLowerCase()
+        );
+      }
+      else{
+        return c.name.toLowerCase().includes(search.toLowerCase())
+        || c.customer.toString().includes(search.toLowerCase()
+        ) || c.address.toLowerCase().includes(search.toLowerCase());
+      }
+    });
+    if(search == "")
+    {
+      setFilteredCustomers(customers);
+    }
+    else{
+    setFilteredCustomers(newList);
+    }
+  }
 
   //fetching all customers from the database with token in the body
   const getAllCustomersWithToken = async () => {
@@ -76,6 +109,7 @@ const Customers = () => {
       });
 
       setCustomers(response.data.customers);
+      setFilteredCustomers(response.data.customers);
       console.log(response.data.customers);
     };
 
@@ -98,6 +132,7 @@ const Customers = () => {
                 type="text"
                 placeholder="Search"
                 className="form-control customer-card-searchbar"
+                onChange={(e) => handleSearch(e)}
               />
             </div>
           </div>
@@ -141,8 +176,8 @@ const Customers = () => {
             </tr>
           </thead>
           <tbody>
-          {customers.length > 0 ? (
-            customers.map((customer) => (
+          {filteredCustomers && filteredCustomers.length > 0 ? (
+            filteredCustomers.map((customer) => (
 
               
               <tr
@@ -163,7 +198,7 @@ const Customers = () => {
                     : customer.companyName}
                   
                 </td>
-                <td className="p-4">{customer.id}</td>
+                <td className="p-4">{customer.customer}</td>
                 <td className="p-4">{customer.address}</td>
               </tr>
             ))

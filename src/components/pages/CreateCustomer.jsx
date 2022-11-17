@@ -109,9 +109,6 @@ const CreateCustomer = () => {
       
        
     }
-    
-   
-    
 
     return ( 
         <div className="page">

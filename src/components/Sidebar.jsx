@@ -12,22 +12,24 @@ const Sidebar = () => {
     window.location.href = "/";
   }
   return (
-    <Col className="sidebar p-5">
-      <Stack direction="vertical" className="links" gap={3}>
+    <Col className="sidebar p-5 d-flex flex-column align-items-start">
+      <Stack direction="vertical" className="links">
         <NavLink to="/" className="sidebar-logo mx-auto">
           <img src={siteLogo} height="70px" alt="LOGO" />
           Frankly Insure
         </NavLink>
         <hr></hr>
-        <div className="sidebar-links text-center">
+        <div className="sidebar-links text-left ">
           <NavLink to="/dashboard" className="link">
-            Dashboard
+          <i class="fa fa-compass"> Dashboard</i>
+          
           </NavLink>
           <NavLink to="/customers" className="link">
-            Customers
+          <i class="fa fa-users"> Customers</i>
+
           </NavLink>
           <NavLink to="/analytics" className="link">
-            Analytics
+          <i class="fa fa-pie-chart" aria-hidden="true"> Analytics</i>
           </NavLink>
           <NavLink to="/create/customer" className="link">
             Create Customer

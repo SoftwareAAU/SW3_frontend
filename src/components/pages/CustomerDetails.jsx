@@ -35,7 +35,7 @@ const CustomerDetails = () => {
       token: `${Cookies.get("token")}`,
     };
 
-    const url = globals.ip + "/customers/" + id + "/policies";
+    const url = globals.ip + "/customer/" + id + "/policies";
 
     const response = await axios.get(url, {
       headers: headers,
@@ -146,6 +146,7 @@ const CustomerDetails = () => {
 </h3>
               </div>
             ))}
+            <button><a href={`/create/policy/${customerDetails.id}`} style={{textDecoration:"none", color: "black"}}>Create New Policy</a></button>
           </div>
         </Col>
 
