@@ -91,7 +91,7 @@ const CreateCustomer = () => {
 
         axios({
             method: "post",
-            url: globals.ip + "/customers/create",
+            url: globals.ip + "/customer/create",
             data: formData,
             headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
           }).then((res) => {
