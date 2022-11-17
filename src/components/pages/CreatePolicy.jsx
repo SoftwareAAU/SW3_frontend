@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import globals from "../../globals";
+import { redirect } from "react-router-dom";
 
 
 const CreatePolicy = () => {
@@ -53,6 +54,9 @@ const CreatePolicy = () => {
         bodyFormData.append("type", policyType);//Type
         
         createPolicy(bodyFormData);
+
+        e.preventDefault();
+        window.location='/customers/' + id;
     }
 
     //create customer in db
