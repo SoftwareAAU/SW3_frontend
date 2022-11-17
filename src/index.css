@@ -24,7 +24,7 @@ body {
 
 .page {
   background: white;
-  height: calc(100vh - var(--sitePadding) * 2);
+  min-height: calc(100vh - var(--sitePadding) * 2);
   border-radius: var(--borderRadius);
   padding: var(--sitePadding);
 }
