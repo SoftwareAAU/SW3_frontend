@@ -51,7 +51,6 @@ const CreatePolicy = () => {
         bodyFormData.append("customer", customer);//
         bodyFormData.append("start", start);//
         bodyFormData.append("termination", termination);//
-        bodyFormData.append("totalPremium", 0);//
         bodyFormData.append("type", policyType);//Type
         
         createPolicy(bodyFormData);
