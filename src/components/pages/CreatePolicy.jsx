@@ -24,7 +24,7 @@ const CreatePolicy = () => {
       token: `${Cookies.get("token")}`,
     };
 
-    const url = globals.ip + "/customers/" + id + "/policies";
+    const url = globals.ip + "/customer/" + id + "/policies";
 
     const response = await axios.get(url, {
       headers: headers,
@@ -63,7 +63,7 @@ const CreatePolicy = () => {
 
         axios({
             method: "post",
-            url: globals.ip + "/createpolicy",
+            url: globals.ip + "/policy/create",
             data: formData,
             headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
           }).then((res) => {

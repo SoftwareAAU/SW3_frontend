@@ -33,7 +33,7 @@ const CustomerDetails = () => {
       token: `${Cookies.get("token")}`,
     };
 
-    const url = globals.ip + "/customers/" + id + "/policies";
+    const url = globals.ip + "/customer/" + id + "/policies";
 
     const response = await axios.get(url, {
       headers: headers,
