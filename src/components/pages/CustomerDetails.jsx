@@ -86,6 +86,11 @@ const CustomerDetails = () => {
     },
   });
 
+  function handleClick(e) {
+    e.preventDefault();
+    window.location.href = "/create/policy/" + customerDetails.id;
+  }
+
   return (
     <div className="page">
       <Row className=" justify-content-center align-items-center">
@@ -96,26 +101,42 @@ const CustomerDetails = () => {
             alt="Logo"
           />
         </Col>
-        <Col>
-          {customerDetails.type == 0 ? (
-            <>
+        <Col className="d-flex">
+          <div className="px-3">
+            {customerDetails.type == 0 ? (
+              <>
+                <h1 className="fw-normal cd-first-name">
+                  {customerDetails.firstName}
+                </h1>
+                <h1 className="fw-normal cd-surname">
+                  {customerDetails.surname}
+                </h1>
+              </>
+            ) : (
               <h1 className="fw-normal cd-first-name">
-                {customerDetails.firstName}
+                {customerDetails.companyName}
               </h1>
-              <h1 className="fw-normal cd-surname">
-                {customerDetails.surname}
-              </h1>
-            </>
-          ) : (
-            <h1 className="fw-normal cd-first-name">
-              {customerDetails.companyName}
-            </h1>
-          )}
+            )}
+          </div>
         </Col>
+
       </Row>
-      <Row className="align-items-center">
-        <Col className="4">
-          <div className="customer-details-birthday mt-5">
+        <button className="btn-primary sign-out-button w-25" onClick={(e) => {handleClick(e)}}>Create New Policy</button>
+
+
+      <Row>
+        <Col className="d-flex">
+        <div className="mt-5 px-3">
+            <h4>Policies</h4>
+            <hr className=" my-2" />
+            {customerDetails.policies?.map((policy) => (
+              <div className="policy" key={policy.id}>
+                <h3 className="fw-light">{policy.id}</h3>
+              </div>
+            ))}
+          </div>
+
+          <div className="customer-details-birthday px-3 mt-5">
             <h4>{customerDetails.type == 0 ? "CPR" : "CVR"}</h4>
             <hr className=" my-2" />
             <h3 className="fw-light">
@@ -125,13 +146,13 @@ const CustomerDetails = () => {
             </h3>
           </div>
 
-          <div className="customer-details-address mt-5">
+          <div className="customer-details-address px-3 mt-5">
             <h4>Address</h4>
             <hr className=" my-2" />
             <h3 className="fw-light">{customerDetails.address}</h3>
           </div>
 
-          <div className="customer-details-id mt-5">
+          <div className="customer-details-id px-3 mt-5">
             <h4>Customer ID</h4>
             <hr className=" my-2" />
             <h3 className="fw-light">{customerDetails.id}</h3>
@@ -149,8 +170,8 @@ const CustomerDetails = () => {
             <button><a href={`/create/policy/${customerDetails.id}`} style={{textDecoration:"none", color: "black"}}>Create New Policy</a></button>
           </div>
         </Col>
-
-        <Col className="4">
+{/* 
+        <Col className="">
           <Chart
             className="mx-auto"
             type="doughnut"
@@ -159,7 +180,7 @@ const CustomerDetails = () => {
             style={{ position: "relative", width: "80%" }}
           />
         </Col>
-        <Col className="4">
+        <Col className="">
           <Chart
             className="mx-auto"
             type="doughnut"
@@ -167,7 +188,7 @@ const CustomerDetails = () => {
             options={lightOptions}
             style={{ position: "relative", width: "80%" }}
           />
-        </Col>
+        </Col> */}
       </Row>
     </div>
   );

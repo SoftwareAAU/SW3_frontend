@@ -2,6 +2,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import Stack from "react-bootstrap/Stack";
 
 import siteLogo from "../assets/logo.svg";
+
+import dashboardLogo from "../assets/speed.png";
+import customerLogo from "../assets/client.png";
+import analyticsLogo from "../assets/chart.png";
+
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 import Cookies from "js-cookie";
@@ -19,23 +24,18 @@ const Sidebar = () => {
           Frankly Insure
         </NavLink>
         <hr></hr>
-        <div className="sidebar-links text-left ">
+        <div className="sidebar-links text-align-left my-auto mx-auto">
           <NavLink to="/dashboard" className="link">
-          <i class="fa fa-compass"> Dashboard</i>
-          
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={dashboardLogo} alt="DASHBOARD" /> Dashboard</div>
           </NavLink>
           <NavLink to="/customers" className="link">
-          <i class="fa fa-users"> Customers</i>
-
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={customerLogo} alt="CUSTOMERS" /> Customer</div>
           </NavLink>
           <NavLink to="/analytics" className="link">
-          <i class="fa fa-pie-chart" aria-hidden="true"> Analytics</i>
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={analyticsLogo} alt="CHART" /> Analytics</div>
           </NavLink>
           <NavLink to="/create/customer" className="link">
             Create Customer
-          </NavLink>
-          <NavLink to="/create/policy" className="link">
-            Create Policy
           </NavLink>
         </div>
       </Stack>

@@ -57,17 +57,6 @@ const Analytics = () => {
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-6">
-                            <form>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <div class="input-group" id="show_hide_password">
-                            <input class="form-control" type="password"/>
-                            <div class="input-group-addon">
-                                <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-                            </div>
-                            </div>
-                        </div>
-                        </form>
                             </div>
                         </div>
                         </div>
