@@ -19,6 +19,8 @@ import axios from "axios";
 
 import globals from "../../globals";
 
+import PolicyTable from "../PolicyTable";
+
 const CustomerDetails = () => {
   const { id } = useParams();
 
@@ -64,28 +66,6 @@ const CustomerDetails = () => {
     getCoverage();
   }, []);
 
-  //data for graphs below
-  const [chartData] = useState({
-    labels: ["Claims used", "Claims Remaining"],
-    datasets: [
-      {
-        data: [8, 2],
-        backgroundColor: [pink, darkBlue],
-        hoverBackgroundColor: [pink, darkBlue],
-      },
-    ],
-  });
-
-  const [lightOptions] = useState({
-    plugins: {
-      legend: {
-        labels: {
-          color: "#495057",
-        },
-      },
-    },
-  });
-
   function handleClick(e) {
     e.preventDefault();
     window.location.href = "/create/policy/" + customerDetails.id;
@@ -126,16 +106,7 @@ const CustomerDetails = () => {
 
       <Row>
         <Col className="d-flex">
-        <div className="mt-5 px-3">
-            <h4>Policies</h4>
-            <hr className=" my-2" />
-            {customerDetails.policies?.map((policy) => (
-              <div className="policy" key={policy.id}>
-                <h4 className="fw-light">{policy.id}</h4>
-                <button><a href={`${id}/${policy.id}`} style={{textDecoration:"none", color: "black"}}>Browse Coverage</a></button>
-              </div>
-            ))}
-          </div>
+       
 
           <div className="customer-details-birthday px-3 mt-5">
             <h4>{customerDetails.type == 0 ? "CPR" : "CVR"}</h4>
@@ -160,26 +131,20 @@ const CustomerDetails = () => {
           </div>
           <br></br>  
         </Col>
-{/* 
-        <Col className="">
-          <Chart
-            className="mx-auto"
-            type="doughnut"
-            data={chartData}
-            options={lightOptions}
-            style={{ position: "relative", width: "80%" }}
-          />
-        </Col>
-        <Col className="">
-          <Chart
-            className="mx-auto"
-            type="doughnut"
-            data={chartData}
-            options={lightOptions}
-            style={{ position: "relative", width: "80%" }}
-          />
-        </Col> */}
       </Row>
+      <Row>
+        <div className="mt-5 px-3">
+            <h4>Policies</h4>
+            <hr className=" my-2" />
+              <div>
+                {customerDetails.policies != null && customerDetails.policies.length > 0 ? (
+                <PolicyTable policies={customerDetails.policies} />
+                ):(
+                  <p>Loading policies...</p>
+                )}
+              </div>
+          </div>
+        </Row>
     </div>
   );
 };
