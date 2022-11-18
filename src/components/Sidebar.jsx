@@ -37,6 +37,9 @@ const Sidebar = () => {
           <NavLink to="/create/customer" className="link">
             Create Customer
           </NavLink>
+          <NavLink to="/policies" className="link">
+            Policies
+          </NavLink>
         </div>
       </Stack>
       <Row className="sign-out-box">

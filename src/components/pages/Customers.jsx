@@ -178,8 +178,6 @@ const Customers = () => {
           <tbody>
           {filteredCustomers && filteredCustomers.length > 0 ? (
             filteredCustomers.map((customer) => (
-
-              
               <tr
                 key={customer.id}
                 className=" my-4"
