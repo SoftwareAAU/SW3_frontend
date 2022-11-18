@@ -1,7 +1,11 @@
-const PolicyTable = (policies) => {
+import { useNavigate } from "react-router-dom";
+
+const PolicyTable = ({policies, id}) => {
 
 
-    console.log(policies.policies[0])
+    
+
+    console.log("id:" + id)
 
     /*
     id
@@ -10,6 +14,15 @@ const PolicyTable = (policies) => {
     totalPremium
     type
     */
+
+    const navigate = useNavigate();
+
+    const handleRowClick = (row) => {
+        console.log("row:" + row.id)
+  
+      navigate(`/customers/${id}/${row.id}`);
+    };
+  
     
 
     return ( <div>
@@ -31,19 +44,24 @@ const PolicyTable = (policies) => {
             </tr>
           </thead>
             <tbody>
-                 
-                <tr
-
-                    className=" my-4">
-                    <td className="p-4">
-                        test
-                    </td>
-                    <td className="p-4">
-                        test2
-                    </td>
-                    <td className="p-4">test3</td>
-                    <td className="p-4">test4</td>
-                </tr>
+                 {policies.map((policy) => (
+                     <tr onClick={() => handleRowClick(policy)}
+                     className=" my-4">
+                     <td className="p-4">
+                         {policy.id}
+                     </td>
+                     <td className="p-4">
+                         {policy.terminationDate}
+                     </td>
+                     <td className="p-4">
+                        {policy.totalPremium}
+                        </td>
+                     <td className="p-4">
+                        {policy.type}
+                     </td>
+                 </tr>
+                    ))}
+               
                 </tbody>
         </table>
 

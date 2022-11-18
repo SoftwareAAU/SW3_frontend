@@ -21,6 +21,9 @@ import globals from "../../globals";
 
 import PolicyTable from "../PolicyTable";
 
+import { Link, Navigate, useNavigate } from "react-router-dom";
+
+
 const CustomerDetails = () => {
   const { id } = useParams();
 
@@ -70,6 +73,8 @@ const CustomerDetails = () => {
     e.preventDefault();
     window.location.href = "/create/policy/" + customerDetails.id;
   }
+
+ 
 
   return (
     <div className="page">
@@ -138,7 +143,7 @@ const CustomerDetails = () => {
             <hr className=" my-2" />
               <div>
                 {customerDetails.policies != null && customerDetails.policies.length > 0 ? (
-                <PolicyTable policies={customerDetails.policies} />
+                <PolicyTable policies={customerDetails.policies} id={id} />
                 ):(
                   <p>Loading policies...</p>
                 )}
