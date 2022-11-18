@@ -94,7 +94,7 @@ const CustomerDetails = () => {
         </Col>
 
       </Row>
-        <button className="btn-primary sign-out-button w-25" onClick={(e) => {handleClick(e)}}>Create New Policy</button>
+        
 
 
       <Row>
@@ -126,8 +126,15 @@ const CustomerDetails = () => {
         </Col>
       </Row>
       <Row>
+        
         <div className="mt-5 px-3 ">
+          <Row>
+
             <h4>Policies</h4>
+        
+            <button className="btn-primary sign-out-button w-25 mt-0" onClick={(e) => {handleClick(e)}}>Create New Policy</button>
+
+          </Row>
             <hr className=" my-2" />
               <div className="rounded-2 overflow-hidden">
                 {customerDetails.policies != null && customerDetails.policies.length > 0 ? (
