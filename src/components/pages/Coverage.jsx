@@ -8,66 +8,58 @@ import globals from "../../globals";
 import { useParams } from "react-router-dom";
 import firmLogo from "../../assets/firm.png";
 import personLogo from "../../assets/person.png";
+import CoverageTable from "../CoverageTable";
+import "../CoverageTable.css";
 
 const Coverage = () => {
 
-    const  {id}  = useParams();
-    const [coverage, setCoverage] = useState({
 
-    });
+    //get url ids from the url
+    const urlIDs = window.location.pathname.split("/");
+    const customerID = urlIDs[2];
+    const policyID = urlIDs[3];
+
+    const [policyCoverages, setPolicyCoverages] = useState({});
          //fetch customer by id from the database
         const getCoveragesFromPolicyId = async () => {
             const headers = {
             token: `${Cookies.get("token")}`,
             };
-
-            const url = globals.ip + "/coverage/" + id;
+            
+            const url = globals.ip + "/coverages/" + policyID;
+            console.log("fetching fromm:\n"+ url)
 
             const response = await axios.get(url, {
             headers: headers,
             });
 
             console.log(response.data);
+            setPolicyCoverages(response.data.coverage);
+            console.log(response.data.coverage)
         };
 
     const [customerDetails, setCustomerDetails] = useState({});
 
-       
-//fetch coverage from the database
-const getCoverage = async () => {
-        const headers = {
-                token: `${Cookies.get("token")}`,
-        };
+    //fetch customer by id from the database
+  const getCustomerById = async () => {
+    const headers = {
+      token: `${Cookies.get("token")}`,
+    };
 
-    const url = globals.ip + "/coverage/" + id;
+    const url = globals.ip + "/customer/" + customerID;
 
     const response = await axios.get(url, {
       headers: headers,
     });
 
-    setCoverage(response.data);
-}
-
-//fetch customerDetails from the database
-// const getCustomerDetails = async () => {
-//     const headers = {
-//         token: `${Cookies.get("token")}`,
-//     };
-
-//     const url = globals.ip + "/customers/" + id;
-
-//     const response = await axios.get(url, {
-//         headers: headers,
-//     });
-
-//     setCustomerDetails(response.data);
-// }
-
+    setCustomerDetails(response.data);
+  };
 
 useEffect(() => {
+    
     getCoveragesFromPolicyId();
-    getCoverage();
-    // getCustomerDetails();
+    getCustomerById();
+    
 
 }, []);
  
@@ -83,46 +75,47 @@ return (
             alt="Logo"
           />
         </Col>
-        <Col>
+        <Col className="d-flex">
+          <div className="px-3">
             {customerDetails.type == 0 ? (
-            <h1 className="fw-normal cd-first-name">
-                {customerDetails.firstName}
-            </h1>
+              <>
+                <h1 className="fw-normal cd-first-name">
+                  {customerDetails.firstName}
+                </h1>
+                <h1 className="fw-normal cd-surname">
+                  {customerDetails.surname}
+                </h1>
+              </>
             ) : (
-            <h1 className="fw-normal cd-first-name">
+              <h1 className="fw-normal cd-first-name">
                 {customerDetails.companyName}
-            </h1>
+              </h1>
             )}
+          </div>
         </Col>
         </Row>
+        <Row>
+            <Col>
+            
+            </Col>
+        </Row>
+
         <Row className="align-items-center">
-        <Col className="col-4">
-            <div>
-                <h4>{coverage.id}</h4>
-            </div>
-            <div>
-                <h4>Termination date</h4>
-            </div>
-            <div>
-                <h4>Premium</h4>
-            </div>
-            <div>
-                <h4>Deductible</h4>
-            </div>
-            <div>
-                <h4>Maximum coverage</h4>
-            </div>
-            <div>
-                <h4>Claimed amount</h4>
-            </div>
-            <div>
-                <h4>Insurance type</h4>
-            </div> 
-        </Col>
+        <div className="mt-5 px-3 coverage-table">
+            <h4>Coverages</h4>
+            <br />
+              <div>
+                {policyCoverages != null && policyCoverages.length ? (
+                    <CoverageTable coverages={policyCoverages} />
+                ) : <p>Loading coverages nigger</p>}
+
+
+              </div>
+          </div>
         </Row>
     </div>
     );
-}
+};
 
 
 export default Coverage;
