@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+import "./policytable.css";
+
 const PolicyTable = ({policies, id}) => {
 
 
@@ -27,7 +29,7 @@ const PolicyTable = ({policies, id}) => {
 
     return ( <div>
          <table className="customer-table table table-bordered">
-          <thead>
+          <thead className="policy-table-head">
             <tr>
               <th className="p-4 customer-table-image" scope="col">
                 ID
@@ -61,7 +63,6 @@ const PolicyTable = ({policies, id}) => {
                      </td>
                  </tr>
                     ))}
-               
                 </tbody>
         </table>
 

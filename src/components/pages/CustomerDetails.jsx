@@ -22,6 +22,7 @@ import globals from "../../globals";
 import PolicyTable from "../PolicyTable";
 
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import LoadingPage from "./LoadingPage";
 
 
 const CustomerDetails = () => {
@@ -31,7 +32,7 @@ const CustomerDetails = () => {
   const darkBlue = "#FFE8EE";
 
   const [customerDetails, setCustomerDetails] = useState({});
-  const [coverage, setCoverage] = useState({});
+
 
 
   //fetch customer by id from the database
@@ -50,23 +51,10 @@ const CustomerDetails = () => {
   };
 
   //fetch coverage from the database
-  const getCoverage = async () => {
-    const headers = {
-      token: `${Cookies.get("token")}`,
-    };
-
-    const url = globals.ip + "/coverage/" + id;
-
-    const response = await axios.get(url, {
-      headers: headers,
-    });
-
-    setCoverage(response.data);
-  };
+  
 
   useEffect(() => {
     getCustomerPolicies();
-    getCoverage();
   }, []);
 
   function handleClick(e) {
@@ -76,7 +64,7 @@ const CustomerDetails = () => {
 
  
 
-  return (
+    return (
     <div className="page">
       <Row className=" justify-content-center align-items-center">
         <Col className="col-1">
@@ -138,10 +126,10 @@ const CustomerDetails = () => {
         </Col>
       </Row>
       <Row>
-        <div className="mt-5 px-3">
+        <div className="mt-5 px-3 ">
             <h4>Policies</h4>
             <hr className=" my-2" />
-              <div>
+              <div className="rounded-2 overflow-hidden">
                 {customerDetails.policies != null && customerDetails.policies.length > 0 ? (
                 <PolicyTable policies={customerDetails.policies} id={id} />
                 ):(
@@ -152,6 +140,7 @@ const CustomerDetails = () => {
         </Row>
     </div>
   );
+  
 };
 
 export default CustomerDetails;

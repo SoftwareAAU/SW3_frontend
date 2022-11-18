@@ -9,3 +9,8 @@
     color: rgb(66, 66, 66);
     font-size: 1.4rem;
 }
+
+.policies-table{
+    overflow: scroll;
+    height:30%;
+}

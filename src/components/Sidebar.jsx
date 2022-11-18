@@ -17,6 +17,7 @@ const Sidebar = () => {
     window.location.href = "/";
   }
   return (
+
     <Col className="sidebar p-5 d-flex flex-column align-items-start">
       <Stack direction="vertical" className="links">
         <NavLink to="/" className="sidebar-logo mx-auto">
