@@ -131,7 +131,8 @@ const CustomerDetails = () => {
             <hr className=" my-2" />
             {customerDetails.policies?.map((policy) => (
               <div className="policy" key={policy.id}>
-                <h3 className="fw-light">{policy.id}</h3>
+                <h4 className="fw-light">{policy.id}</h4>
+                <button><a href={`${id}/${policy.id}`} style={{textDecoration:"none", color: "black"}}>Browse Coverage</a></button>
               </div>
             ))}
           </div>
@@ -157,18 +158,7 @@ const CustomerDetails = () => {
             <hr className=" my-2" />
             <h3 className="fw-light">{customerDetails.id}</h3>
           </div>
-          <br></br>
-          <div id="policies">
-            <h4>Policies</h4>
-            <hr className=" my-2" />
-            {customerDetails.policies?.map((policy) => (
-              <div className="policy" key={policy.id}>
-                <h4 className="fw-light">{policy.id}</h4>
-                <button><a href={`${id}/${policy.id}`} style={{textDecoration:"none", color: "black"}}>Browse Coverage</a></button>
-              </div>
-            ))}
-            <button><a href={`/create/policy/${customerDetails.id}`} style={{textDecoration:"none", color: "black"}}>Create New Policy</a></button>
-          </div>
+          <br></br>  
         </Col>
 {/* 
         <Col className="">
