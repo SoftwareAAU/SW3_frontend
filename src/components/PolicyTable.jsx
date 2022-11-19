@@ -1,4 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import axios from "axios";
+import globals from "../globals";
 
 import "./policytable.css";
 
@@ -6,16 +10,14 @@ const PolicyTable = ({policies, id}) => {
 
 
     
+    const [coverages , setCoverages] = useState([]);
+
+    useEffect(() => {
+        getCoverages();
+    }, []);
+
 
     console.log("id:" + id)
-
-    /*
-    id
-    startDate
-    terminationDate
-    totalPremium
-    type
-    */
 
     const navigate = useNavigate();
 
@@ -24,10 +26,27 @@ const PolicyTable = ({policies, id}) => {
   
       navigate(`/customers/${id}/${row.id}`);
     };
+
+    //get coverages from policy id 
+    const getCoverages = async (policyId) => {
+        const headers = {
+            token: `${Cookies.get("token")}`,
+        };
+
+        const url = globals.ip + "/coverages/" + policyId;
+
+        const response = await axios.get(url, {
+            headers: headers,
+        });
+        setCoverages(response.data);
+    }
   
     
 
-    return ( <div>
+    return ( 
+    
+    
+        <div>
          <table className="customer-table table table-bordered">
           <thead className="policy-table-head">
             <tr>

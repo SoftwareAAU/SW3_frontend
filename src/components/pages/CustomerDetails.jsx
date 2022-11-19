@@ -65,8 +65,11 @@ const CustomerDetails = () => {
  
 
     return (
+    <>
+    {customerDetails.id ? (
     <div className="page">
-      <Row className=" justify-content-center align-items-center">
+
+      <Row className="mx-1 justify-content-center align-items-center">
         <Col className="col-1">
           <img
             src={customerDetails.type == 0 ? personLogo : firmLogo}
@@ -99,53 +102,51 @@ const CustomerDetails = () => {
 
       <Row>
         <Col className="d-flex">
-       
-
-          <div className="customer-details-birthday px-3 mt-5">
-            <h4>{customerDetails.type == 0 ? "CPR" : "CVR"}</h4>
+        <div className="customer-details-id px-3 mt-5">
+            <p className="customer-details-label-head">Customer ID</p>
             <hr className=" my-2" />
-            <h3 className="fw-light">
+            <p className="fw-light customer-details-label">{customerDetails.id}</p>
+          </div>
+            
+          <div className="customer-details-birthday px-3 mt-5">
+            <p className="customer-details-label-head">{customerDetails.type == 0 ? "CPR" : "CVR"}</p>
+            <hr className=" my-2" />
+            <p className="fw-light customer-details-label">
               {customerDetails.type == 0
                 ? customerDetails.cprNumber
                 : customerDetails.cvr}
-            </h3>
+            </p>
           </div>
 
           <div className="customer-details-address px-3 mt-5">
-            <h4>Address</h4>
+            <p className="customer-details-label-head">Address</p>
             <hr className=" my-2" />
-            <h3 className="fw-light">{customerDetails.address}</h3>
+            <p className="fw-light customer-details-label">{customerDetails.address}</p>
           </div>
 
-          <div className="customer-details-id px-3 mt-5">
-            <h4>Customer ID</h4>
-            <hr className=" my-2" />
-            <h3 className="fw-light">{customerDetails.id}</h3>
-          </div>
-          <br></br>  
+         
         </Col>
       </Row>
+      <hr className=" my-5" />
       <Row>
         
-        <div className="mt-5 px-3 ">
-          <Row>
+        <div className="px-3">
+            <div className="d-flex flex-col gap-3 justify-content-between align-content-center mb-2 mx-3">
+              <p className="customer-details-label-head mt-1">Policies</p>
+              <button className="btn-primary sign-out-button w-25 mt-0" onClick={(e) => {handleClick(e)}}>Add Policy</button>
+            </div>
 
-            <h4>Policies</h4>
-        
-            <button className="btn-primary sign-out-button w-25 mt-0" onClick={(e) => {handleClick(e)}}>Create New Policy</button>
-
-          </Row>
-            <hr className=" my-2" />
+            
               <div className="rounded-2 overflow-hidden">
-                {customerDetails.policies != null && customerDetails.policies.length > 0 ? (
-                <PolicyTable policies={customerDetails.policies} id={id} />
-                ):(
-                  <p>Loading policies...</p>
-                )}
+                
+                {customerDetails && <PolicyTable policies={customerDetails.policies} id={id} />}
+                
               </div>
           </div>
         </Row>
     </div>
+    ): <LoadingPage/>}
+    </>
   );
   
 };

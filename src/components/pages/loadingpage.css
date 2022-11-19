@@ -16,3 +16,20 @@
     justify-content: center;
     align-items: center;
 }
+
+.loading-page-colors{
+    background: var(--semiPink);
+    background-color: var(--semiPink);
+    color: var(--semiPink);
+}
+
+
+
+.ld-first-name{
+    color: var(--semiPink);
+    font-size: 1.8rem;
+}
+.ld-surname{
+    color: var(--semiPink);
+    font-size: 1.4rem;
+}
