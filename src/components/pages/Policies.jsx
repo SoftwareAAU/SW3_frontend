@@ -48,13 +48,21 @@ const Policies = () => {
         ...policy,
         //Here you can add more customer info if needed
         customer_name: (customer.companyName || customer.firstName + " " + customer.surname),
-        customer_type: customer.type
+        customer_type: customer.type,
+        customer_id : customer.id
+
       }
       policiesWithCustomerName.push(policyWithCustomerName);
     });
       //console.log("policiesWithCustomerName:\n");
       //console.log(policiesWithCustomerName);
       setPoliciesWithCustomer(policiesWithCustomerName);
+  }
+
+  const navigate = useNavigate();
+
+  const handleRowClick = (policy) => {
+    navigate("/customers/" + policy.customer_id + "/" + policy.id);
   }
 
 
@@ -131,7 +139,7 @@ const Policies = () => {
               policiesWithCustomerName.map((policy, index) => (
                 <tr
                   key={index}
-                  onClick={() => console.log(policy)}
+                  onClick={() => handleRowClick(policy)}
                   className="my-4"
                 >
                   <td className="p-4">
