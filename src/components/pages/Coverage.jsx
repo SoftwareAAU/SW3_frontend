@@ -27,7 +27,7 @@ const Coverage = () => {
 
 
          //fetch customer by id from the database
-        const getCoveragesFromPolicyId = async () => {
+        const getCoveragesFromPolicyId = async (policyID) => {
             const headers = {
             token: `${Cookies.get("token")}`,
             };
@@ -40,30 +40,31 @@ const Coverage = () => {
             });
 
             console.log(response.data);
-            setPolicyCoverages(response.data.coverage);
-            console.log(response.data.coverage)
+            setPolicyCoverages(response.data.policyCoverages);
+            console.log(response.data.policyCoverages)
         };
 
     //fetch customer by id from the database
-  const getCustomerById = async (customerID) => {
+  const getCustomerById = async (id) => {
     const headers = {
       token: `${Cookies.get("token")}`,
     };
-    const url = globals.ip + "/customer/" + customerID;
+    const url = globals.ip + "/customer/" + id;
     const response = await axios.get(url, {
       headers: headers,
     });
+    console.log(response.data);
     setCustomerDetails(response.data);
   };
 
 
   const getCoverageAndPolicyDetails = async () => {
     getCustomerById().then((coverages) => {
-      coverages.forEach((coverage) => {
-        if (coverage.id == id) {
-          setPolicyCoverages(coverage);
-          getCustomerById(coverage.customer).then((customer) => {
-            setCustomerDetails(customer);
+      coverages.forEach((policyCoverages) => {
+        if (policyCoverages.id == id) {
+          setPolicyCoverages(policyCoverages);
+          getCoveragesFromPolicyId(policyCoverages.policy).then((policy) => {
+            setPolicyCoverages(policy);
             setDataLoaded(true)
           })
         }
