@@ -22,6 +22,9 @@ const ClaimsTable = ({claims}) => {
           <thead className="policy-table-head">
             <tr>
               <th className="p-4 claims-table-text" scope="col">
+                Customer ID
+              </th>
+              <th className="p-4 claims-table-text" scope="col">
                 Coverage ID
               </th>
               <th className="p-4" scope="col">
@@ -39,6 +42,9 @@ const ClaimsTable = ({claims}) => {
                  {claims.map((claim) => (
                      <tr onClick={() => handleRowClick(claim)}
                      className=" my-4">
+                     <td className="p-4">
+                         {claim.customer}
+                     </td>
                      <td className="p-4">
                          {claim.coverage}
                      </td>

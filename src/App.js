@@ -50,7 +50,7 @@ function App() {
             <Route exact path="/create/policy/:id" element={<CreatePolicy/>} />
             <Route exact path="/customers/:id/:id" element={<Coverage/>} />
             <Route exact path="/claims" element={<Claims/>} />
-            <Route exact path="/claims/:claimid" element={<ClaimDetails/>} />
+            <Route exact path="/claims/:id" element={<ClaimDetails/>} />
 
             <Route path="/" element={<Navigate to="/dashboard" />} />
           </Routes>

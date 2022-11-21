@@ -101,26 +101,26 @@ const CustomerDetails = () => {
 
 
       <Row>
-        <Col className="d-flex">
+        <Col className="d-flex col-3">
         <div className="customer-details-id px-3 mt-5">
             <p className="customer-details-label-head">Customer ID</p>
-            <hr className=" my-2" />
             <p className="fw-light customer-details-label">{customerDetails.id}</p>
           </div>
-            
+        </Col>
+        <Col className="d-flex col-3">
           <div className="customer-details-birthday px-3 mt-5">
             <p className="customer-details-label-head">{customerDetails.type == 0 ? "CPR" : "CVR"}</p>
-            <hr className=" my-2" />
             <p className="fw-light customer-details-label">
               {customerDetails.type == 0
                 ? customerDetails.cprNumber
                 : customerDetails.cvr}
             </p>
           </div>
+          </Col >
 
+            <Col className="d-flex col-3">
           <div className="customer-details-address px-3 mt-5">
             <p className="customer-details-label-head">Address</p>
-            <hr className=" my-2" />
             <p className="fw-light customer-details-label">{customerDetails.address}</p>
           </div>
 
