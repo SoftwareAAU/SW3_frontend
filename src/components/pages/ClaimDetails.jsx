@@ -73,6 +73,29 @@ const ClaimDetails = () => {
     const handleClick = (e) => {
     }
 
+   
+
+    function approveClaim() {
+        const bodyFormData = new FormData();
+        bodyFormData.append("id", id);
+        const token = Cookies.get("token");
+
+        axios({
+            method: "put",
+            url: globals.ip + "/claim/approve",
+            data: bodyFormData,
+            headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
+          }).then((res) => {
+            const { status } = res.data;
+            if (status === true) {
+              alert("Policy created");
+              return;
+            }
+            console.log(res.data);
+            alert("Something went wrong");
+          });
+    }
+
 
   
 
@@ -145,7 +168,7 @@ const ClaimDetails = () => {
                     {claim.approved == 1 ? (
                         <h1 className="fw-normal claims-details-approved-text p-2 px-3 rounded-5">Approved</h1>
                     ) : (
-                        <button className="btn-primary sign-out-button w-25 mt-0" onClick={(e) => {handleClick(e)}}>Approve</button>
+                        <button className="btn-primary sign-out-button w-25 mt-0" onClick={approveClaim}>Approve</button>
                     )}
                 </div>
             </Row>
