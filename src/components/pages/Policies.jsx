@@ -66,8 +66,9 @@ const Policies = () => {
   return (
     <div className="customers">
       <div className="customer-cards">
-        <div className="customer-card-search-row">
-          <Col xs={4}>
+        <Row className="customer-card-search">
+          <h1>Policies</h1>
+          <Col>
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
                 Search
@@ -80,7 +81,7 @@ const Policies = () => {
               />
             </div>
           </Col>
-          <Col xs={4}>
+          <Col>
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
                 Filter by
@@ -90,7 +91,7 @@ const Policies = () => {
               </select>
             </div>
           </Col>
-          <Col xs={4}>
+          <Col>
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
                 Sort by
@@ -100,10 +101,8 @@ const Policies = () => {
               </select>
             </div>
           </Col>
-        </div>
-
         <hr/>
-
+        </Row>
         <table className="customer-table table table-bordered">          
           <thead>
             <tr>
@@ -128,30 +127,53 @@ const Policies = () => {
             </tr>
           </thead>
           <tbody>
-            {policiesWithCustomerName.map((policy, index) => (
-              <tr
-                key={index}
-                onClick={() => console.log(policy)}
-                className="my-4"
-              >
-                <td className="p-4">
-                  <img
-                    height={40}
-                    src={policy.customer_type == 0 ? personLogo : firmLogo}
-                    alt=""
-                  />
-                </td>
-                <td className="p-4">{policy.customer_name}</td>
-                <td className="p-4">{policy.startDate}</td>
-                <td className="p-4">{policy.terminationDate}</td>
-                <td className="p-4">{policy.totalPremium}</td>
-                <td className="p-4">{policy.type}</td>
+            {policiesWithCustomerName && policiesWithCustomerName.length > 0 ? (
+              policiesWithCustomerName.map((policy, index) => (
+                <tr
+                  key={index}
+                  onClick={() => console.log(policy)}
+                  className="my-4"
+                >
+                  <td className="p-4">
+                    <img
+                      height={40}
+                      src={policy.customer_type == 0 ? personLogo : firmLogo}
+                      alt=""
+                    />
+                  </td>
+                  <td className="p-4">{policy.customer_name}</td>
+                  <td className="p-4">{policy.startDate}</td>
+                  <td className="p-4">{policy.terminationDate}</td>
+                  <td className="p-4">{policy.totalPremium}</td>
+                  <td className="p-4">{policy.type}</td>
+  
+                </tr>
+              ))
 
-              </tr>
-            ))}
+            ) : (
+              <>
+                <tr>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                </tr>
+                <tr>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                </tr>
+                <tr>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                  <td><div className="spinner-grow loading-page-colors"></div></td>
+                </tr>
+              </>
+            )}
           </tbody>
         </table>
-
       </div>
     </div>
   );

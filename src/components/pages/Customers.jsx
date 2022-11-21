@@ -125,6 +125,7 @@ const Customers = () => {
     <div className="customers">
       <div className="customer-cards">
         <div className="customer-card-search row">
+          <h1>Customers</h1>
           <div className="col-4">
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
