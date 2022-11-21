@@ -37,7 +37,7 @@ const Policies = () => {
     let customers = responseCustomers.data.customers;
 
     //Only active policies
-    console.log(policies)
+    policies = policies.filter(policy => policy.active === true);
 
 
     //Add customer name to policy
