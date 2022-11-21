@@ -10,7 +10,7 @@ const ClaimsTable = ({claims}) => {
     const handleRowClick = (row) => {
         console.log("row:" + row.id)
   
-      navigate(`/customers/${row.id}`);
+      navigate(`/claims/${row.id}`);
     };
 
     return ( 
