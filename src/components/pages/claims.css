@@ -1,0 +1,8 @@
+.claims-page .nav-item .nav-link{
+    color: black;
+}
+.claims-page .nav-item .active{
+    color: var(--pink)
+
+}
+
