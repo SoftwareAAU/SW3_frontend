@@ -12,6 +12,8 @@ import axios from "axios";
 
 import Cookies from "js-cookie";
 
+import "./loadingpage.css"
+
 const Customers = () => {
   
   const [customers, setCustomers] = useState([]);
@@ -202,24 +204,25 @@ const Customers = () => {
             ))
           ) : (
             <>
-            <tr >
-              <td><div className="spinner-grow"></div></td>
-              <td><div className="spinner-grow"></div></td>
-              <td><div className="spinner-grow"></div></td>
-              <td><div className="spinner-grow"></div></td>
+            <tr>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
             </tr>
-            <tr >
-              <td><div className="spinner-grow"></div></td>
-              <td><div className="spinner-grow"></div></td>
-              <td><div className="spinner-grow"></div></td>
-              <td><div className="spinner-grow"></div></td>
+            <tr>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
             </tr>
-            <tr >
-              <td><div className="spinner-grow"></div></td>
-              <td><div className="spinner-grow"></div></td>
-              <td><div className="spinner-grow"></div></td>
-              <td><div className="spinner-grow"></div></td>
+            <tr>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
+              <td><div className="spinner-grow loading-page-colors"></div></td>
             </tr>
+        
             </>
           )}
           </tbody>

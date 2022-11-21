@@ -19,6 +19,12 @@ import axios from "axios";
 
 import globals from "../../globals";
 
+import PolicyTable from "../PolicyTable";
+
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import LoadingPage from "./LoadingPage";
+
+
 const CustomerDetails = () => {
   const { id } = useParams();
 
@@ -26,6 +32,8 @@ const CustomerDetails = () => {
   const darkBlue = "#FFE8EE";
 
   const [customerDetails, setCustomerDetails] = useState({});
+
+
 
   //fetch customer by id from the database
   const getCustomerPolicies = async () => {
@@ -42,40 +50,26 @@ const CustomerDetails = () => {
     setCustomerDetails(response.data);
   };
 
+  //fetch coverage from the database
+  
+
   useEffect(() => {
     getCustomerPolicies();
   }, []);
-
-  //data for graphs below
-  const [chartData] = useState({
-    labels: ["Claims used", "Claims Remaining"],
-    datasets: [
-      {
-        data: [8, 2],
-        backgroundColor: [pink, darkBlue],
-        hoverBackgroundColor: [pink, darkBlue],
-      },
-    ],
-  });
-
-  const [lightOptions] = useState({
-    plugins: {
-      legend: {
-        labels: {
-          color: "#495057",
-        },
-      },
-    },
-  });
 
   function handleClick(e) {
     e.preventDefault();
     window.location.href = "/create/policy/" + customerDetails.id;
   }
 
-  return (
+ 
+
+    return (
+    <>
+    {customerDetails.id ? (
     <div className="page">
-      <Row className=" justify-content-center align-items-center">
+
+      <Row className="mx-1 justify-content-center align-items-center">
         <Col className="col-1">
           <img
             src={customerDetails.type == 0 ? personLogo : firmLogo}
@@ -103,66 +97,58 @@ const CustomerDetails = () => {
         </Col>
 
       </Row>
-        <button className="btn-primary sign-out-button w-25" onClick={(e) => {handleClick(e)}}>Create New Policy</button>
+        
 
 
       <Row>
         <Col className="d-flex">
-        <div className="mt-5 px-3">
-            <h4>Policies</h4>
+        <div className="customer-details-id px-3 mt-5">
+            <p className="customer-details-label-head">Customer ID</p>
             <hr className=" my-2" />
-            {customerDetails.policies?.map((policy) => (
-              <div className="policy" key={policy.id}>
-                <h3 className="fw-light">{policy.id}</h3>
-              </div>
-            ))}
+            <p className="fw-light customer-details-label">{customerDetails.id}</p>
           </div>
-
+            
           <div className="customer-details-birthday px-3 mt-5">
-            <h4>{customerDetails.type == 0 ? "CPR" : "CVR"}</h4>
+            <p className="customer-details-label-head">{customerDetails.type == 0 ? "CPR" : "CVR"}</p>
             <hr className=" my-2" />
-            <h3 className="fw-light">
+            <p className="fw-light customer-details-label">
               {customerDetails.type == 0
                 ? customerDetails.cprNumber
                 : customerDetails.cvr}
-            </h3>
+            </p>
           </div>
 
           <div className="customer-details-address px-3 mt-5">
-            <h4>Address</h4>
+            <p className="customer-details-label-head">Address</p>
             <hr className=" my-2" />
-            <h3 className="fw-light">{customerDetails.address}</h3>
+            <p className="fw-light customer-details-label">{customerDetails.address}</p>
           </div>
 
-          <div className="customer-details-id px-3 mt-5">
-            <h4>Customer ID</h4>
-            <hr className=" my-2" />
-            <h3 className="fw-light">{customerDetails.id}</h3>
-          </div>
-          <br></br>
+         
         </Col>
-{/* 
-        <Col className="">
-          <Chart
-            className="mx-auto"
-            type="doughnut"
-            data={chartData}
-            options={lightOptions}
-            style={{ position: "relative", width: "80%" }}
-          />
-        </Col>
-        <Col className="">
-          <Chart
-            className="mx-auto"
-            type="doughnut"
-            data={chartData}
-            options={lightOptions}
-            style={{ position: "relative", width: "80%" }}
-          />
-        </Col> */}
       </Row>
+      <hr className=" my-5" />
+      <Row>
+        
+        <div className="px-3">
+            <div className="d-flex flex-col gap-3 justify-content-between align-content-center mb-2 mx-3">
+              <p className="customer-details-label-head mt-1">Policies</p>
+              <button className="btn-primary sign-out-button w-25 mt-0" onClick={(e) => {handleClick(e)}}>Add Policy</button>
+            </div>
+
+            
+              <div className="rounded-2 overflow-hidden">
+                
+                {customerDetails && <PolicyTable policies={customerDetails.policies} id={id} />}
+                
+              </div>
+          </div>
+        </Row>
     </div>
+    ): <LoadingPage/>}
+    </>
   );
+  
 };
 
 export default CustomerDetails;

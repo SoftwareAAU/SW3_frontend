@@ -13,6 +13,7 @@ import CreatePolicy from "./components/pages/CreatePolicy";
 import CustomerPolicies from "./components/pages/CustomerPolicies";
 import CreateCustomer from "./components/pages/CreateCustomer";
 import Policies from "./components/pages/Policies";
+import Coverage from "./components/pages/Coverage";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -45,6 +46,7 @@ function App() {
             <Route exact path="/analytics" element={<Analytics />} />
             <Route exact path="/policies" element={<Policies />} />
             <Route exact path="/create/policy/:id" element={<CreatePolicy/>} />
+            <Route exact path="/customers/:id/:id" element={<Coverage/>} />
             <Route path="/" element={<Navigate to="/dashboard" />} />
           </Routes>
         </Col>

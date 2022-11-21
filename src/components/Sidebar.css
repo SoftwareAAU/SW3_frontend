@@ -1,4 +1,5 @@
 .sidebar {
+
   background: white;
   height: calc(100vh - var(--sitePadding) * 2);
   border-radius: var(--borderRadius);
@@ -61,12 +62,12 @@
 }
 
 .sign-out-button:hover{
-  background: var(--darkBlue);
+  background: var(--pinkHover);
   
   transition: all ease-in-out 200ms;
 }
 .sign-out-button:active{
-  background: var(--pink);
+  background: var(--pinkActive);
   color: white;
   transition: all ease-in-out 200ms;
 }

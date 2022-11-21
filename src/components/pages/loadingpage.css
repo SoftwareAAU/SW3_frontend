@@ -1,0 +1,35 @@
+.loading-page{
+    
+    height:auto;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-img-container{
+    margin-top: 150px;
+    background: black;
+    border-radius: 100%;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-page-colors{
+    background: var(--semiPink);
+    background-color: var(--semiPink);
+    color: var(--semiPink);
+}
+
+
+
+.ld-first-name{
+    color: var(--semiPink);
+    font-size: 1.8rem;
+}
+.ld-surname{
+    color: var(--semiPink);
+    font-size: 1.4rem;
+}

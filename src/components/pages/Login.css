@@ -31,12 +31,12 @@
   transition: all ease-in-out 200ms;
 }
 .sign-in-button:hover {
-  background: var(--darkBlue);
+  background: var(--pinkHover);
 
   transition: all ease-in-out 200ms;
 }
 .sign-in-button:active {
-  background: var(--pink);
+  background: var(--pinkActive);
   color: white;
   transition: all ease-in-out 200ms;
 }

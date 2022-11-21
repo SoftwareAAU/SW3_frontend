@@ -9,3 +9,35 @@
     color: rgb(66, 66, 66);
     font-size: 1.4rem;
 }
+
+.policies-table{
+    overflow: scroll;
+    height:30%;
+}
+
+.customerdetails-icon{
+    color:white;
+    background-color: var(--pink);
+    transition: all ease-in-out;
+    transition-duration: 150ms;
+    
+}
+.customerdetails-icon:hover{
+    color: white;
+    background-color: var(--pinkHover);
+}
+.customerdetails-icon:active{
+    background-color: var(--pinkActive)
+}
+
+.customer-details-label{
+    margin: 0 0 0 0;
+    font-size: 1.2rem;
+}
+
+.customer-details-label-head{
+    margin: 0 0 0 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    
+}
