@@ -93,7 +93,6 @@ return (
     <>
     {(customerDetails.id && policyDetails.id ) ? (
     <div className="page">
-
         <Row className=" justify-content-center align-items-center">
         <Col className="col-1">
           <img
@@ -143,6 +142,9 @@ return (
             </p>
           </div>
         </Col>
+          <Col>
+              <button>ssss</button>
+          </Col>
         </Row>
         <hr className=" my-5" />
 
