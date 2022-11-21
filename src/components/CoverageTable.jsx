@@ -57,7 +57,7 @@ const CoverageTable = ({coverages}) => {
                          {coverage.startDate}
                      </td>
                      <td className="p-4">
-                        {coverage.terminateDate}
+                        {coverage.terminationDate}
                         </td>
                      <td className="p-4">
                         {coverage.premium}
@@ -66,10 +66,10 @@ const CoverageTable = ({coverages}) => {
                         {coverage.deductible}
                      </td>
                      <td className="p-4">
-                        {coverage.maximumCoverage}
+                        {coverage.maxCoverage}
                      </td>
                      <td className="p-4">
-                        {coverage.claimedAmount}
+                        {coverage.currentClaimAmount}
                      </td>
                      <td className="p-4">
                         {coverage.type}
