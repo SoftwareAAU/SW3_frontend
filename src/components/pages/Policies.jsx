@@ -46,13 +46,14 @@ const Policies = () => {
       let customer = customers.find(customer => customer.id === policy.customer);
       let policyWithCustomerName = {
         ...policy,
+        //Here you can add more customer info if needed
         customer_name: (customer.companyName || customer.firstName + " " + customer.surname),
         customer_type: customer.type
       }
       policiesWithCustomerName.push(policyWithCustomerName);
     });
-      console.log("policiesWithCustomerName:\n");
-      console.log(policiesWithCustomerName);
+      //console.log("policiesWithCustomerName:\n");
+      //console.log(policiesWithCustomerName);
       setPoliciesWithCustomer(policiesWithCustomerName);
   }
 
@@ -63,7 +64,96 @@ const Policies = () => {
   }, []); //policies, customers
 
   return (
-<></>
+    <div className="customers">
+      <div className="customer-cards">
+        <div className="customer-card-search-row">
+          <Col xs={4}>
+            <div className="mb-3">
+              <label htmlFor="disabledSelect" className="form-label">
+                Search
+              </label>
+              <input 
+                type="text" 
+                placeholder="Search"
+                className="form-control customer-card-searchbar"
+                onChange={e => console.log(e)}
+              />
+            </div>
+          </Col>
+          <Col xs={4}>
+            <div className="mb-3">
+              <label htmlFor="disabledSelect" className="form-label">
+                Filter by
+              </label>
+              <select id="disabledSelect" className="form-select">
+                <option>Filter by</option>
+              </select>
+            </div>
+          </Col>
+          <Col xs={4}>
+            <div className="mb-3">
+              <label htmlFor="disabledSelect" className="form-label">
+                Sort by
+              </label>
+              <select id="disabledSelect" className="form-select">
+                <option>Sort by</option>
+              </select>
+            </div>
+          </Col>
+        </div>
+
+        <hr/>
+
+        <table className="customer-table table table-bordered">          
+          <thead>
+            <tr>
+              <th className="p-4 customer-table-image" scope="col">
+
+              </th>
+              <th className="p-4" scope="col">
+                Name
+              </th>
+              <th className="p-4" scope="col">
+                Start Date
+              </th>
+              <th className="p-4" scope="col">
+                Termination Date
+              </th>
+              <th className="p-4" scope="col">
+                Total Premium
+              </th>
+              <th className="p-4" scope="col">
+                Policy Type
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {policiesWithCustomerName.map((policy, index) => (
+              <tr
+                key={index}
+                onClick={() => console.log(policy)}
+                className="my-4"
+              >
+                <td className="p-4">
+                  <img
+                    height={40}
+                    src={policy.customer_type == 0 ? personLogo : firmLogo}
+                    alt=""
+                  />
+                </td>
+                <td className="p-4">{policy.customer_name}</td>
+                <td className="p-4">{policy.startDate}</td>
+                <td className="p-4">{policy.terminationDate}</td>
+                <td className="p-4">{policy.totalPremium}</td>
+                <td className="p-4">{policy.type}</td>
+
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
   );
 }
  
