@@ -66,7 +66,6 @@ useEffect(() => {
 
 return (
     <div className="page">
-
         <Row className=" justify-content-center align-items-center">
         <Col className="col-1">
           <img
@@ -95,9 +94,9 @@ return (
         </Col>
         </Row>
         <Row>
-            <Col>
-            
-            </Col>
+          <Col>
+              <button>ssss</button>
+          </Col>
         </Row>
 
         <Row className="align-items-center">
