@@ -189,8 +189,7 @@ const ClaimDetails = () => {
                     {claim.approved == 1 ? ( <h1 className="fw-normal claims-details-approved-text p-2 px-3 rounded-5">Approved</h1>) : (<></> )}
                     {claim.approved == 2 ? ( <h1 className="fw-normal claims-details-approved-text p-2 px-3 rounded-5">Denied</h1>) : (<></> )}
                     {claim.approved == 0 ? ( 
-                    
-                    
+
                     <div className="d-flex flex-row gap-2">
                     <button className="btn-primary sign-out-button px-3 mt-0" onClick={approveClaim}>Approve</button>
                     <button className="btn-primary sign-out-button px-3 mt-0" onClick={denyClaim}>Deny</button>
