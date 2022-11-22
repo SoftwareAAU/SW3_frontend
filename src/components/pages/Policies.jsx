@@ -12,6 +12,8 @@ import axios from "axios";
 
 import Cookies from "js-cookie";
 
+
+
 const Policies = () => {
 
   //const [policies, setPolicies] = useState([]);
@@ -70,6 +72,16 @@ const Policies = () => {
   useEffect(() => {
     getAllPoliciesWithToken();
   }, []); //policies, customers
+
+  //Map customer types to int
+  const customerTypeMap = {
+    0: "Household Insurance",
+    1: "Car Insurance",
+    2: "Travel Insurance",
+    3: "Life Insurance",
+    4: "Health Insurance",
+    5: "Accident Insurance",
+  }
 
   return (
     <div className="customers">
@@ -153,7 +165,7 @@ const Policies = () => {
                   <td className="p-4">{policy.startDate}</td>
                   <td className="p-4">{policy.terminationDate}</td>
                   <td className="p-4">{policy.totalPremium}</td>
-                  <td className="p-4">{policy.type}</td>
+                  <td className="p-4">{customerTypeMap[policy.type]}</td>
   
                 </tr>
               ))
