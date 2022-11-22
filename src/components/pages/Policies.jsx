@@ -12,6 +12,8 @@ import axios from "axios";
 
 import Cookies from "js-cookie";
 
+import customerTypeMap from "../../CustomerTypeMap";
+
 
 
 const Policies = () => {
@@ -72,16 +74,6 @@ const Policies = () => {
   useEffect(() => {
     getAllPoliciesWithToken();
   }, []); //policies, customers
-
-  //Map customer types to int
-  const customerTypeMap = {
-    0: "Household Insurance",
-    1: "Car Insurance",
-    2: "Travel Insurance",
-    3: "Life Insurance",
-    4: "Health Insurance",
-    5: "Accident Insurance",
-  }
 
   return (
     <div className="customers">

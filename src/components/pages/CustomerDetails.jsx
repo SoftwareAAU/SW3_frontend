@@ -25,6 +25,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
 
 
+
 const CustomerDetails = () => {
   const { id } = useParams();
 
