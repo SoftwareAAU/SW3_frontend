@@ -82,38 +82,6 @@ useEffect(() => {
     
 
 }, []);
-
-const deletePolicy = async (id) => {
-    const headers = {
-      token: `${Cookies.get("token")}`,
-    };
-
-    const bodyFormData = new FormData();
-    bodyFormData.append("id", id);
-
-    const url = globals.ip + "/policy/" + id;
-
-    const response = await axios.delete(url, {
-      headers: headers,
-    });
-
-    console.log(response.data);
-  };
-
-const handleDelete = () => {
-  //Get id from url
-  let urlIDs = window.location.pathname.split("/");
-  let customerID = urlIDs[2];
-  let policyID = urlIDs[3];
-  if (window.confirm('Are you sure you want to delete this policy?')) {
-    // Delete
-    deletePolicy(policyID);
-    alert("Policy deleted.");
-  } else {
-    // Do nothing!
-    alert("Policy not deleted.");
-  }
-}
  
 
 return (
@@ -147,21 +115,16 @@ return (
             )}
           </div>
         </Col>
-        </Row>
-        <Row>
-          <Col>
-              <button className="btn-primary sign-out-button w-25" onClick={handleDelete}>Delete Policy</button>
-          </Col>
-        </Row>
+
+       </Row>
 
         <Row className="align-items-center">
         <div className="mt-5 px-3 coverage-table">
-            <h4>Coverages</h4>
-            <br />
+
               <div>
-                {policyCoverages != null && policyCoverages.length ? (
-                    <CoverageTable coverages={policyCoverages} />
-                ) : <p>Loading coverages nigger</p>}
+
+                {policyCoverages && <CoverageTable coverages={policyCoverages.coverages} id={id} />}
+
               </div>
           </div>
           
