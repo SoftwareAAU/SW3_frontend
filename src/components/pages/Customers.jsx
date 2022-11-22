@@ -4,8 +4,6 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import globals from "../../globals";
 
-import personLogo from "../../assets/person.png";
-import firmLogo from "../../assets/firm.png";
 
 import "./Customers.css";
 import axios from "axios";
@@ -13,6 +11,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 import "./loadingpage.css"
+import CustomersTable from "../CustomersTable";
 
 const Customers = () => {
   
@@ -21,15 +20,16 @@ const Customers = () => {
   //test stuff
   const [persons, setPersons] = useState([]);
   const [companies, setCompanies] = useState([]);
-
   const [filteredCustomers, setFilteredCustomers] = useState([]);
+
+  const [filterBy, setFilterBy] = useState("all");
 
   useEffect(() => {
     getAllCustomersWithToken();
 
     //test;
-    //getAllCompaniesWithToken();
-    //getAllPersonsWithToken();
+    getAllCompaniesWithToken();
+    getAllPersonsWithToken();
   }, []);
 
   useEffect(() => {
@@ -93,6 +93,10 @@ const Customers = () => {
     }
   }
 
+
+
+
+
   //fetching all customers from the database with token in the body
   const getAllCustomersWithToken = async () => {
  
@@ -115,11 +119,7 @@ const Customers = () => {
       console.log(response.data.customers);
     };
 
-  const navigate = useNavigate();
-  
-  const handleRowClick = (row) => {
-    navigate(`/customers/${row.id}`);
-  };
+ 
 
   return (
     <div className="customers">
@@ -144,8 +144,10 @@ const Customers = () => {
               <label htmlFor="disabledSelect" className="form-label">
                 Filter by
               </label>
-              <select id="disabledSelect" className="form-select">
-                <option>Filter by</option>
+              <select id="disabledSelect" className="form-select" onChange={(e) => setFilterBy(e.target.value)}>
+                <option value={"all"}>All</option>
+                <option value={"persons"}>Persons</option>
+                <option value={"companies"}>Companies</option>
               </select>
             </div>
           </div>
@@ -161,73 +163,9 @@ const Customers = () => {
           </div>
           <hr />
         </div>
-        <table className="customer-table table table-bordered">
-          <thead>
-            <tr>
-              <th className="p-4 customer-table-image" scope="col">
-                Type
-              </th>
-              <th className="p-4" scope="col">
-                Name
-              </th>
-              <th className="p-4" scope="col">
-                Customer ID
-              </th>
-              <th className="p-4" scope="col">
-                Address
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-          {filteredCustomers && filteredCustomers.length > 0 ? (
-            filteredCustomers.map((customer) => (
-              <tr
-                key={customer.id}
-                className=" my-4"
-                onClick={() => handleRowClick(customer)}>
-                <td className="p-4">
-                  <img
-                    height={40}
-                    src={customer.type == 0 ? personLogo : firmLogo}
-                    alt=""
-                  />
-                </td>
-                <td className="p-4">
-                  {customer.type == 0? 
-                    (
-                      customer.firstName +"\n"+ customer.surname)
-                    : customer.companyName}
-                  
-                </td>
-                <td className="p-4">{customer.customer}</td>
-                <td className="p-4">{customer.address}</td>
-              </tr>
-            ))
-          ) : (
-            <>
-            <tr>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-            </tr>
-            <tr>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-            </tr>
-            <tr>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-              <td><div className="spinner-grow loading-page-colors"></div></td>
-            </tr>
-        
-            </>
-          )}
-          </tbody>
-        </table>
+        {filterBy == "all" ? ( <CustomersTable customers={filteredCustomers} />) : (<></>)}
+        {filterBy == "persons" ? ( <CustomersTable customers={persons} />) : (<></>)}
+        {filterBy == "companies" ? ( <CustomersTable customers={companies} />) : (<></>)}
       </div>
     </div>
   );

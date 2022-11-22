@@ -96,6 +96,27 @@ const ClaimDetails = () => {
           });
     }
 
+    function denyClaim() {
+        const bodyFormData = new FormData();
+        bodyFormData.append("id", id);
+        const token = Cookies.get("token");
+
+        axios({
+            method: "put",
+            url: globals.ip + "/claim/deny",
+            data: bodyFormData,
+            headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
+          }).then((res) => {
+            const { status } = res.data;
+            if (status === true) {
+              alert("Policy created");
+              return;
+            }
+            console.log(res.data);
+            alert("Something went wrong");
+          });
+    }
+
 
   
 
@@ -162,16 +183,22 @@ const ClaimDetails = () => {
         <hr className="my-4" />
       <div className="p-3 rounded-3 claim-details-claim-info">
             <Row className="">
-                <div className="d-flex flex-row justify-content-between mb-3 ">
+                <div className="d-flex flex-row justify-content-between">
                     <h1 className="fw-normal cd-first-name mb-1">Claim</h1> 
 
-                    {claim.approved == 1 ? (
-                        <h1 className="fw-normal claims-details-approved-text p-2 px-3 rounded-5">Approved</h1>
-                    ) : (
-                        <button className="btn-primary sign-out-button w-25 mt-0" onClick={approveClaim}>Approve</button>
-                    )}
+                    {claim.approved == 1 ? ( <h1 className="fw-normal claims-details-approved-text p-2 px-3 rounded-5">Approved</h1>) : (<></> )}
+                    {claim.approved == 2 ? ( <h1 className="fw-normal claims-details-approved-text p-2 px-3 rounded-5">Denied</h1>) : (<></> )}
+                    {claim.approved == 0 ? ( 
+                    
+                    
+                    <div className="d-flex flex-row gap-2">
+                    <button className="btn-primary sign-out-button px-3 mt-0" onClick={approveClaim}>Approve</button>
+                    <button className="btn-primary sign-out-button px-3 mt-0" onClick={denyClaim}>Deny</button>
+                    </div>
+                    ) : (<></> )}
                 </div>
             </Row>
+            <hr />
             <Row className="d-flex">
                 <Col>
                     <Row className="d-flex">
