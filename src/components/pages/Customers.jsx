@@ -26,8 +26,6 @@ const Customers = () => {
 
   useEffect(() => {
     getAllCustomersWithToken();
-
-    //test;
     getAllCompaniesWithToken();
     getAllPersonsWithToken();
   }, []);
@@ -163,7 +161,7 @@ const Customers = () => {
           </div>
           <hr />
         </div>
-        {filterBy == "all" ? ( <CustomersTable customers={filteredCustomers} />) : (<></>)}
+        {filterBy == "all" ? ( <CustomersTable customers={customers} />) : (<></>)}
         {filterBy == "persons" ? ( <CustomersTable customers={persons} />) : (<></>)}
         {filterBy == "companies" ? ( <CustomersTable customers={companies} />) : (<></>)}
       </div>
