@@ -18,6 +18,7 @@ import Claims from "./components/pages/Claims";
 import ClaimDetails from "./components/pages/ClaimDetails";
 import CreateCoverage from "./components/pages/CreateCoverage";
 
+import AllCoverages from "./components/pages/AllCoverages";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -54,6 +55,7 @@ function App() {
             <Route exact path="/claims" element={<Claims/>} />
             <Route exact path="/claims/:id" element={<ClaimDetails/>} />
             <Route exact path="/create/coverage/:id" element={<CreateCoverage/>} />
+            <Route exact path="/coverages" element={<AllCoverages/>} />
 
             <Route path="/" element={<Navigate to="/dashboard" />} />
           </Routes>
