@@ -12,7 +12,7 @@ import axios from "axios";
 
 import Cookies from "js-cookie";
 
-import customerTypeMap from "../../CustomerTypeMap";
+import policyTypeMap from "../../PolicyTypeMap";
 
 
 
@@ -157,7 +157,7 @@ const Policies = () => {
                   <td className="p-4">{policy.startDate}</td>
                   <td className="p-4">{policy.terminationDate}</td>
                   <td className="p-4">{policy.totalPremium}</td>
-                  <td className="p-4">{customerTypeMap[policy.type]}</td>
+                  <td className="p-4">{policyTypeMap[policy.type]}</td>
   
                 </tr>
               ))

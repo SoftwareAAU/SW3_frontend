@@ -1,4 +1,4 @@
-const customerTypeMap = {
+const policyTypeMap = {
   0: "Household Insurance",
   1: "Car Insurance",
   2: "Travel Insurance",
@@ -7,4 +7,4 @@ const customerTypeMap = {
   5: "Accident Insurance",
 }
 
-export default customerTypeMap;
+export default policyTypeMap;

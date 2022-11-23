@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import globals from "../globals";
-import customerTypeMap from "../CustomerTypeMap";
+import policyTypeMap from "../PolicyTypeMap";
 
 import "./policytable.css";
 
@@ -79,7 +79,7 @@ const PolicyTable = ({policies, id}) => {
                         {policy.totalPremium}
                         </td>
                      <td className="p-4">
-                        {customerTypeMap[policy.type]}
+                        {policyTypeMap[policy.type]}
                      </td>
                  </tr>
                     ))}
