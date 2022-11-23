@@ -56,15 +56,16 @@ const Coverage = () => {
     setCustomerDetails(response.data);
   };
 
-useEffect(() => {
-    
-    getCoveragesFromPolicyId();
-    getCustomerById();
-    
+  useEffect(() => {
+      
+      getCoveragesFromPolicyId();
+      getCustomerById();
+      
 
-}, []);
+  }, []);
 
-const deletePolicy = async (id) => {
+  //Delete policy put request with id
+    const deletePolicy = async (id) => {
     const headers = {
       token: `${Cookies.get("token")}`,
     };
@@ -74,7 +75,7 @@ const deletePolicy = async (id) => {
 
     const url = globals.ip + "/policy/" + id;
 
-    const response = await axios.delete(url, {
+    const response = await axios.put(url, {
       headers: headers,
     });
 
