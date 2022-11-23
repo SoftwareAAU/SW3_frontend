@@ -7,17 +7,20 @@ import globals from "../../globals";
 import { redirect } from "react-router-dom";
 
 
-const CreatePolicy = () => {
+const CreateCoverage = () => {
 
     //policy requiredments
     const [customer, setCustomer] = useState(0);
+    const [type, setType] = useState(0);
     const [start, setStart] = useState("");
     const [termination, setTermination] = useState("");
-    const [totalPremium, setTotalPremium] = useState(0.0);
-    const [policyType, setPolicyType] = useState(0);
+    const [premium, setpremium] = useState(0.0);
+    const [maxCoverage, setMaxCoverage] = useState(0.0);
+    const [deductible, setDeductible] = useState(0.0);
     const id = window.location.pathname.split("/")[3];
 
     const [customerDetails, setCustomerDetails] = useState({type: 0, firstName:"Loading customer...", surname: " "});
+    const [policyDetails, setPolicyDetails] = useState({type: 0, id: 0, startDate: "Loading policy...", terminationDate: " "});
 
       //fetch customer by id from the database
     const getCustomerPolicies = async () => {
@@ -36,30 +39,32 @@ const CreatePolicy = () => {
 
 
   //fetch policy by id from the database
-  const getPolicy = async () => {
+    const getPolicy = async () => {
     const headers = {
-      token: `${Cookies.get("token")}`,
+        token: `${Cookies.get("token")}`,
     };
 
     const url = globals.ip + "/policy/" + id;
 
     const response = await axios.get(url, {
-      headers: headers,
+        headers: headers,
     });
-    
-    setPolicyType(response.data.type);
+    console.log(response.data);
+    setCustomer(response.data.customer);
+    setType(response.data.type);
     setStart(response.data.start);
     setTermination(response.data.termination);
-    setTotalPremium(response.data.totalPremium);
-  };
-
+    setpremium(response.data.premium);
+    setMaxCoverage(response.data.maxCoverage);
+    setDeductible(response.data.deductible);
+    setPolicyDetails(response.data);
+    };
 
 
   //UseEffect to fetch customer details
     useEffect(() => {
         getCustomerPolicies();
         getPolicy();
-
     }, []);
 
 
@@ -71,31 +76,33 @@ const CreatePolicy = () => {
         const id = window.location.pathname.split("/")[3];
 
         const bodyFormData = new FormData();
-        bodyFormData.append("customer", id);//
-        bodyFormData.append("start", start);//
-        bodyFormData.append("termination", termination);//
-        bodyFormData.append("type", policyType);//
+        bodyFormData.append("type", type);
+        bodyFormData.append("start", start);
+        bodyFormData.append("termination", termination);
+        bodyFormData.append("premium", premium);
+        bodyFormData.append("deductible", deductible);
+        bodyFormData.append("maxCoverage", maxCoverage);
         
-        createPolicy(bodyFormData);
+        createCoverage(bodyFormData);
 
         e.preventDefault();
         window.location='/customers/' + id;
     }
 
-    //create customer in db
-    function createPolicy(formData) {
+    //create coverage in db
+    function createCoverage(formData) {
         const token = Cookies.get("token");
 
         axios({
             method: "post",
-            url: globals.ip + "/policy/create",
+            url: globals.ip + "/coverage/create",
             data: formData,
             headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
           }).then((res) => {
             const { status } = res.data;
     
             if (status === true) {
-              alert("Policy created");
+              alert("Coverage created");
               return;
             }
     
@@ -107,32 +114,40 @@ const CreatePolicy = () => {
 
     return ( 
         <div className="page">
-            <h1>Create Policy</h1>
-            <p className="text-muted">{`For customer: ${customerDetails.type == 0 ? (customerDetails.firstName + " " + customerDetails.surname) : (customerDetails.companyName)}`}</p>
+            <h1>Create Coverage</h1>
+            <p className="text-muted">{`For policy: ${policyDetails.id}`}</p>
             
         <form onSubmit={(formData) => handleSubmit(formData)}>
         <Col>
             <Row className="mx-2 mt-4">
                 <Col>
-                    <h3>Start dato</h3>
+                    <h3>Start date</h3>
                     <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setStart(e.target.value)} />
                     <br />
                     <h3>Termination date</h3>
                     <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setTermination(e.target.value)} />
                     <br />
                     <h3>Type</h3>
-                    <select required className="form-select" onChange={(e)=> setPolicyType(e.target.value)}>
-                        <option value="0">Household Insurance</option>
-                        <option value="1">Car Insurance</option>
-                        <option value="2">Travel Insurance</option>
-                        <option value="3">Life Insurance</option>
-                        <option value="4">Health Insurance</option>
-                        <option value="5">Accident Insurance</option>
+                    <select required className="form-control" onChange={(e)=> setType(e.target.value)}>
+                        <option value="0">Car</option>
+                        <option value="1">Hus</option>
+                        <option value="2">Wife</option>
+                        <option value="3">Your retarded brother Billo</option>
                     </select>
+                    <br />
+                    <h3>Premium</h3>
+                    <input required type="number" className="form-control" placeholder="Premium" onChange={(e)=> setpremium(e.target.value)} />
+                    <br />
+                    <h3>Deductible</h3>
+                    <input required type="number" className="form-control" placeholder="Deductible" onChange={(e)=> setDeductible(e.target.value)} />
+                    <br />
+                    <h3>Max Coverage</h3>
+                    <input required type="number" className="form-control" placeholder="Max Coverage" onChange={(e)=> setMaxCoverage(e.target.value)} />
+                    <br />
                 </Col>
             </Row>
             <Row className="flex flex-column justify-content-center align-items-center">
-                <button type="SUBMIT" className="btn-primary sign-out-button mt-5 w-50"> Create customer</button>
+                <button type="SUBMIT" className="btn-primary sign-out-button mt-5 w-50"> Create coverage</button>
             </Row>
         </Col>
         </form>
@@ -141,4 +156,4 @@ const CreatePolicy = () => {
      );
 }
  
-export default CreatePolicy;
+export default CreateCoverage;

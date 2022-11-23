@@ -7,6 +7,7 @@ import dashboardLogo from "../assets/speed.png";
 import customerLogo from "../assets/client.png";
 import analyticsLogo from "../assets/chart.png";
 import claimsLogo from "../assets/claims.png";
+import coverageLogo from "../assets/claims.png";
 
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
@@ -35,6 +36,9 @@ const Sidebar = () => {
           </NavLink>
           <NavLink to="/claims" className="link">
           <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={claimsLogo} alt="CHART" /> Claims</div>
+          </NavLink>
+          <NavLink to="/coverages" className="link">
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={coverageLogo} alt="CHART" /> Coverages</div>
           </NavLink>
           <NavLink to="/analytics" className="link">
           <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={analyticsLogo} alt="CHART" /> Analytics</div>

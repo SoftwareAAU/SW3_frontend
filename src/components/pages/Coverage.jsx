@@ -10,6 +10,7 @@ import firmLogo from "../../assets/firm.png";
 import personLogo from "../../assets/person.png";
 import CoverageTable from "../CoverageTable";
 import "../CoverageTable.css";
+import LoadingPage from "./LoadingPage";
 
 const Coverage = () => {
 
@@ -95,8 +96,18 @@ const handleDelete = () => {
   }
 }
  
+const handleClick = () => {
+  //Get id from url
+  let urlIDs = window.location.pathname.split("/");
+  let customerID = urlIDs[2];
+  let policyID = urlIDs[3];
+  window.location.href = "/create/coverage/" + policyID;
+}
+
 
 return (
+ <>
+ {customerDetails.id ? (
     <div className="page">
         <Row className=" justify-content-center align-items-center">
         <Col className="col-1">
@@ -131,19 +142,27 @@ return (
           </Col>
         </Row>
 
-        <Row className="align-items-center">
-        <div className="mt-5 px-3 coverage-table">
-            <h4>Coverages</h4>
-            <br />
-              <div>
+        <hr className=" my-5" />
+        <Row>
+
+        <div className="px-3">
+        <div className="d-flex flex-col gap-3 justify-content-between align-content-center mb-2 mx-3">
+              <p className="customer-details-label-head mt-1">Coverages</p>
+              <button className="btn-primary sign-out-button w-25 mt-0" onClick={(e) => {handleClick(e)}}>Add Coverage</button>
+            </div>
+
+              <div className="rounded-2 overflow-hidden">
                 {policyCoverages != null && policyCoverages.length ? (
                     <CoverageTable coverages={policyCoverages} />
-                ) : <p>Loading coverages nigger</p>}
+                ) : <></>}
+                
               </div>
           </div>
         </Row>
     </div>
-    );
+    ) : <LoadingPage />}
+  </> 
+        );
 };
 
 

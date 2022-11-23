@@ -133,15 +133,15 @@ const Claims = () => {
         </Row>
        
         {filterBy == "unapproved" ? (
-          (claims.length > 0) ? <ClaimsTable claims={claims} /> : <p className='text-center'>Loading</p>
+          (unapprovedClaims.length > 0) ? <ClaimsTable claims={unapprovedClaims} /> : <p className='text-center'>No Unapproved Claims</p>
         ) : (<div></div>)}
 
         {filterBy == "approved" ? (
-          (unapprovedClaims.length > 0 ? <ClaimsTable claims={unapprovedClaims} /> : <p className='text-center'>All claims approved</p>)
+          (approvedClaims.length > 0 ? <ClaimsTable claims={approvedClaims} /> : <p className='text-center'>No Approved Claims</p>)
         ) : (<div></div>)}
 
         {filterBy == "all" ? (
-          (approvedClaims.length > 0 ? <ClaimsTable claims={approvedClaims} /> : <p className='text-center'>No claims</p>)
+          (claims.length > 0 ? <ClaimsTable claims={claims} /> : <p className='text-center'>No Claims</p>)
         ) : (<div></div>)}
           
       </div>
