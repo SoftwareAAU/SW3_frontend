@@ -20,7 +20,7 @@ const CreateCoverage = () => {
     const id = window.location.pathname.split("/")[3];
 
     const [customerDetails, setCustomerDetails] = useState({type: 0, firstName:"Loading customer...", surname: " "});
-    const [policyDetails, setPolicyDetails] = useState({type: 0, start: "Loading policy...", termination: " "});
+    const [policyDetails, setPolicyDetails] = useState({type: 0, id: 0, startDate: "Loading policy...", terminationDate: " "});
 
       //fetch customer by id from the database
     const getCustomerPolicies = async () => {
@@ -49,7 +49,7 @@ const CreateCoverage = () => {
     const response = await axios.get(url, {
         headers: headers,
     });
-
+    console.log(response.data);
     setCustomer(response.data.customer);
     setType(response.data.type);
     setStart(response.data.start);
@@ -115,7 +115,7 @@ const CreateCoverage = () => {
     return ( 
         <div className="page">
             <h1>Create Coverage</h1>
-            <p className="text-muted">{`For policy: ${policyDetails.type == 0 ? (policyDetails.start) : (policyDetails.termination)}`}</p>
+            <p className="text-muted">{`For policy: ${policyDetails.id}`}</p>
             
         <form onSubmit={(formData) => handleSubmit(formData)}>
         <Col>
