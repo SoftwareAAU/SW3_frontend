@@ -85,6 +85,10 @@ const CoverageDetails = () => {
         return(response.data.claims);
     }
   
+    const navigate = useNavigate()
+    const navToCreateClaim = () => {
+        navigate("/create/claim/" + idArray[6]);
+    }
 
     useEffect(() => {
 
@@ -216,7 +220,7 @@ const CoverageDetails = () => {
             <Row className="">
                 <div className="d-flex flex-row justify-content-between">
                     <h1 className="fw-normal cd-first-name mb-1">Claims</h1> 
-                    <button className="btn-primary sign-out-button px-3 mt-0 w-25" onClick={console.log("")}>Create Claim</button>
+                    <button className="btn-primary sign-out-button px-3 mt-0 w-25" onClick={navToCreateClaim}>Create Claim</button>
                 </div>
                 
             </Row>
