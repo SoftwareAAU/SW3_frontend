@@ -23,12 +23,14 @@ import CoverageDetails from "./components/pages/CoverageDetails";
 import CreateClaim from "./components/pages/CreateClaim";
 import AnimatedPage from "./components/AnimatedPage";
 
+import "./components/Sidebar.css";
+
 const WebAppRouter = () => {
     return ( <div>
 
 <Row>
       <BrowserRouter className="App">
-        <Col sm={3}>
+        <Col className="">
           <Sidebar />
         </Col>
         <Col sm={9}>
