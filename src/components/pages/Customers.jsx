@@ -4,6 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import globals from "../../globals";
 
+import * as Icon from 'react-bootstrap-icons';
 
 import "./Customers.css";
 import axios from "axios";
@@ -123,11 +124,11 @@ const Customers = () => {
     <div className="customers">
       <div className="customer-cards">
         <div className="customer-card-search row">
-          <h1>Customers</h1>
+          <h1 className="link d-flex flex-row align-items-center gap-2"> <Icon.PeopleFill/> Customers</h1>
           <div className="col-4">
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
-                Search
+              <Icon.Search/> Search
               </label>
               <input
                 type="text"
@@ -140,11 +141,11 @@ const Customers = () => {
           <div className="col-4">
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
-                Filter by
+              <Icon.SortDown/>  Filter by
               </label>
               <select id="disabledSelect" className="form-select" onChange={(e) => setFilterBy(e.target.value)}>
                 <option value={"all"}>All</option>
-                <option value={"persons"}>Persons</option>
+                <option value={"persons"}> Persons</option>
                 <option value={"companies"}>Companies</option>
               </select>
             </div>
@@ -152,7 +153,7 @@ const Customers = () => {
           <div className="col-4">
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
-                Sort by
+              <Icon.Funnel/>  Sort by
               </label>
               <select id="disabledSelect" className="form-select">
                 <option>Sort by</option>

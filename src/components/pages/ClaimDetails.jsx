@@ -135,11 +135,8 @@ const ClaimDetails = () => {
 
       <Row className="mx-1 justify-content-center align-items-center">
         <Col className="col-1">
-          <img
-            src={customerDetails.type == 0 ? personLogo : firmLogo}
-            height={80}
-            alt="Logo"
-          />
+
+          <div> {customerDetails.type == 0 ? personLogo : firmLogo} </div>
         </Col>
         
         <Col className="d-flex ">
