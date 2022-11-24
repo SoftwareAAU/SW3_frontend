@@ -11,6 +11,7 @@ import personLogo from "../../assets/person.png";
 import CoverageTable from "../CoverageTable";
 import "../CoverageTable.css";
 import LoadingPage from "./LoadingPage";
+import AllCoveragesTable from "../AllCoveragesTable";
 
 const Coverage = () => {
 
@@ -153,7 +154,7 @@ return (
 
               <div className="rounded-2 overflow-hidden">
                 {policyCoverages != null && policyCoverages.length ? (
-                    <CoverageTable coverages={policyCoverages} />
+                    <AllCoveragesTable coverages={policyCoverages} />
                 ) : <></>}
                 
               </div>

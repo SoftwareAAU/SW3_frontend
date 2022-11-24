@@ -81,19 +81,25 @@ const ClaimDetails = () => {
         const token = Cookies.get("token");
 
         axios({
-            method: "put",
+            method: "post",
             url: globals.ip + "/claim/approve",
             data: bodyFormData,
             headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
           }).then((res) => {
             const { status } = res.data;
+            console.log(status)
             if (status === true) {
-              alert("Policy created");
+              alert("Claim Approved");
               return;
-            }
-            console.log(res.data);
-            alert("Something went wrong");
-          });
+            } 
+              alert("Claim Approval Failed");
+
+            
+            
+          }).then(()=>{
+            window.location.reload();
+          })
+          
     }
 
     function denyClaim() {
@@ -102,19 +108,21 @@ const ClaimDetails = () => {
         const token = Cookies.get("token");
 
         axios({
-            method: "put",
+            method: "post",
             url: globals.ip + "/claim/deny",
             data: bodyFormData,
             headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
           }).then((res) => {
             const { status } = res.data;
             if (status === true) {
-              alert("Policy created");
+              alert("Claim Denied");
               return;
             }
-            console.log(res.data);
-            alert("Something went wrong");
-          });
+            alert("Claim Denial Failed");
+          }).then(()=>{
+            window.location.reload();
+          })
+          
     }
 
 
