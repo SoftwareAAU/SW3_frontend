@@ -1,0 +1,13 @@
+.loading-page-container{
+    background: var(--semiPink);
+    margin: calc(var(--sitePadding) * -1);
+    height: 100vh;
+
+}
+
+.loading-page-image-container{
+}
+
+.loading-image{
+    /* dropshadow */
+}
