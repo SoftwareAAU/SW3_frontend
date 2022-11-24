@@ -13,6 +13,7 @@ import firmLogo from "../../assets/firm.png";
 import globals from "../../globals";
 import "./claimdetails.css"
 import ClaimsTable from "../ClaimsTable";
+import AnimatedPage from "../AnimatedPage";
 
 
 const CoverageDetails = () => {
@@ -100,7 +101,7 @@ const CoverageDetails = () => {
     const handleClick = (e) => {
     }
     return ( 
-        <>
+        <AnimatedPage>
          {dataLoaded ? (
         <div className="page">
 
@@ -229,7 +230,7 @@ const CoverageDetails = () => {
         </div>
         </div>
         ): <LoadingPage/>}
-        </>
+        </AnimatedPage>
 
      );
 }

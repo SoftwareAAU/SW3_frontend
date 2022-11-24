@@ -8,6 +8,7 @@ import {Row, Col} from "react-bootstrap";
 
 import personLogo from "../../assets/person.png";
 import firmLogo from "../../assets/firm.png";
+import AnimatedPage from "../AnimatedPage";
 
 
 const CustomerPolicies = () => {
@@ -39,7 +40,9 @@ const CustomerPolicies = () => {
     }, []);
 
 
-    return ( <div className="page">
+    return ( 
+    <AnimatedPage>
+    <div className="page">
          <Row className=" justify-content-center align-items-center">
                 <Col className="col-1">
                     <img src={customer.type == 0? personLogo: firmLogo} height={80} alt="Logo" />
@@ -76,7 +79,9 @@ const CustomerPolicies = () => {
                     </tbody>
                 </table>
             </Col>
-    </div>  );
+    </div>  
+    </AnimatedPage>
+    );
 }
  
 export default CustomerPolicies;

@@ -12,6 +12,7 @@ import CoverageTable from "../CoverageTable";
 import "../CoverageTable.css";
 import LoadingPage from "./LoadingPage";
 import AllCoveragesTable from "../AllCoveragesTable";
+import AnimatedPage from "../AnimatedPage";
 
 const Coverage = () => {
 
@@ -107,7 +108,7 @@ const handleClick = () => {
 
 
 return (
- <>
+ <AnimatedPage>
  {customerDetails.id ? (
     <div className="page">
         <Row className=" justify-content-center align-items-center">
@@ -162,7 +163,7 @@ return (
         </Row>
     </div>
     ) : <LoadingPage />}
-  </> 
+  </AnimatedPage> 
         );
 };
 

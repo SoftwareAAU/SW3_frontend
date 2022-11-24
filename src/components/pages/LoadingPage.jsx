@@ -5,10 +5,13 @@ import "./loadingpage.css"
 import personLogo from "../../assets/person.png";
 import firmLogo from "../../assets/firm.png";
 import * as Icon from 'react-bootstrap-icons';
+import AnimatedPage from '../AnimatedPage';
 
 
 const LoadingPage = () => {
-    return ( <div className='page'>
+    return ( 
+    <AnimatedPage>
+    <div className='page'>
 
       
 <Row className=" mx-1 justify-content-center align-items-center">
@@ -74,7 +77,9 @@ const LoadingPage = () => {
 
 
 
-    </div> );
+    </div> 
+    </AnimatedPage>
+    );
 }
  
 export default LoadingPage;

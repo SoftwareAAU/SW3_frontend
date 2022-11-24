@@ -13,6 +13,7 @@ import Cookies from "js-cookie";
 
 import "./loadingpage.css"
 import CustomersTable from "../CustomersTable";
+import AnimatedPage from "../AnimatedPage";
 
 const Customers = () => {
   
@@ -121,6 +122,7 @@ const Customers = () => {
  
 
   return (
+    <AnimatedPage>
     <div className="customers">
       <div className="customer-cards">
         <div className="customer-card-search row">
@@ -167,6 +169,7 @@ const Customers = () => {
         {filterBy == "companies" ? ( <CustomersTable customers={companies} />) : (<></>)}
       </div>
     </div>
+    </AnimatedPage>
   );
 };
 

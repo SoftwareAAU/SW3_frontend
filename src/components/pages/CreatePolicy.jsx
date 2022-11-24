@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import globals from "../../globals";
 import { redirect } from "react-router-dom";
+import AnimatedPage from "../AnimatedPage";
 
 
 const CreatePolicy = () => {
@@ -106,6 +107,7 @@ const CreatePolicy = () => {
     }
 
     return ( 
+      <AnimatedPage>
         <div className="page">
             <h1>Create Policy</h1>
             <p className="text-muted">{`For customer: ${customerDetails.type == 0 ? (customerDetails.firstName + " " + customerDetails.surname) : (customerDetails.companyName)}`}</p>
@@ -138,6 +140,7 @@ const CreatePolicy = () => {
         </form>
 
         </div>
+        </AnimatedPage>
      );
 }
  

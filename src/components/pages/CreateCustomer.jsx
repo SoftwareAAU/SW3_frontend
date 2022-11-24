@@ -4,6 +4,7 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import globals from "../../globals";
+import AnimatedPage from "../AnimatedPage";
 
 import * as Icon from 'react-bootstrap-icons';
 
@@ -112,6 +113,7 @@ const CreateCustomer = () => {
     }
 
     return ( 
+        <AnimatedPage>
         <div className="page">
             <h1 className="link d-flex flex-row align-items-center gap-2"> <Icon.PersonPlusFill /> Create Customer</h1>
         <form  onSubmit={(formData) => handleSubmit(formData)}>
@@ -191,6 +193,7 @@ const CreateCustomer = () => {
         </form>
 
         </div>
+        </AnimatedPage>
      );
 }
  

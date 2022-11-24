@@ -8,6 +8,7 @@ import { redirect } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
+import AnimatedPage from "../AnimatedPage";
 
 
 
@@ -122,7 +123,7 @@ const CreateCoverage = () => {
     }
 
     return ( 
-        <>
+        <AnimatedPage>
         {dataLoaded ? (
         <div className="page">
             <h1>Create Coverage</h1>
@@ -174,7 +175,7 @@ const CreateCoverage = () => {
 
 
         </div>) : (<div><LoadingPage></LoadingPage></div>)}
-        </>
+        </AnimatedPage>
      );
 }
  

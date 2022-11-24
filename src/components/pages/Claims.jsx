@@ -15,6 +15,7 @@ import * as Icon from 'react-bootstrap-icons';
 import "./claims.css";
 import ClaimsTable from '../ClaimsTable';
 import LoadingPage from './LoadingPage';
+import AnimatedPage from '../AnimatedPage';
 
 const Claims = () => {
 
@@ -26,7 +27,7 @@ const Claims = () => {
     const [dataLoaded, setDataLoaded] = useState(false);
 
     useEffect(() => {
-        getStuff();
+        getStuff()
         
     }, []);
 
@@ -43,8 +44,9 @@ const Claims = () => {
         });
 
         getAllClaims().then((data) => {
-            setClaims(data);
             setDataLoaded(true);
+            setClaims(data);
+            
             console.log("all loaded");
         });
     }
@@ -90,7 +92,7 @@ const Claims = () => {
         
     const [key, setKey] = useState('unapproved');
     return ( 
-        <>
+        <AnimatedPage>
         { dataLoaded ? (
         <div className='customers'>
              <div className="customer-cards">
@@ -148,11 +150,10 @@ const Claims = () => {
           
       </div>
         </div>
-
         ) : (
             <LoadingPage />
         )}
-        </>
+        </AnimatedPage>
      );
 }
  
