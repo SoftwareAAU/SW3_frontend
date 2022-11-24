@@ -16,6 +16,7 @@ import "./loadingpage.css"
 import CustomersTable from "../CustomersTable";
 import CoverageTable from "../CoverageTable";
 import AllCoveragesTable from "../AllCoveragesTable";
+import AnimatedPage from "../AnimatedPage";
 
 const AllCoverages = () => {
   
@@ -48,6 +49,7 @@ const AllCoverages = () => {
  
 
   return (
+    <AnimatedPage>
     <div className="customers">
       <div className="customer-cards">
         <div className="customer-card-search row">
@@ -91,6 +93,7 @@ const AllCoverages = () => {
       
       </div>
     </div>
+    </AnimatedPage>
   );
 };
 

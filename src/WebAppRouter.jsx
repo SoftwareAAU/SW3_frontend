@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Navigate, useLocation } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 import Sidebar from "./components/Sidebar";
 import Customers from "./components/pages/Customers";
@@ -21,6 +21,7 @@ import CreateCoverage from "./components/pages/CreateCoverage";
 import AllCoverages from "./components/pages/AllCoverages";
 import CoverageDetails from "./components/pages/CoverageDetails";
 import CreateClaim from "./components/pages/CreateClaim";
+import AnimatedPage from "./components/AnimatedPage";
 
 const WebAppRouter = () => {
     return ( <div>

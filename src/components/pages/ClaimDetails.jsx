@@ -12,6 +12,7 @@ import personLogo from "../../assets/person.png";
 import firmLogo from "../../assets/firm.png";
 import globals from "../../globals";
 import "./claimdetails.css"
+import AnimatedPage from "../AnimatedPage";
 
 
 const ClaimDetails = () => {
@@ -129,7 +130,7 @@ const ClaimDetails = () => {
   
 
     return ( 
-        <>
+        <AnimatedPage>
          {dataLoaded ? (
         <div className="page">
 
@@ -252,7 +253,7 @@ const ClaimDetails = () => {
         </div>
         </div>
         ): <LoadingPage/>}
-        </>
+        </AnimatedPage>
 
      );
 }

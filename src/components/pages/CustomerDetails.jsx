@@ -23,6 +23,7 @@ import PolicyTable from "../PolicyTable";
 
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
+import AnimatedPage from "../AnimatedPage";
 
 
 const CustomerDetails = () => {
@@ -65,7 +66,7 @@ const CustomerDetails = () => {
  
 
     return (
-    <>
+    <AnimatedPage>
     {customerDetails.id ? (
     <div className="page">
 
@@ -146,7 +147,7 @@ const CustomerDetails = () => {
         </Row>
     </div>
     ): <LoadingPage/>}
-    </>
+    </AnimatedPage>
   );
   
 };

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import globals from "../../globals";
+import AnimatedPage from "../AnimatedPage";
 
 
 const CreateCustomer = () => {
@@ -111,6 +112,7 @@ const CreateCustomer = () => {
     }
 
     return ( 
+        <AnimatedPage>
         <div className="page">
             <h1>Create Customer</h1>
         <form  onSubmit={(formData) => handleSubmit(formData)}>
@@ -190,6 +192,7 @@ const CreateCustomer = () => {
         </form>
 
         </div>
+        </AnimatedPage>
      );
 }
  

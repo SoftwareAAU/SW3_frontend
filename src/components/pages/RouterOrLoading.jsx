@@ -11,7 +11,7 @@ const RouterOrLoading = () => {
     useEffect(() => {
         setTimeout(() => {
             setShowRouter(true);
-        }, 500);
+        }, 2000);
     }, []);
 
     const [showRouter, setShowRouter] = useState(false);

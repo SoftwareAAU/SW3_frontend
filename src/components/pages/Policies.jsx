@@ -11,6 +11,7 @@ import "./Customers.css";
 import axios from "axios";
 
 import Cookies from "js-cookie";
+import AnimatedPage from "../AnimatedPage";
 
 
 
@@ -84,6 +85,7 @@ const Policies = () => {
   }
 
   return (
+    <AnimatedPage>
     <div className="customers">
       <div className="customer-cards">
         <Row className="customer-card-search">
@@ -196,6 +198,7 @@ const Policies = () => {
         </table>
       </div>
     </div>
+    </AnimatedPage>
   );
 }
  

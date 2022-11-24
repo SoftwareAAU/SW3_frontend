@@ -8,6 +8,7 @@ import { redirect } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
+import AnimatedPage from "../AnimatedPage";
 
 
 
@@ -116,7 +117,7 @@ const CreateClaim = () => {
         bodyFormData.append("customer", coverage.customer);
         bodyFormData.append("coverage", coverage.id);
         bodyFormData.append("amount", amount);
-        bodyFormData.append("deductive", deductive);
+        bodyFormData.append("deductible", deductive);
         bodyFormData.append("paid", paid);
         bodyFormData.append("occurrence", occurrence);
         bodyFormData.append("claimed", claimed);
@@ -155,7 +156,7 @@ const CreateClaim = () => {
     }
 
     return ( 
-        <>
+        <AnimatedPage>
         {dataLoaded ? (
         <div className="page">
             <h1>Create Claim</h1>
@@ -175,7 +176,7 @@ const CreateClaim = () => {
                     <input required type="double" className="form-control" placeholder="amount" onChange={(e) => setAmount(e.target.value) }   />
                     <br />
                     <h3>Deductive</h3>
-                    <input required type="double" className="form-control" placeholder="deductive" onChange={(e) => setDeductive(e.target.value) }   />
+                    <input required type="double" className="form-control" placeholder="deductible" onChange={(e) => setDeductive(e.target.value) }   />
                     <br />
                     <h3>Paid</h3>
                     <input required type="double" className="form-control" placeholder="paid" onChange={(e) => setPaid(e.target.value) }   />
@@ -202,7 +203,7 @@ const CreateClaim = () => {
             // 	"cause": String - TextExplainingClaim, */}
 
         </div>) : (<div><LoadingPage></LoadingPage></div>)}
-        </>
+        </AnimatedPage>
      );
 }
  
