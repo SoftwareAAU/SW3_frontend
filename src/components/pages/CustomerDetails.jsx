@@ -137,7 +137,7 @@ const CustomerDetails = () => {
             </div>
 
             
-              <div className="rounded-2 overflow-hidden">
+              <div className="rounded-2 overflow-hidden py-4">
                 
                 {customerDetails && <PolicyTable policies={customerDetails.policies} id={id} />}
                 

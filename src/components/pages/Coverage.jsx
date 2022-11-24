@@ -152,7 +152,7 @@ return (
               <button className="btn-primary sign-out-button w-25 mt-0" onClick={(e) => {handleClick(e)}}>Add Coverage</button>
             </div>
 
-              <div className="rounded-2 overflow-hidden">
+              <div className="rounded-2 overflow-hidden py-4">
                 {policyCoverages != null && policyCoverages.length ? (
                     <AllCoveragesTable coverages={policyCoverages} />
                 ) : <></>}

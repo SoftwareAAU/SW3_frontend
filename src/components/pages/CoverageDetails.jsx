@@ -169,7 +169,7 @@ const CoverageDetails = () => {
             </Row>
             <br />
             <Row className="d-flex">
-                   <table className="customer-table table table-bordered">
+                   <table className="customer-table table table-bordered py-4">
                         <thead>
                             <tr>
                                 <th className="p-2  py-3" scope="col">

@@ -46,7 +46,7 @@ input {
   color: black;
   background: white;
   transition: all ease-in-out 200ms;
-  border: 4px solid var(--pinkHover);
+  border:  var(--pinkHover);
 }
 .customer-table thead th {
   font-weight: 400;
