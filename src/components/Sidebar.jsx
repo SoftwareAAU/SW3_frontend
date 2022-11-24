@@ -3,11 +3,7 @@ import Stack from "react-bootstrap/Stack";
 
 import siteLogo from "../assets/logo.svg";
 
-import dashboardLogo from "../assets/speed.png";
-import customerLogo from "../assets/client.png";
-import analyticsLogo from "../assets/chart.png";
-import claimsLogo from "../assets/claims.png";
-import coverageLogo from "../assets/claims.png";
+import * as Icon from 'react-bootstrap-icons';
 
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
@@ -29,25 +25,26 @@ const Sidebar = () => {
         <hr></hr>
         <div className="sidebar-links text-align-left my-auto mx-auto">
           <NavLink to="/dashboard" className="link">
-          <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={dashboardLogo} alt="DASHBOARD" /> Dashboard</div>
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.Speedometer className="icon-colors" /> Dashboard</div>
           </NavLink>
           <NavLink to="/customers" className="link">
-          <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={customerLogo} alt="CUSTOMERS" /> Customer</div>
+         
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.People className="icon-colors" /> Customer</div>
           </NavLink>
           <NavLink to="/claims" className="link">
-          <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={claimsLogo} alt="CHART" /> Claims</div>
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.Bookmarks className="icon-colors" /> Claims</div>
           </NavLink>
           <NavLink to="/coverages" className="link">
-          <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={coverageLogo} alt="CHART" /> Coverages</div>
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.Clipboard className="icon-colors" />  Coverages</div>
           </NavLink>
           <NavLink to="/analytics" className="link">
-          <div className="link d-flex flex-row align-items-center gap-2 active"> <img class="image" src={analyticsLogo} alt="CHART" /> Analytics</div>
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.PieChart className="icon-colors" /> Analytics</div>
           </NavLink>
-          <NavLink to="/create/customer" className="link">
-            Create Customer
+          <NavLink to="/create/customer" className="link"> 
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.PersonPlus className="icon-colors" /> Create customer</div>
           </NavLink>
           <NavLink to="/policies" className="link">
-            Policies
+          <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.CardList className="icon-colors" /> Policies</div>
           </NavLink>
         </div>
       </Stack>

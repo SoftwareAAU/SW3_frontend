@@ -1,5 +1,12 @@
-.sidebar {
 
+
+.icon-colors{
+  background: var(#ff4e75);
+  background-color: var(#ff4e75);
+  color: var(#ff4e75);
+}
+
+.sidebar {
   background: white;
   height: calc(100vh - var(--sitePadding) * 2);
   border-radius: var(--borderRadius);
