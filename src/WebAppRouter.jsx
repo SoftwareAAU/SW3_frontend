@@ -32,7 +32,6 @@ const WebAppRouter = () => {
         </Col>
         <Col sm={9}>
           <Routes>
-            <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/customers" element={<Customers />} />
             <Route exact path="/create/customer" element={<CreateCustomer />} />
             <Route exact path="/customers/:id" element={<CustomerDetails />} />
@@ -48,7 +47,7 @@ const WebAppRouter = () => {
             <Route exact path="/create/coverage/:id" element={<CreateCoverage/>} />
             <Route exact path="/coverages" element={<AllCoverages/>} />
 
-            <Route path="/" element={<Navigate to="/dashboard" />} />
+            <Route path="/" element={<Navigate to="/customers" />} />
           </Routes>
         </Col>
       </BrowserRouter>

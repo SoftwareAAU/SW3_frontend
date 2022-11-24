@@ -24,11 +24,7 @@ const Sidebar = () => {
         </NavLink>
         <hr></hr>
         <div className="sidebar-links text-align-left my-auto mx-auto">
-          <NavLink to="/dashboard" className="link">
-          <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.Speedometer className="icon-colors" /> Dashboard</div>
-          </NavLink>
           <NavLink to="/customers" className="link">
-         
           <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.People className="icon-colors" /> Customer</div>
           </NavLink>
           <NavLink to="/claims" className="link">
