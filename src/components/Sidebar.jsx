@@ -18,7 +18,7 @@ const Sidebar = () => {
 
     <Col className="sidebar p-5 d-flex flex-column align-items-start">
       <Stack direction="vertical" className="links">
-        <NavLink to="/" className="sidebar-logo mx-auto">
+        <NavLink to="/" className="sidebar-logo mx-auto d-flex flex-row align-items-center">
           <img src={siteLogo} height="70px" alt="LOGO" />
           Frankly Insure
         </NavLink>
