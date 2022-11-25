@@ -140,7 +140,7 @@ const CustomerDetails = () => {
             
               <div className="rounded-2 overflow-hidden py-4">
                 
-                {customerDetails && <PolicyTable policies={customerDetails.policies} id={id} />}
+                {customerDetails.policies.length > 0 ? (<PolicyTable policies={customerDetails.policies} id={id} />):(<h1>No policies</h1>)}
                 
               </div>
           </div>
