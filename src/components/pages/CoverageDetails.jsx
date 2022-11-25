@@ -27,7 +27,7 @@ const CoverageDetails = () => {
     const [coverage, setCoverage] = useState([]);
     const [customerDetails, setCustomerDetails] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
-
+    const [coverages, setCoverages] = useState([]);
 
 
 
@@ -40,7 +40,13 @@ const CoverageDetails = () => {
             headers: headers,
         });
         console.log(response.data.coverages);
-        return(response.data.coverages);
+        //return(response.data.coverages);
+
+        //filter out the coverages that are not active
+        return coverages.filter((coverage) => coverage.active == "active");
+        // setCoverages(activeCoverages);
+    
+
     }
   
     //get customer from claim id
@@ -134,8 +140,7 @@ const CoverageDetails = () => {
           window.location = urlIDs[0] + "/" + urlIDs[1] + "/" + urlIDs[2];
         })
     }
-    
-
+  
 
     useEffect(() => {
 
@@ -147,6 +152,7 @@ const CoverageDetails = () => {
 
     const handleClick = (e) => {
     }
+
     return ( 
         <AnimatedPage>
          {dataLoaded ? (
