@@ -43,7 +43,7 @@ const CoverageDetails = () => {
         //return(response.data.coverages);
 
         //filter out the coverages that are not active
-        return coverages.filter((coverage) => coverage.active == "active");
+        return response.data.coverages.filter((coverage) => coverage.active == 1);
         // setCoverages(activeCoverages);
     
 

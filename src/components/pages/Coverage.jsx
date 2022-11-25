@@ -38,7 +38,8 @@ const Coverage = () => {
         });
 
         console.log(response.data);
-        setPolicyCoverages(response.data.coverage);
+        const cov = response.data.coverage.filter((cov) => cov.active === 1);
+        setPolicyCoverages(cov);
         console.log(response.data.coverage)
     };
 

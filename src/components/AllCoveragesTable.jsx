@@ -4,12 +4,18 @@ import { useNavigate } from "react-router-dom";
 
 const AllCoveragesTable = ({coverages}) => {
 
+  
+
     const navigate = useNavigate();
   
     const handleRowClick = (row) => {
         //navigate to coverage details page
       navigate(`/customers/${row.customer}/${row.policy}/${row.id}`);
     };
+
+    const noclaims = () => {
+      alert("no claims yet")
+    }
 
     return ( 
         <table className="customer-table table table-bordered">
@@ -47,9 +53,9 @@ const AllCoveragesTable = ({coverages}) => {
         <tbody>
         {coverages && coverages.length > 0 ? (
           coverages.map((coverage) => (
-            <tr
+            <tr 
               key={coverage.id}
-              className=" my-4"
+              className={coverage.currentClaimAmount === 0 ? " table-danger my-4" : "my-4"}
               onClick={() => handleRowClick(coverage)}>
               <td className="p-2 py-3">{coverage.id}</td>
               <td className="p-2 py-3">{coverage.customer}</td>
