@@ -22,6 +22,7 @@ import AllCoverages from "./components/pages/AllCoverages";
 import CoverageDetails from "./components/pages/CoverageDetails";
 import CreateClaim from "./components/pages/CreateClaim";
 import AnimatedPage from "./components/AnimatedPage";
+import CusChangeInfo from "./components/pages/CusChangeInfo";
 
 import "./components/Sidebar.css";
 
@@ -43,6 +44,7 @@ const WebAppRouter = () => {
             <Route exact path="/create/policy/:id" element={<CreatePolicy/>} />
             <Route exact path="/customers/:id/:id" element={<Coverage/>} />
             <Route exact path="/customers/:id/:id/:id" element={<CoverageDetails/>} />
+            <Route exact path="/custumer/update/:id" element={<CusChangeInfo/>} />
             <Route exact path="/claims" element={<Claims/>} />
             <Route exact path="/claims/:id" element={<ClaimDetails/>} />
             <Route exact path="/create/claim/:id" element={<CreateClaim/>} />
