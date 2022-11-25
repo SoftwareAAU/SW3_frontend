@@ -25,6 +25,8 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
 import AnimatedPage from "../AnimatedPage";
 
+import moan from "../../assets/moan.mp3";
+
 
 const CustomerDetails = () => {
   const { id } = useParams();
@@ -71,6 +73,62 @@ const CustomerDetails = () => {
     window.location.href = "/create/policy/" + customerDetails.id;
   }
 
+
+  //termin
+  const handleTermination = (e) => {
+    const audio = new Audio(moan);
+        audio.play();
+    //e.preventDefault();
+    console.log("form submitted");
+
+    //get date of today in format yyyy-mm-dd
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    const yyyy = today.getFullYear();
+    const todayDate = yyyy + "-" + mm + "-" + dd;
+  
+    const bodyFormData = new FormData();
+
+    console.log("terminating policy with id: " + customerDetails.id + " and date: " + todayDate);
+    bodyFormData.append("id", customerDetails.id);
+    bodyFormData.append("termination", todayDate);
+  
+    terminateCustomer(bodyFormData);
+  
+    e.preventDefault();
+    //window.location='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+  }
+  
+  //create customer in db
+  function terminateCustomer(formData) {
+    console.log("Terminating Customer")
+    console.log(formData)
+    const token = Cookies.get("token");
+  
+    axios({
+        method: "post",
+        url: globals.ip + "/customer/terminate",
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
+      }).then((res) => {
+        const { status } = res.data;
+  
+        if (status === true) {
+          alert("I will be back");
+          return;
+        }
+        console.log(res.data);
+        alert("Hasta la vista. Baby");
+      }).catch((err)=>{
+        alert("Error Bruh: " + err)
+      }).then(()=>{
+        
+        window.location = "/customers"
+        
+      })
+  }
+
  
 
     return (
@@ -106,6 +164,12 @@ const CustomerDetails = () => {
         </Col>
 
       </Row>
+      <Row>
+          <Col>
+              <button className="btn-primary sign-out-button w-25" onClick={handleTermination}>Terminate Customer</button>
+          </Col>
+        </Row>
+
         
 
 
