@@ -39,7 +39,6 @@ const WebAppRouter = () => {
             <Route exact path="/create/customer" element={<CreateCustomer />} />
             <Route exact path="/customers/:id" element={<CustomerDetails />} />
             <Route exact path="/customers/:id/policies" element={<CustomerPolicies/>} />
-            <Route exact path="/analytics" element={<Analytics />} />
             <Route exact path="/policies" element={<Policies />} />
             <Route exact path="/create/policy/:id" element={<CreatePolicy/>} />
             <Route exact path="/customers/:id/:id" element={<Coverage/>} />

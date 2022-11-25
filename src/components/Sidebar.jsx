@@ -33,9 +33,6 @@ const Sidebar = () => {
           <NavLink to="/coverages" className="link">
           <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.Clipboard className="icon-colors" />  Coverages</div>
           </NavLink>
-          <NavLink to="/analytics" className="link">
-          <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.PieChart className="icon-colors" /> Analytics</div>
-          </NavLink>
           <NavLink to="/create/customer" className="link"> 
           <div className="link d-flex flex-row align-items-center gap-2 active"> <Icon.PersonPlus className="icon-colors" /> Create customer</div>
           </NavLink>
