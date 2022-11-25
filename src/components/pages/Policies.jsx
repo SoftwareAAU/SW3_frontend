@@ -123,27 +123,26 @@ const Policies = () => {
               </select>
             </div>
           </Col>
-        <hr/>
         </Row>
         <table className="customer-table table table-bordered">          
-          <thead>
+          <thead className="page-table-head">
             <tr>
-              <th className="p-4 customer-table-image" scope="col">
+              <th className="p-3 customer-table-image" scope="col">
 
               </th>
-              <th className="p-4" scope="col">
+              <th className="p-3" scope="col">
                 Name
               </th>
-              <th className="p-4" scope="col">
+              <th className="p-3" scope="col">
                 Start Date
               </th>
-              <th className="p-4" scope="col">
+              <th className="p-3" scope="col">
                 Termination Date
               </th>
-              <th className="p-4" scope="col">
+              <th className="p-3" scope="col">
                 Total Premium
               </th>
-              <th className="p-4" scope="col">
+              <th className="p-3" scope="col">
                 Policy Type
               </th>
             </tr>
@@ -154,20 +153,19 @@ const Policies = () => {
                 <tr
                   key={index}
                   onClick={() => handleRowClick(policy)}
-                  className="my-4"
                 >
-                  <td className="p-4">
+                  <td className="p-3">
                     <img
                       height={40}
                       src={policy.customer_type == 0 ? personLogo : firmLogo}
                       alt=""
                     />
                   </td>
-                  <td className="p-4">{policy.customer_name}</td>
-                  <td className="p-4">{policy.startDate}</td>
-                  <td className="p-4">{policy.terminationDate}</td>
-                  <td className="p-4">{policy.totalPremium}</td>
-                  <td className="p-4">{customerTypeMap[policy.type]}</td>
+                  <td className="p-3">{policy.customer_name}</td>
+                  <td className="p-3">{policy.startDate}</td>
+                  <td className="p-3">{policy.terminationDate}</td>
+                  <td className="p-3">{policy.totalPremium}</td>
+                  <td className="p-3">{customerTypeMap[policy.type]}</td>
   
                 </tr>
               ))

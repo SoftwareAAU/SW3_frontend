@@ -14,7 +14,7 @@ const CustomersTable = ({customers}) => {
 
     return ( 
         <table className="customer-table table table-bordered">
-        <thead>
+        <thead className="page-table-head">
           <tr>
             <th className="p-4 customer-table-image" scope="col">
               Type

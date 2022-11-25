@@ -19,7 +19,7 @@ const ClaimsTable = ({claims}) => {
         {claims.length > 0 ? (
             <div>
                 <table className="customer-table table table-bordered">
-          <thead className="policy-table-head">
+          <thead className="page-table-head">
             <tr>
               <th className="p-4 claims-table-text" scope="col">
                 Customer ID

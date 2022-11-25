@@ -87,7 +87,6 @@ const AllCoverages = () => {
               </select>
             </div>
           </div>
-          <hr />
         </div>
         {filterBy == "all" ? ( <AllCoveragesTable coverages={coverages} />) : (<></>)}
       

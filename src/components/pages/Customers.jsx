@@ -162,7 +162,6 @@ const Customers = () => {
               </select>
             </div>
           </div>
-          <hr />
         </div>
         {filterBy == "all" ? ( <CustomersTable customers={customers} />) : (<></>)}
         {filterBy == "persons" ? ( <CustomersTable customers={persons} />) : (<></>)}

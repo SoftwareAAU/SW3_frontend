@@ -13,7 +13,7 @@ const AllCoveragesTable = ({coverages}) => {
 
     return ( 
         <table className="customer-table table table-bordered">
-        <thead>
+        <thead className="page-table-head" >
           <tr>
             <th className="p-2  py-3" scope="col">
               Coverage ID
