@@ -14,6 +14,7 @@ import globals from "../../globals";
 import "./claimdetails.css"
 import ClaimsTable from "../ClaimsTable";
 import AnimatedPage from "../AnimatedPage";
+import ClaimDetailsTable from "../ClaimDetailsTable";
 
 
 const CoverageDetails = () => {
@@ -103,7 +104,7 @@ const CoverageDetails = () => {
     return ( 
         <AnimatedPage>
          {dataLoaded ? (
-        <div className="page">
+        <div className="page customers">
 
       <Row className="mx-1 justify-content-center align-items-center">
         <Col className="col-1">
@@ -171,7 +172,7 @@ const CoverageDetails = () => {
             <br />
             <Row className="d-flex">
                    <table className="customer-table table table-bordered py-4">
-                        <thead>
+                        <thead className="">
                             <tr>
                                 <th className="p-2  py-3" scope="col">
                                 Coverage ID
@@ -226,7 +227,7 @@ const CoverageDetails = () => {
                 
             </Row>
             <br />
-            <ClaimsTable claims={claims}></ClaimsTable>
+            <ClaimDetailsTable claims={claims}></ClaimDetailsTable>
         </div>
         </div>
         ): <LoadingPage/>}
