@@ -42,7 +42,6 @@ const Loading = () => {
                     <div className=' d-flex loading-page-image-container'>
                         <img src={phub} width={400} alt="loading" className="loading-image" />
                     </div>
-
         </motion.div>
                 
        
