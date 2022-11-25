@@ -22,10 +22,12 @@ const CoverageDetails = () => {
     const { id } = useParams();
     const idArray = window.location.href.split("/");
 
+    const urlIDs = window.location.pathname.split("/");
     const [claims, setClaims] = useState([]);
     const [coverage, setCoverage] = useState([]);
     const [customerDetails, setCustomerDetails] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
+
 
 
 
@@ -92,9 +94,53 @@ const CoverageDetails = () => {
         navigate("/create/claim/" + idArray[6]);
     }
 
+
+    const handleTermination = (e) => {
+      //e.preventDefault();
+      console.log("form submitted");
+    
+      const bodyFormData = new FormData();
+      bodyFormData.append("id", coverage.id);
+    
+      terminateCoverage(bodyFormData);
+    
+      e.preventDefault();
+      //window.location='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+    }
+    
+    //create customer in db
+    function terminateCoverage(formData) {
+      console.log("Terminating coverage")
+      console.log(formData)
+      const token = Cookies.get("token");
+    
+      axios({
+          method: "post",
+          url: globals.ip + "/coverage/terminate",
+          data: formData,
+          headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
+        }).then((res) => {
+          const { status } = res.data;
+    
+          if (status === true) {
+            alert("I will be back");
+            return;
+          }
+          console.log(res.data);
+          alert("Hasta la vista. Baby");
+        }).catch((err)=>{
+          alert("Error Bruh: " + err)
+        }).then(()=>{
+          window.location = urlIDs[0] + "/" + urlIDs[1] + "/" + urlIDs[2];
+        })
+    }
+    
+
+
     useEffect(() => {
 
         getCoverageCustomerAndClaims()
+
         
         
     }, [])
@@ -133,8 +179,12 @@ const CoverageDetails = () => {
             )}
           </div>
         </Col>
-
       </Row>
+      <Row>
+          <Col>
+              <button className="btn-primary sign-out-button w-25" onClick={handleTermination}>Delete Coverage</button>
+          </Col>
+        </Row>
       
       {/* <Row className="mt-0">
         <Col className="d-flex col-3">
