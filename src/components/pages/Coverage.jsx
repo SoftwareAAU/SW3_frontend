@@ -13,6 +13,7 @@ import "../CoverageTable.css";
 import LoadingPage from "./LoadingPage";
 import AllCoveragesTable from "../AllCoveragesTable";
 import AnimatedPage from "../AnimatedPage";
+import PolicyDetailsTable from "../PolicyDetailsTable";
 
 const Coverage = () => {
 
@@ -155,7 +156,7 @@ return (
 
               <div className="rounded-2 overflow-hidden py-4">
                 {policyCoverages != null && policyCoverages.length ? (
-                    <AllCoveragesTable coverages={policyCoverages} />
+                    <PolicyDetailsTable coverages={policyCoverages} />
                 ) : <></>}
                 
               </div>
