@@ -33,6 +33,7 @@ const CustomerDetails = () => {
   const darkBlue = "#FFE8EE";
 
   const [customerDetails, setCustomerDetails] = useState({});
+  const [policies, setPolicies] = useState([]);
 
 
 
@@ -49,6 +50,13 @@ const CustomerDetails = () => {
     });
 
     setCustomerDetails(response.data);
+
+    //filter out the policies that are not active
+    const activePolicies = response.data.policies.filter(
+      (policy) => policy.active === true
+    );
+    setPolicies(activePolicies);
+    console.log(response.data)
   };
 
   //fetch coverage from the database
@@ -140,7 +148,7 @@ const CustomerDetails = () => {
             
               <div className="rounded-2 overflow-hidden py-4">
                 
-                {customerDetails.policies.length > 0 ? (<PolicyTable policies={customerDetails.policies} id={id} />):(<h1>No policies</h1>)}
+                {policies.length > 0 ? (<PolicyTable policies={policies} id={id} />):(<h1>No policies</h1>)}
                 
               </div>
           </div>
