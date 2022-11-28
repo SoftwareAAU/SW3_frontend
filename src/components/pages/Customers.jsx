@@ -147,7 +147,7 @@ const Customers = () => {
               </label>
               <select id="disabledSelect" className="form-select" onChange={(e) => setFilterBy(e.target.value)}>
                 <option value={"all"}>All</option>
-                <option value={"persons"}> Persons</option>
+                <option value={"persons"}>Persons</option>
                 <option value={"companies"}>Companies</option>
               </select>
             </div>

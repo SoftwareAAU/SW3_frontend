@@ -168,19 +168,19 @@ const CreateCustomer = () => {
         </>:
         <>
                 <Row className="mx-2 mt-4">
-                    <h3>Company Name</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.Building />Company Name</h3>
                     <input required  type="text" className="form-control" placeholder="Company Name" onChange={(e)=> setName(e.target.value)} />
                 </Row >
                 <Row className="mx-2 mt-4">
-                    <h3>CVR</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.CardText />CVR</h3>
                     <input required  type="number" className="form-control" placeholder="CVR" onChange={(e)=> setCvr(e.target.value)} />
                 </Row>
                 <Row className="mx-2 mt-4">
-                    <h3>Creation Date</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.Calendar />Creation Date</h3>
                     <input required  type="date" className="form-control" placeholder="Creation date" onChange={(e)=> setCreation(e.target.value)} />
                 </Row>
                 <Row className="mx-2 mt-4">
-                    <h3>Address</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.PinMap />Address</h3>
                     <input required type="text"  className="form-control" placeholder="Address" onChange={(e)=> setAddress(e.target.value)} />
                     </Row>
                 
