@@ -157,7 +157,7 @@ const Policies = () => {
                   <td className="p-3">{policy.startDate}</td>
                   <td className="p-3">{policy.terminationDate}</td>
                   <td className="p-3">{policy.totalPremium}</td>
-                  <td className="p-3">{customerTypeMap[policy.type]}</td>
+                  <td className="p-3">{policyTypeMap[policy.type]}</td>
   
                 </tr>
               ))
