@@ -197,7 +197,7 @@ const ClaimDetails = () => {
                     
                     {claim.approved == 1 ? ( <h1 className="fw-normal d-flex flex-row align-items-center gap-2 p-2 px-3 rounded-5"><Icon.BookmarkCheckFill/> Claim approved</h1>) : (<></> )}
                     {claim.approved == 2 ? ( <h1 className="fw-normal d-flex flex-row align-items-center gap-2 p-2 px-3 rounded-5"><Icon.BookmarkXFill/> Claim denied</h1>) : (<></> )}
-                    {claim.approved == 0 ? ( <h1 className="fw-normal d-flex flex-row align-items-center gap-2 p-2 px-3 rounded-5"><Icon.BookmarkFill/> Claim</h1>) : (<></> )}
+                    {claim.approved == 0 ? ( <h1 className="fw-normal d-flex flex-row align-items-center gap-2 p-2 px-3 rounded-5"><Icon.BookmarkFill /> Claim</h1>) : (<></> )}
 
                       
                     {claim.approved == 0 ? (
@@ -215,47 +215,43 @@ const ClaimDetails = () => {
             <Row className="d-flex">
                 <Col>
                     <Row className="d-flex">
-                        <p className="customer-details-label-head">Claim ID</p>
+                        <p className="customer-details-label-head"><Icon.CardText /> Claim ID</p>
                         <p className="fw-light customer-details-label ">{claim.id}</p>
                     </Row>
                     <br />
                     <Row className="d-flex">
-                        <p className="customer-details-label-head">Coverage ID</p>
+                        <p className="customer-details-label-head"><Icon.CardText /> Coverage ID</p>
                         <p className="fw-light customer-details-label">{claim.coverage}</p>
                     </Row>
                 </Col>
 
                 <Col>
                     <Row className="d-flex">
-                        <p className="customer-details-label-head">Creation Date</p>
+                        <p className="customer-details-label-head"><Icon.CalendarPlus /> Creation Date</p>
                         <p className="fw-light customer-details-label">{claim.dateOfClaim}</p>
                     </Row>
                     <br />
                     <Row className="d-flex">
-                        <p className="customer-details-label-head">Occurrence Date</p>
+                        <p className="customer-details-label-head"><Icon.CalendarX /> Occurrence Date</p>
                         <p className="fw-light customer-details-label">{claim.dateOfOccurrence}</p>
                     </Row>
                 </Col>
 
                 <Col>
                     <Row className="d-flex">
-                        <p className="customer-details-label-head">After Deductible</p>
-                        <p className="fw-light customer-details-label">{claim.claimAmountAfterDeductible}</p>
+                        <p className="customer-details-label-head"><Icon.Safe2 /> Deductible</p>
+                        <p className="fw-light customer-details-label">{claim.claimAmountAfterDeductible} / {claim.claimAmountBeforeDeductible}</p>
                     </Row>
                     <br />
                     <Row className="d-flex">
-                        <p className="customer-details-label-head">Before Deductible</p>
-                        <p className="fw-light customer-details-label">{claim.claimAmountBeforeDeductible}</p>
-                    </Row>
-                    <br />
-                    <Row className="d-flex">
-                        <p className="customer-details-label-head">Amount Paid</p>
+                        <p className="customer-details-label-head"><Icon.ReceiptCutoff /> Amount Paid</p>
                         <p className="fw-light customer-details-label">{claim.claimAmountPaid}</p>
                     </Row>
                 </Col>
             </Row>
-            <Row className="d-flex">
-                <p className="customer-details-label-head">Cause</p>
+            <br />
+            <Row className="d-flex align-items-center">
+                <p className="customer-details-label-head"><Icon.ChatDots /> Cause</p>
                 <p className="fw-light customer-details-label">{claim.cause}</p>
             </Row>
         </div>

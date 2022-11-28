@@ -36,3 +36,10 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+.custom-form-label {
+  font-size: 18px;
+  font-weight: 100;
+  color: black;
+  margin-bottom: 10px;
+}

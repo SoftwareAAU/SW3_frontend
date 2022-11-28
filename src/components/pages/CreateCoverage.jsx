@@ -10,9 +10,9 @@ import { useParams } from "react-router-dom";
 import LoadingPage from "./LoadingPage";
 import AnimatedPage from "../AnimatedPage";
 
+import * as Icon from 'react-bootstrap-icons';
 
-
-
+import "../../index.css";
 
 const CreateCoverage = () => {
 
@@ -146,22 +146,22 @@ const CreateCoverage = () => {
     // "deductible": 10.1,
     // "maxCoverage": 10.01 */}
 
-                    <h3>Type</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 custom-form-label"> <Icon.Gear/>Type</h3>
                     <input required type="number" className="form-control" placeholder="type" onChange={(e) => setType(e.target.value) }  />
                     <br />
-                    <h3>Start Date</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 custom-form-label"> <Icon.CalendarPlus/>Start Date</h3>
                     <input required type="date" className="form-control" placeholder="start" onChange={(e) => setStart(e.target.value) }  />
                     <br />
-                    <h3>Termination Date</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 custom-form-label"> <Icon.CalendarX/>Termination Date</h3>
                     <input required type="date" className="form-control" placeholder="termination" onChange={(e) => setTermination(e.target.value) }  />
                     <br />
-                    <h3>Premium</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 custom-form-label"> <Icon.Coin/>Premium</h3>
                     <input required type="double" className="form-control" placeholder="premium" onChange={(e) => setPremium(e.target.value) }  />
                     <br />
-                    <h3>Deductible</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 custom-form-label"> <Icon.Safe/>Deductible</h3>
                     <input required type="double" className="form-control" placeholder="deductible" onChange={(e) => setDeductible(e.target.value) }  />
                     <br />
-                    <h3>Max Coverage</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 custom-form-label"> <Icon.FileEarmarkLock/>Max Coverage</h3>
                     <input required type="double" className="form-control" placeholder="maxCoverage" onChange={(e) => setMaxCoverage(e.target.value) }  />
                     <br />
 

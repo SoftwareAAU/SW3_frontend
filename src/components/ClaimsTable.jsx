@@ -1,6 +1,8 @@
 
 import { useNavigate } from "react-router-dom";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import "./claimstable.css";
 
 const ClaimsTable = ({claims}) => {
@@ -38,7 +40,7 @@ const ClaimsTable = ({claims}) => {
               </th>
             </tr>
           </thead>
-            <tbody>
+            <tbody className="  ">
                  {claims.map((claim) => (
                      <tr onClick={() => handleRowClick(claim)}
                      className=" my-4">
