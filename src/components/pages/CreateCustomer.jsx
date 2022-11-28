@@ -130,7 +130,7 @@ const CreateCustomer = () => {
             <Row>
         {customerType == 0 ?
         <>
-                <Col className="">
+                <Col>
 
                     <Row className="mx-2 mt-4">
                     <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"> <Icon.Person /> First Name</h3>
@@ -191,7 +191,6 @@ const CreateCustomer = () => {
             </Row>
         </Col>
         </form>
-
         </div>
         </AnimatedPage>
      );
