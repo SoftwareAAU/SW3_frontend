@@ -4,7 +4,9 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import axios from "axios";
 import globals from "../../globals";
+import AnimatedPage from "../AnimatedPage";
 
+import * as Icon from 'react-bootstrap-icons';
 
 const CreateCustomer = () => {
 
@@ -111,8 +113,9 @@ const CreateCustomer = () => {
     }
 
     return ( 
+        <AnimatedPage>
         <div className="page">
-            <h1>Create Customer</h1>
+            <h1 className="link d-flex flex-row align-items-center gap-2"> <Icon.PersonPlusFill /> Create Customer</h1>
         <form  onSubmit={(formData) => handleSubmit(formData)}>
         <Col>
             <Row className="mx-2 mt-4">
@@ -130,22 +133,22 @@ const CreateCustomer = () => {
                 <Col className="">
 
                     <Row className="mx-2 mt-4">
-                    <h3>First Name</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active"> <Icon.PersonFill /> First Name</h3>
                     <input required type="text" className="form-control" placeholder="First Name" onChange={(e)=> setFirstName(e.target.value)} />
                     </Row>
                     <Row className="mx-2 mt-4">
-                    <h3>Sur Name</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.PersonFill /> Sur Name</h3>
                     <input required type="text" className="form-control" placeholder="Surname" onChange={(e)=> setSurname(e.target.value)} />
                     </Row>
                     <Row className="mx-2 mt-4">
-                    <h3>Birthday</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.Calendar />Birthday</h3>
                     <input required type="date" className="form-control" placeholder="Birthday" onChange={(e)=> setBirth(e.target.value)} />
                     </Row>
                 </Col>
 
                 <Col>
                 <Row className="mx-2 mt-4">
-                    <h3>Gender</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.GearFill />Gender</h3>
                     <select required className="form-select" onChange={(e)=> setGender(e.target.value)} >
                         <option value="0">Male</option>
                         <option value="1">Female</option>
@@ -153,11 +156,11 @@ const CreateCustomer = () => {
                     
                     </Row>
                     <Row className="mx-2 mt-4">
-                    <h3>CPR</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.LockFill />CPR</h3>
                     <input required maxLength={10} type="number"  className="form-control" placeholder="Cpr" onChange={(e)=> setCpr(e.target.value)} />
                     </Row>
                     <Row className="mx-2 mt-4">
-                    <h3>Address</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.HouseFill />Address</h3>
                     <input required type="text"  className="form-control" placeholder="Address" onChange={(e)=> setAddress(e.target.value)} />
                     </Row>
                 </Col>
@@ -190,6 +193,7 @@ const CreateCustomer = () => {
         </form>
 
         </div>
+        </AnimatedPage>
      );
 }
  

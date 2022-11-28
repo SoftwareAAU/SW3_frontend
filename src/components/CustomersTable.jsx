@@ -2,6 +2,8 @@ import personLogo from "../assets/person.png";
 import firmLogo from "../assets/firm.png";
 import { useNavigate } from "react-router-dom";
 
+import * as Icon from 'react-bootstrap-icons';
+
 const CustomersTable = ({customers}) => {
 
     const navigate = useNavigate();
@@ -12,7 +14,7 @@ const CustomersTable = ({customers}) => {
 
     return ( 
         <table className="customer-table table table-bordered">
-        <thead>
+        <thead className="page-table-head">
           <tr>
             <th className="p-4 customer-table-image" scope="col">
               Type
@@ -37,7 +39,7 @@ const CustomersTable = ({customers}) => {
               onClick={() => handleRowClick(customer)}>
               <td className="p-4">
                 <img
-                  height={40}
+                  height={35}
                   src={customer.type == 0 ? personLogo : firmLogo}
                   alt=""
                 />

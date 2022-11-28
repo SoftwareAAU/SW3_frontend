@@ -20,10 +20,14 @@ import CreateCoverage from "./components/pages/CreateCoverage";
 
 import AllCoverages from "./components/pages/AllCoverages";
 import CoverageDetails from "./components/pages/CoverageDetails";
+import CreateClaim from "./components/pages/CreateClaim";
+import WebAppRouter from "./WebAppRouter";
+import RouterOrLoading from "./components/pages/RouterOrLoading";
 
 function App() {
   const [token, setToken] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [showLoadingScreen, setShowLoadingScreen] = useState(true);
 
   useEffect(() => {
     if (Cookies.get("token")) {
@@ -37,33 +41,8 @@ function App() {
   }
 
   return (
-    <Row>
-      <BrowserRouter className="App">
-        <Col sm={3}>
-          <Sidebar />
-        </Col>
-        <Col sm={9}>
-          <Routes>
-            <Route exact path="/dashboard" element={<Dashboard />} />
-            <Route exact path="/customers" element={<Customers />} />
-            <Route exact path="/create/customer" element={<CreateCustomer />} />
-            <Route exact path="/customers/:id" element={<CustomerDetails />} />
-            <Route exact path="/customers/:id/policies" element={<CustomerPolicies/>} />
-            <Route exact path="/analytics" element={<Analytics />} />
-            <Route exact path="/policies" element={<Policies />} />
-            <Route exact path="/create/policy/:id" element={<CreatePolicy/>} />
-            <Route exact path="/customers/:id/:id" element={<Coverage/>} />
-            <Route exact path="/customers/:id/:id/:id" element={<CoverageDetails/>} />
-            <Route exact path="/claims" element={<Claims/>} />
-            <Route exact path="/claims/:id" element={<ClaimDetails/>} />
-            <Route exact path="/create/coverage/:id" element={<CreateCoverage/>} />
-            <Route exact path="/coverages" element={<AllCoverages/>} />
-
-            <Route path="/" element={<Navigate to="/dashboard" />} />
-          </Routes>
-        </Col>
-      </BrowserRouter>
-    </Row>
+   
+   <RouterOrLoading/>
   );
 }
 

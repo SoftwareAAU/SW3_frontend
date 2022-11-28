@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./claimstable.css";
 
-const ClaimsTable = ({claims}) => {
+const ClaimDetailsTable = ({claims}) => {
 
     const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const ClaimsTable = ({claims}) => {
         {claims.length > 0 ? (
             <div>
                 <table className="customer-table table table-bordered">
-          <thead className="page-table-head">
+          <thead className="">
             <tr>
               <th className="p-4 claims-table-text" scope="col">
                 Customer ID
@@ -74,6 +74,6 @@ const ClaimsTable = ({claims}) => {
     );
 }
  
-export default ClaimsTable;
+export default ClaimDetailsTable;
 
   

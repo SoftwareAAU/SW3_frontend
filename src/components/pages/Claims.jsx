@@ -10,9 +10,12 @@ import { useNavigate } from 'react-router-dom';
 
 import {Col, Row} from 'react-bootstrap';
 
+import * as Icon from 'react-bootstrap-icons';
+
 import "./claims.css";
 import ClaimsTable from '../ClaimsTable';
 import LoadingPage from './LoadingPage';
+import AnimatedPage from '../AnimatedPage';
 
 const Claims = () => {
 
@@ -24,7 +27,7 @@ const Claims = () => {
     const [dataLoaded, setDataLoaded] = useState(false);
 
     useEffect(() => {
-        getStuff();
+        getStuff()
         
     }, []);
 
@@ -41,8 +44,9 @@ const Claims = () => {
         });
 
         getAllClaims().then((data) => {
-            setClaims(data);
             setDataLoaded(true);
+            setClaims(data);
+            
             console.log("all loaded");
         });
     }
@@ -88,16 +92,16 @@ const Claims = () => {
         
     const [key, setKey] = useState('unapproved');
     return ( 
-        <>
+        <AnimatedPage>
         { dataLoaded ? (
         <div className='customers'>
              <div className="customer-cards">
         <Row className="customer-card-search">
-          <h1>Claims</h1>
+          <h1 className="link d-flex flex-row align-items-center gap-2"> <Icon.BookmarksFill  size={30}/> Claims</h1>
           <Col>
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
-                Search
+              <Icon.Search/> Search
               </label>
               <input 
                 type="text" 
@@ -110,7 +114,7 @@ const Claims = () => {
           <Col>
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
-                Filter by
+              <Icon.SortDown/> Filter by
               </label>
               <select id="disabledSelect" className="form-select" onChange={(e) => setFilterBy(e.target.value)}>
                 <option value={"unapproved"} >Unapproved Claims</option>
@@ -122,14 +126,13 @@ const Claims = () => {
           <Col>
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
-                Sort by
+              <Icon.Funnel /> Sort by
               </label>
               <select id="disabledSelect" className="form-select">
                 <option>Sort by</option>
               </select>
             </div>
           </Col>
-        <hr/>
         </Row>
        
         {filterBy == "unapproved" ? (
@@ -146,11 +149,10 @@ const Claims = () => {
           
       </div>
         </div>
-
         ) : (
             <LoadingPage />
         )}
-        </>
+        </AnimatedPage>
      );
 }
  
