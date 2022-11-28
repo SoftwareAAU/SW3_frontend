@@ -13,6 +13,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import AnimatedPage from "../AnimatedPage";
 
+import policyTypeMap from "../../PolicyTypeMap";
+
 
 
 const Policies = () => {
@@ -73,16 +75,6 @@ const Policies = () => {
   useEffect(() => {
     getAllPoliciesWithToken();
   }, []); //policies, customers
-
-  //Map customer types to int
-  const customerTypeMap = {
-    0: "Household Insurance",
-    1: "Car Insurance",
-    2: "Travel Insurance",
-    3: "Life Insurance",
-    4: "Health Insurance",
-    5: "Accident Insurance",
-  }
 
   return (
     <AnimatedPage>
@@ -165,7 +157,7 @@ const Policies = () => {
                   <td className="p-3">{policy.startDate}</td>
                   <td className="p-3">{policy.terminationDate}</td>
                   <td className="p-3">{policy.totalPremium}</td>
-                  <td className="p-3">{customerTypeMap[policy.type]}</td>
+                  <td className="p-3">{policyTypeMap[policy.type]}</td>
   
                 </tr>
               ))

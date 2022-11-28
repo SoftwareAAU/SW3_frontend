@@ -60,11 +60,11 @@ const Coverage = () => {
     setCustomerDetails(response.data);
   };
 
-useEffect(() => {
-    
-    getCoveragesFromPolicyId();
-    getCustomerById();
-    
+  useEffect(() => {
+      
+      getCoveragesFromPolicyId();
+      getCustomerById();
+      
 
 }, []);
  

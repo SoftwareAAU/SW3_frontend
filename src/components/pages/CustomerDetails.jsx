@@ -29,6 +29,7 @@ import moan from "../../assets/moan.mp3";
 import Customers from "./Customers";
 
 
+
 const CustomerDetails = () => {
   const { id } = useParams();
 
