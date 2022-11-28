@@ -13,7 +13,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import AnimatedPage from "../AnimatedPage";
 
-
+import * as Icon from 'react-bootstrap-icons';
 
 const Policies = () => {
 
@@ -89,11 +89,11 @@ const Policies = () => {
     <div className="customers">
       <div className="customer-cards">
         <Row className="customer-card-search">
-          <h1>Policies</h1>
+          <h1 className="link d-flex flex-row align-items-center gap-2 active"><Icon.CardList />Policies</h1>
           <Col>
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
-                Search
+              <Icon.Search /> Search
               </label>
               <input 
                 type="text" 
@@ -106,7 +106,7 @@ const Policies = () => {
           <Col>
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
-                Filter by
+              <Icon.SortDown /> Filter by
               </label>
               <select id="disabledSelect" className="form-select">
                 <option>Filter by</option>
@@ -116,7 +116,7 @@ const Policies = () => {
           <Col>
             <div className="mb-3">
               <label htmlFor="disabledSelect" className="form-label">
-                Sort by
+              <Icon.Funnel /> Sort by
               </label>
               <select id="disabledSelect" className="form-select">
                 <option>Sort by</option>

@@ -14,6 +14,8 @@ import globals from "../../globals";
 import "./claimdetails.css"
 import AnimatedPage from "../AnimatedPage";
 
+import * as Icon from 'react-bootstrap-icons';
+
 
 const ClaimDetails = () => {
 
@@ -191,17 +193,22 @@ const ClaimDetails = () => {
       <div className="p-3 rounded-3 claim-details-claim-info">
             <Row className="">
                 <div className="d-flex flex-row justify-content-between">
-                    <h1 className="fw-normal cd-first-name mb-1">Claim</h1> 
+                    <h1 className="fw-normal cd-first-name mb-1 d-flex flex-row align-items-center gap-2">
+                    
+                    {claim.approved == 1 ? ( <h1 className="fw-normal d-flex flex-row align-items-center gap-2 p-2 px-3 rounded-5"><Icon.BookmarkCheckFill/> Claim approved</h1>) : (<></> )}
+                    {claim.approved == 2 ? ( <h1 className="fw-normal d-flex flex-row align-items-center gap-2 p-2 px-3 rounded-5"><Icon.BookmarkXFill/> Claim denied</h1>) : (<></> )}
+                    {claim.approved == 0 ? ( <h1 className="fw-normal d-flex flex-row align-items-center gap-2 p-2 px-3 rounded-5"><Icon.BookmarkFill/> Claim</h1>) : (<></> )}
 
-                    {claim.approved == 1 ? ( <h1 className="fw-normal claims-details-approved-text p-2 px-3 rounded-5">Approved</h1>) : (<></> )}
-                    {claim.approved == 2 ? ( <h1 className="fw-normal claims-details-approved-text p-2 px-3 rounded-5">Denied</h1>) : (<></> )}
-                    {claim.approved == 0 ? ( 
-
+                      
+                    {claim.approved == 0 ? (
                     <div className="d-flex flex-row gap-2">
-                    <button className="btn-primary sign-out-button px-3 mt-0" onClick={approveClaim}>Approve</button>
-                    <button className="btn-primary sign-out-button px-3 mt-0" onClick={denyClaim}>Deny</button>
+                    <button className="btn-primary sign-out-button px-4 mt-0" onClick={approveClaim}><Icon.CheckLg /></button>
+                    <button className="btn-primary sign-out-button px-4 mt-0" onClick={denyClaim}><Icon.XLg /></button>
                     </div>
+                    
                     ) : (<></> )}
+                    
+                    </h1> 
                 </div>
             </Row>
             <hr />
