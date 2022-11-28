@@ -120,7 +120,7 @@ const CreateCustomer = () => {
         <Col>
             <Row className="mx-2 mt-4">
                 <Col>
-                    <h3>Customer Type</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.Compass/>Customer Type</h3>
                     <select required className="form-select" onChange={(e)=> setcustomerType(e.target.value)} >
                         <option defaultValue={0} value="0">Person</option>
                         <option value="1">Company</option>
@@ -133,22 +133,22 @@ const CreateCustomer = () => {
                 <Col className="">
 
                     <Row className="mx-2 mt-4">
-                    <h3 className="link d-flex flex-row align-items-center gap-2 active"> <Icon.PersonFill /> First Name</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"> <Icon.Person /> First Name</h3>
                     <input required type="text" className="form-control" placeholder="First Name" onChange={(e)=> setFirstName(e.target.value)} />
                     </Row>
                     <Row className="mx-2 mt-4">
-                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.PersonFill /> Sur Name</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.Person /> Sur Name</h3>
                     <input required type="text" className="form-control" placeholder="Surname" onChange={(e)=> setSurname(e.target.value)} />
                     </Row>
                     <Row className="mx-2 mt-4">
-                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.Calendar />Birthday</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.Calendar />Birthday</h3>
                     <input required type="date" className="form-control" placeholder="Birthday" onChange={(e)=> setBirth(e.target.value)} />
                     </Row>
                 </Col>
 
                 <Col>
                 <Row className="mx-2 mt-4">
-                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.GearFill />Gender</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.Gear />Gender</h3>
                     <select required className="form-select" onChange={(e)=> setGender(e.target.value)} >
                         <option value="0">Male</option>
                         <option value="1">Female</option>
@@ -156,11 +156,11 @@ const CreateCustomer = () => {
                     
                     </Row>
                     <Row className="mx-2 mt-4">
-                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.LockFill />CPR</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.Lock />CPR</h3>
                     <input required maxLength={10} type="number"  className="form-control" placeholder="Cpr" onChange={(e)=> setCpr(e.target.value)} />
                     </Row>
                     <Row className="mx-2 mt-4">
-                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.HouseFill />Address</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.House />Address</h3>
                     <input required type="text"  className="form-control" placeholder="Address" onChange={(e)=> setAddress(e.target.value)} />
                     </Row>
                 </Col>
@@ -168,19 +168,19 @@ const CreateCustomer = () => {
         </>:
         <>
                 <Row className="mx-2 mt-4">
-                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.Building />Company Name</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.Building />Company Name</h3>
                     <input required  type="text" className="form-control" placeholder="Company Name" onChange={(e)=> setName(e.target.value)} />
                 </Row >
                 <Row className="mx-2 mt-4">
-                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.CardText />CVR</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.CardText />CVR</h3>
                     <input required  type="number" className="form-control" placeholder="CVR" onChange={(e)=> setCvr(e.target.value)} />
                 </Row>
                 <Row className="mx-2 mt-4">
-                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.Calendar />Creation Date</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.Calendar />Creation Date</h3>
                     <input required  type="date" className="form-control" placeholder="Creation date" onChange={(e)=> setCreation(e.target.value)} />
                 </Row>
                 <Row className="mx-2 mt-4">
-                    <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.PinMap />Address</h3>
+                    <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.PinMap />Address</h3>
                     <input required type="text"  className="form-control" placeholder="Address" onChange={(e)=> setAddress(e.target.value)} />
                     </Row>
                 

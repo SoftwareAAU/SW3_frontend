@@ -135,17 +135,6 @@ const CreateCoverage = () => {
                 <Col>
                     <h3>Coverage Creation</h3>
                     
-
-                    {/* //coverage info
-    // "customer": 1592245,
-    // "policy": 406478,
-    // "type": 2,
-    // "start": "2022-10-10",
-    // "termination": "2022-10-10",
-    // "premium": 22.2,
-    // "deductible": 10.1,
-    // "maxCoverage": 10.01 */}
-
                     <h3 className="link d-flex flex-row align-items-center gap-2 custom-form-label"> <Icon.Gear/>Type</h3>
                     <input required type="number" className="form-control" placeholder="type" onChange={(e) => setType(e.target.value) }  />
                     <br />
