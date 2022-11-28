@@ -7,13 +7,15 @@ import globals from "../../globals";
 import personLogo from "../../assets/person.png";
 import firmLogo from "../../assets/firm.png";
 
+import policyTypeMap from "../../PolicyTypeMap";
+
 import "./Customers.css";
 import axios from "axios";
 
 import Cookies from "js-cookie";
 import AnimatedPage from "../AnimatedPage";
 
-
+import * as Icon from 'react-bootstrap-icons';
 
 const Policies = () => {
 
