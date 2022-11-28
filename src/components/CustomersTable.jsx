@@ -51,7 +51,7 @@ const CustomersTable = ({customers}) => {
                   : customer.companyName}
                 
               </td>
-              <td className="p-4">{customer.customer}</td>
+              <td className="p-4">{customer.id}</td>
               <td className="p-4">{customer.address}</td>
             </tr>
           ))

@@ -26,6 +26,7 @@ import LoadingPage from "./LoadingPage";
 import AnimatedPage from "../AnimatedPage";
 
 import moan from "../../assets/moan.mp3";
+import Customers from "./Customers";
 
 
 const CustomerDetails = () => {
@@ -166,12 +167,14 @@ const CustomerDetails = () => {
       </Row>
       <Row>
           <Col>
-              <button className="btn-primary sign-out-button w-25" onClick={handleTermination}>Terminate Customer</button>
+              <button className="btn-primary sign-out-button w-15" onClick={handleTermination}>Terminate Customer</button>
+              <Link to={"/customer/update/" + id}>
+              <button className="btn-primary sign-out-button w-15">Update Customer</button>
+              </Link>
           </Col>
         </Row>
 
         
-
 
       <Row>
         <Col className="d-flex col-3">

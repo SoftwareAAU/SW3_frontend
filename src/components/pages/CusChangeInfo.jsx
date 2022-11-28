@@ -44,16 +44,24 @@ const CusChangeInfo = () => {
           headers: headers,
         });
         setCusDetails(response.data);
+        
+        setFirstName(response.data.firstName);
+        setSurname(response.data.surname);
+        setName(response.data.companyName);
+        setAddress(response.data.address);
+
+        console.log(response.data);
     }
 
 
     const handleSubmit = (e) => {
-        //e.preventDefault();
+        e.preventDefault();
         console.log("form submitted");
         console.log (customerType);
 
         if (customerType == 0)
         {
+            if(firstName || surname || address){
             //create person object
             const person = {
                 address: address,
@@ -63,12 +71,17 @@ const CusChangeInfo = () => {
             console.log(person);
 
             const bodyFormData = new FormData();
+            bodyFormData.append("id", id);
             bodyFormData.append("address", address);
             bodyFormData.append("firstname", firstName);
             bodyFormData.append("lastname", surname);
             updateCustomerInDB(bodyFormData);
+            } else{
+                alert("Please fill out all fields");
+            }
 
         } else{
+            if(name || address){
 
             //create company object
             const company = {
@@ -78,9 +91,14 @@ const CusChangeInfo = () => {
             console.log(company);
             
             const bodyFormData = new FormData();
+            bodyFormData.append("id", id);
             bodyFormData.append("address", address);
             bodyFormData.append("name", name);
             updateCustomerInDB(bodyFormData);
+            }
+            else{
+                alert("Please fill out all fields");
+            }
 
         }
 
@@ -100,16 +118,16 @@ const CusChangeInfo = () => {
             const { status } = res.data;
     
             if (status === true) {
-              alert("Customer information changed");
+                console.log("customer updated");
               return;
             }
     
             console.log(res.data);
     
-            alert("Something went wrong");
-          });
-      
-       
+            
+          }).then(() => {
+            window.location.href = "/customers/"+id;
+          })
     }
 
     return ( 
@@ -119,23 +137,23 @@ const CusChangeInfo = () => {
         <form  onSubmit={(formData) => handleSubmit(formData)}>
         <Col>
             <Row>
-        {customerType == 0 ?
+        {cusDetails.type == 0 ?
         <>
                 <Col className="">
 
                     <Row className="mx-2 mt-4">
                     <h3 className="link d-flex flex-row align-items-center gap-2 active"> <Icon.PersonFill /> First Name</h3>
-                    <input required type="text" className="form-control" placeholder={cusDetails.firstName} onChange={(e)=> setFirstName(e.target.value)} />
+                    <input required type="text" className="form-control" defaultValue={firstName} onChange={(e)=> setFirstName(e.target.value)} />
                     </Row>
                     <Row className="mx-2 mt-4">
                     <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.PersonFill /> Sur Name</h3>
-                    <input required type="text" className="form-control" placeholder={cusDetails.surname} onChange={(e)=> setSurname(e.target.value)} />
+                    <input required type="text" className="form-control" defaultValue={surname} onChange={(e)=> setSurname(e.target.value)} />
                     </Row>
                 </Col>
                 <Col>
                     <Row className="mx-2 mt-4">
                     <h3 className="link d-flex flex-row align-items-center gap-2 active"><Icon.HouseFill />Address</h3>
-                    <input required type="text"  className="form-control" placeholder={cusDetails.address} onChange={(e)=> setAddress(e.target.value)} />
+                    <input required type="text"  className="form-control" defaultValue={address} onChange={(e)=> setAddress(e.target.value)} />
                     </Row>
                 </Col>
                 
@@ -143,11 +161,11 @@ const CusChangeInfo = () => {
         <>
                 <Row className="mx-2 mt-4">
                     <h3>Company Name</h3>
-                    <input required  type="text" className="form-control" placeholder={cusDetails.company} onChange={(e)=> setName(e.target.value)} />
+                    <input required  type="text" className="form-control" defaultValue={name} onChange={(e)=> setName(e.target.value)} />
                 </Row>
                 <Row className="mx-2 mt-4">
                     <h3>Address</h3>
-                    <input required type="text"  className="form-control" placeholder={cusDetails.address} onChange={(e)=> setAddress(e.target.value)} />
+                    <input required type="text"  className="form-control" defaultValue={address} onChange={(e)=> setAddress(e.target.value)} />
                     </Row>
                 
         </>}
