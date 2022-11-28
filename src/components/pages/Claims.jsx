@@ -133,7 +133,6 @@ const Claims = () => {
               </select>
             </div>
           </Col>
-        <hr/>
         </Row>
        
         {filterBy == "unapproved" ? (

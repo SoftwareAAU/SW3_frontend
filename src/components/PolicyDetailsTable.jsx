@@ -2,9 +2,7 @@ import personLogo from "../assets/person.png";
 import firmLogo from "../assets/firm.png";
 import { useNavigate } from "react-router-dom";
 
-const AllCoveragesTable = ({coverages}) => {
-
-  
+const PolicyDetailsTable = ({coverages}) => {
 
     const navigate = useNavigate();
   
@@ -13,13 +11,9 @@ const AllCoveragesTable = ({coverages}) => {
       navigate(`/customers/${row.customer}/${row.policy}/${row.id}`);
     };
 
-    const noclaims = () => {
-      alert("no claims yet")
-    }
-
     return ( 
         <table className="customer-table table table-bordered">
-        <thead className="page-table-head" >
+        <thead >
           <tr>
             <th className="p-2  py-3" scope="col">
               Coverage ID
@@ -53,7 +47,7 @@ const AllCoveragesTable = ({coverages}) => {
         <tbody>
         {coverages && coverages.length > 0 ? (
           coverages.map((coverage) => (
-            <tr 
+            <tr
               key={coverage.id}
               className={coverage.currentClaimAmount === 0 ? " table-danger my-4" : "my-4"}
               onClick={() => handleRowClick(coverage)}>
@@ -100,7 +94,7 @@ const AllCoveragesTable = ({coverages}) => {
      );
 }
  
-export default AllCoveragesTable;
+export default PolicyDetailsTable;
 
 // currentClaimAmount
 // customer

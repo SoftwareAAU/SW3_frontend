@@ -26,8 +26,13 @@ body {
 }
 
 .page {
-  background: white;
+   background: white;
   min-height: calc(100vh - var(--sitePadding) * 2);
   border-radius: var(--borderRadius);
-  padding: var(--sitePadding);
+  padding: var(--sitePadding); 
+  background: white;
+  height: calc(100vh - var(--sitePadding) * 2);
+  border-radius: var(--borderRadius);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

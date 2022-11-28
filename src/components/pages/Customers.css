@@ -2,7 +2,8 @@
   background: white;
   height: calc(100vh - var(--sitePadding) * 2);
   border-radius: var(--borderRadius);
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .divider {
@@ -33,6 +34,9 @@ input {
   padding: 10px 24px 0px 24px;
   background-color: var(--pinkHover);
   color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 .customer-card-searchbar {
   border-radius: var(--borderRadius);
@@ -49,6 +53,7 @@ input {
   border:  var(--pinkHover);
 }
 .customer-table thead th {
+  
   font-weight: 400;
   border: 4px solid var(--lightPink);
   transition: all ease-in-out 150ms;

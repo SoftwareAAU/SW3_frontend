@@ -22,13 +22,16 @@ import AllCoverages from "./components/pages/AllCoverages";
 import CoverageDetails from "./components/pages/CoverageDetails";
 import CreateClaim from "./components/pages/CreateClaim";
 import AnimatedPage from "./components/AnimatedPage";
+import CusChangeInfo from "./components/pages/CusChangeInfo";
+
+import "./components/Sidebar.css";
 
 const WebAppRouter = () => {
     return ( <div>
 
 <Row>
       <BrowserRouter className="App">
-        <Col sm={3}>
+        <Col className="">
           <Sidebar />
         </Col>
         <Col sm={9}>
@@ -37,9 +40,9 @@ const WebAppRouter = () => {
             <Route exact path="/create/customer" element={<CreateCustomer />} />
             <Route exact path="/customers/:id" element={<CustomerDetails />} />
             <Route exact path="/customers/:id/policies" element={<CustomerPolicies/>} />
-            <Route exact path="/analytics" element={<Analytics />} />
             <Route exact path="/policies" element={<Policies />} />
             <Route exact path="/create/policy/:id" element={<CreatePolicy/>} />
+            <Route exact path="/customer/update/:id" element={<CusChangeInfo/>} />
             <Route exact path="/customers/:id/:id" element={<Coverage/>} />
             <Route exact path="/customers/:id/:id/:id" element={<CoverageDetails/>} />
             <Route exact path="/claims" element={<Claims/>} />

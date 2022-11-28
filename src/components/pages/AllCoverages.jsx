@@ -38,10 +38,14 @@ const AllCoverages = () => {
     const response = await axios.get(url, {
       headers: headers,
     });
-    setCoverages(response.data.coverages);
-    console.log("coverages-test:\n");
-    console.log(response.data.coverages);
-  }
+    
+    //const cov = response.data.coverage.filter((coverage) => coverage.active === true);
+    setCoverages(response.data.coverages.filter((c)=> c.active === 1));
+    console.log(response.data.coverages)
+
+
+  };
+  
 
 
 
@@ -87,7 +91,6 @@ const AllCoverages = () => {
               </select>
             </div>
           </div>
-          <hr />
         </div>
         {filterBy == "all" ? ( <AllCoveragesTable coverages={coverages} />) : (<></>)}
       

@@ -1,4 +1,8 @@
-.policy-table-head{
+.page-table-head{
+    background: var(--semiPink);
     position: sticky;
-    offset: 200px;
+    top: 150px;
+    offset: 100px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    z-index: 10;
 }

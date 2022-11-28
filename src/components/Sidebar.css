@@ -6,6 +6,11 @@
   color: var(#ff4e75);
 }
 
+.sidebar-column{
+  position: fixed;
+
+}
+
 .sidebar {
   background: white;
   height: calc(100vh - var(--sitePadding) * 2);

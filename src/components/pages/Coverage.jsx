@@ -13,6 +13,7 @@ import "../CoverageTable.css";
 import LoadingPage from "./LoadingPage";
 import AllCoveragesTable from "../AllCoveragesTable";
 import AnimatedPage from "../AnimatedPage";
+import PolicyDetailsTable from "../PolicyDetailsTable";
 
 const Coverage = () => {
 
@@ -24,22 +25,23 @@ const Coverage = () => {
 
     const [policyCoverages, setPolicyCoverages] = useState({});
          //fetch customer by id from the database
-        const getCoveragesFromPolicyId = async () => {
-            const headers = {
-            token: `${Cookies.get("token")}`,
-            };
-            
-            const url = globals.ip + "/coverages/" + policyID;
-            console.log("fetching fromm:\n"+ url)
-
-            const response = await axios.get(url, {
-            headers: headers,
-            });
-
-            console.log(response.data);
-            setPolicyCoverages(response.data.coverage);
-            console.log(response.data.coverage)
+    const getCoveragesFromPolicyId = async () => {
+        const headers = {
+        token: `${Cookies.get("token")}`,
         };
+        
+        const url = globals.ip + "/coverages/" + policyID;
+        console.log("fetching fromm:\n"+ url)
+
+        const response = await axios.get(url, {
+        headers: headers,
+        });
+
+        console.log(response.data);
+        const cov = response.data.coverage.filter((cov) => cov.active === 1);
+        setPolicyCoverages(cov);
+        console.log(response.data.coverage)
+    };
 
     const [customerDetails, setCustomerDetails] = useState({});
 
@@ -58,45 +60,13 @@ const Coverage = () => {
     setCustomerDetails(response.data);
   };
 
-useEffect(() => {
-    
-    getCoveragesFromPolicyId();
-    getCustomerById();
-    
+  useEffect(() => {
+      
+      getCoveragesFromPolicyId();
+      getCustomerById();
+      
 
 }, []);
-
-const deletePolicy = async (id) => {
-    const headers = {
-      token: `${Cookies.get("token")}`,
-    };
-
-    const bodyFormData = new FormData();
-    bodyFormData.append("id", id);
-
-    const url = globals.ip + "/policy/" + id;
-
-    const response = await axios.delete(url, {
-      headers: headers,
-    });
-
-    console.log(response.data);
-  };
-
-const handleDelete = () => {
-  //Get id from url
-  let urlIDs = window.location.pathname.split("/");
-  let customerID = urlIDs[2];
-  let policyID = urlIDs[3];
-  if (window.confirm('Are you sure you want to delete this policy?')) {
-    // Delete
-    deletePolicy(policyID);
-    alert("Policy deleted.");
-  } else {
-    // Do nothing!
-    alert("Policy not deleted.");
-  }
-}
  
 const handleClick = () => {
   //Get id from url
@@ -104,6 +74,49 @@ const handleClick = () => {
   let customerID = urlIDs[2];
   let policyID = urlIDs[3];
   window.location.href = "/create/coverage/" + policyID;
+}
+
+//new stuff
+
+
+const handleTermination = (e) => {
+  //e.preventDefault();
+  console.log("form submitted");
+
+  const bodyFormData = new FormData();
+  bodyFormData.append("id", policyID);
+
+  terminatePolicy(bodyFormData);
+
+  e.preventDefault();
+  //window.location='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+}
+
+//create customer in db
+function terminatePolicy(formData) {
+  console.log("Creating claim")
+  console.log(formData)
+  const token = Cookies.get("token");
+
+  axios({
+      method: "post",
+      url: globals.ip + "/policy/terminate",
+      data: formData,
+      headers: { "Content-Type": "multipart/form-data", "token": `${token}` },
+    }).then((res) => {
+      const { status } = res.data;
+
+      if (status === true) {
+        alert("I will be back");
+        return;
+      }
+      console.log(res.data);
+      alert("Hasta la vista. Baby");
+    }).catch((err)=>{
+      alert("Error Bruh: " + err)
+    }).then(()=>{
+      window.location = urlIDs[0] + "/" + urlIDs[1] + "/" + urlIDs[2];
+    })
 }
 
 
@@ -140,7 +153,7 @@ return (
         </Row>
         <Row>
           <Col>
-              <button className="btn-primary sign-out-button w-25" onClick={handleDelete}>Delete Policy</button>
+              <button className="btn-primary sign-out-button w-25" onClick={handleTermination}>Delete Policy</button>
           </Col>
         </Row>
 
@@ -155,7 +168,7 @@ return (
 
               <div className="rounded-2 overflow-hidden py-4">
                 {policyCoverages != null && policyCoverages.length ? (
-                    <AllCoveragesTable coverages={policyCoverages} />
+                    <PolicyDetailsTable coverages={policyCoverages} />
                 ) : <></>}
                 
               </div>
