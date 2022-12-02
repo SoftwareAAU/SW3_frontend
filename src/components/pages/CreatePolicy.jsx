@@ -124,12 +124,12 @@ const CreatePolicy = () => {
                     <br />
                     <h3>Type</h3>
                     <select required className="form-select" onChange={(e)=> setPolicyType(e.target.value)}>
-                        <option value="0">Household Insurance</option>
-                        <option value="1">Car Insurance</option>
-                        <option value="2">Travel Insurance</option>
-                        <option value="3">Life Insurance</option>
-                        <option value="4">Health Insurance</option>
-                        <option value="5">Accident Insurance</option>
+                        <option value="1">Household Insurance</option>
+                        <option value="2">Car Insurance</option>
+                        <option value="3">Travel Insurance</option>
+                        <option value="4">Life Insurance</option>
+                        <option value="5">Health Insurance</option>
+                        <option value="6">Accident Insurance</option>
                     </select>
                 </Col>
             </Row>

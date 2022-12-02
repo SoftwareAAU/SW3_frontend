@@ -1,10 +1,10 @@
 const policyTypeMap = {
-  0: "Household Insurance",
-  1: "Car Insurance",
-  2: "Travel Insurance",
-  3: "Life Insurance",
-  4: "Health Insurance",
-  5: "Accident Insurance",
+  1: "Household Insurance",
+  2: "Car Insurance",
+  3: "Travel Insurance",
+  4: "Life Insurance",
+  5: "Health Insurance",
+  6: "Accident Insurance",
 }
 
 export default policyTypeMap;
