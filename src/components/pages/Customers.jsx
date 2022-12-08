@@ -23,6 +23,9 @@ const Customers = () => {
   const [persons, setPersons] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [filteredCustomers, setFilteredCustomers] = useState([]);
+ const [filteredPersons, setFilteredPersons] = useState([]);
+  const [filteredCompanies, setFilteredCompanies] = useState([]);
+
 
   const [filterBy, setFilterBy] = useState("all");
 
@@ -46,6 +49,7 @@ const Customers = () => {
       headers: headers,
     });
     setPersons(response.data.persons);
+    setFilteredPersons(response.data.persons);
     console.log("persons-test:\n");
     console.log(response.data.persons);
   }
@@ -59,6 +63,7 @@ const Customers = () => {
       headers: headers,
     });
     setCompanies(response.data.companies);
+    setFilteredCompanies(response.data.companies);
     console.log("companies-test:\n")
     console.log(response.data.companies);
 
@@ -68,29 +73,54 @@ const Customers = () => {
     const search = e.target.value;
     console.log(search);
 
-    const currentList = filteredCustomers;
-    const newList = currentList.filter((c) => {
-      if(c.type == 0)
+    if (filterBy === "all") {
+
+      const currentList = filteredCustomers;
+      const newList = currentList.filter((c) => {
+        console.log(c.id);
+        return c.id.toString().toLowerCase().includes(search.toString().toLowerCase())
+      });
+      if(search == "")
       {
-        return c.firstName.toLowerCase().includes(search.toLowerCase()
-        ) || c.surname.toLowerCase().includes(search.toLowerCase()
-        ) || c.customer.toString().includes(search.toLowerCase()
-        ) || c.address.toLowerCase().includes(search.toLowerCase()
-        );
+        setFilteredCustomers(customers);
       }
       else{
-        return c.name.toLowerCase().includes(search.toLowerCase())
-        || c.customer.toString().includes(search.toLowerCase()
-        ) || c.address.toLowerCase().includes(search.toLowerCase());
+      setFilteredCustomers(newList);
       }
-    });
-    if(search == "")
-    {
-      setFilteredCustomers(customers);
     }
-    else{
-    setFilteredCustomers(newList);
+
+    else if (filterBy === "persons") {
+      const currentList = filteredPersons;
+      const newList = currentList.filter((c) => {
+        console.log(c.id);
+        return c.id.toString().toLowerCase().includes(search.toString().toLowerCase())
+      })
+
+      if(search == "")
+      {
+        setFilteredPersons(persons);
+      }
+      else{
+      setFilteredPersons(newList);
+      }
     }
+    else if (filterBy === "companies") {
+      const currentList = filteredCompanies;
+      const newList = currentList.filter((c) => {
+        console.log(c.id);
+        return c.id.toString().toLowerCase().includes(search.toString().toLowerCase())
+      })
+
+      if(search == "")
+      {
+        setFilteredCompanies(companies);
+      }
+      else{
+      setFilteredCompanies(newList);
+      }
+    }
+      
+
   }
 
 
@@ -163,9 +193,9 @@ const Customers = () => {
             </div>
           </div>
         </div>
-        {filterBy == "all" ? ( <CustomersTable customers={customers} />) : (<></>)}
-        {filterBy == "persons" ? ( <CustomersTable customers={persons} />) : (<></>)}
-        {filterBy == "companies" ? ( <CustomersTable customers={companies} />) : (<></>)}
+        {filterBy == "all" ? ( <CustomersTable customers={filteredCustomers} />) : (<></>)}
+        {filterBy == "persons" ? ( <CustomersTable customers={filteredPersons} />) : (<></>)}
+        {filterBy == "companies" ? ( <CustomersTable customers={filteredCompanies} />) : (<></>)}
       </div>
     </div>
     </AnimatedPage>
