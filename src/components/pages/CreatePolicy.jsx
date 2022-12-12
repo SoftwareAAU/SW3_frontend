@@ -15,7 +15,7 @@ const CreatePolicy = () => {
     const [start, setStart] = useState("");
     const [termination, setTermination] = useState("");
     const [totalPremium, setTotalPremium] = useState(0.0);
-    const [policyType, setPolicyType] = useState(0);
+    const [policyType, setPolicyType] = useState(1);
     const id = window.location.pathname.split("/")[3];
 
     const [customerDetails, setCustomerDetails] = useState({type: 0, firstName:"Loading customer...", surname: " "});
@@ -75,7 +75,9 @@ const CreatePolicy = () => {
         bodyFormData.append("customer", id);//
         bodyFormData.append("start", start);//
         bodyFormData.append("termination", termination);//
-        bodyFormData.append("type", policyType);//
+        bodyFormData.append("type", e.target.type.value);//
+
+        console.log("type = " + e.target.type.value);
         
         createPolicy(bodyFormData);
 
@@ -123,7 +125,7 @@ const CreatePolicy = () => {
                     <input required type="date" className="form-control" placeholder="Startdate" onChange={(e)=> setTermination(e.target.value)} />
                     <br />
                     <h3>Type</h3>
-                    <select required className="form-select" onChange={(e)=> setPolicyType(e.target.value)}>
+                    <select name="type" required className="form-select" onChange={(e)=> setPolicyType(e.target.value)}>
                         <option value="1">Household Insurance</option>
                         <option value="2">Car Insurance</option>
                         <option value="3">Travel Insurance</option>
