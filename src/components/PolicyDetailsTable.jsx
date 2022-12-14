@@ -49,7 +49,7 @@ const PolicyDetailsTable = ({coverages}) => {
           coverages.map((coverage) => (
             <tr
               key={coverage.id}
-              className={coverage.currentClaimAmount === 0 ? " table-danger my-4" : "my-4"}
+              className={coverage.currentClaimAmount === 0 ? " my-4" : "my-4"}
               onClick={() => handleRowClick(coverage)}>
               <td className="p-2 py-3">{coverage.id}</td>
               <td className="p-2 py-3">{coverage.customer}</td>

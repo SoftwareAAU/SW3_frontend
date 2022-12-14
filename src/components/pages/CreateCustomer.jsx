@@ -35,15 +35,15 @@ const CreateCustomer = () => {
 
 
     const handleSubmit = (e) => {
-        //e.preventDefault();
+        e.preventDefault();
         console.log("form submitted");
         console.log (customerType);
 
-        if (customerType == 0)
+        if (e.target.type.value == 0)
         {
             //create person object
             const person = {
-                type: customerType,
+                type: e.target.type.value,
                 address: address,
                 firstname: firstName,
                 lastname: surname,
@@ -54,7 +54,7 @@ const CreateCustomer = () => {
             console.log(person);
 
             const bodyFormData = new FormData();
-            bodyFormData.append("type", customerType);
+            bodyFormData.append("type", e.target.type.value);
             bodyFormData.append("address", address);
             bodyFormData.append("firstname", firstName);
             bodyFormData.append("lastname", surname);
@@ -67,7 +67,7 @@ const CreateCustomer = () => {
 
             //create company object
             const company = {
-                type: customerType,
+                type: e.target.type.value,
                 address: address,
                 cvr: cvr,
                 name: name,
@@ -76,7 +76,7 @@ const CreateCustomer = () => {
             console.log(company);
             
             const bodyFormData = new FormData();
-            bodyFormData.append("type", customerType);
+            bodyFormData.append("type", e.target.type.value);
             bodyFormData.append("address", address);
             bodyFormData.append("cvr", cvr);
             bodyFormData.append("name", name);
@@ -90,6 +90,7 @@ const CreateCustomer = () => {
     //create customer in db
     function createCustomerInDB(formData) {
         const token = Cookies.get("token");
+    
 
         axios({
             method: "post",
@@ -121,7 +122,7 @@ const CreateCustomer = () => {
             <Row className="mx-2 mt-4">
                 <Col>
                     <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.Compass/>Customer Type</h3>
-                    <select required className="form-select" onChange={(e)=> setcustomerType(e.target.value)} >
+                    <select required name="type" className="form-select" onChange={(e)=> setcustomerType(e.target.value)} >
                         <option defaultValue={0} value="0">Person</option>
                         <option value="1">Company</option>
                     </select>

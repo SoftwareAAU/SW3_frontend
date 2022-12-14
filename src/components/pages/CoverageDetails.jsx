@@ -51,6 +51,7 @@ const CoverageDetails = () => {
   
     //get customer from claim id
     const getCustomerByID = async (id) => {
+      console.log("TRYING TO FETCH CUSTOMER");
         const headers = {
             token: `${Cookies.get("token")}`,
         };
@@ -64,11 +65,12 @@ const CoverageDetails = () => {
     }
 
     const getCoverageCustomerAndClaims = async () => {
+      console.log("TRYING TO FETCH COVERAGE");
        getCoverages().then((coverages) => {
               coverages.forEach((coverage) => {
                 if(coverage.id == id){
                     setCoverage(coverage);
-
+                    
                     getCustomerByID(coverage.customer).then((customer) => {
                         setCustomerDetails(customer);
 
@@ -83,6 +85,7 @@ const CoverageDetails = () => {
     }
 
     const getClaimsByCoverageID = async (id) => {
+      console.log("TRYING TO FETCH CLAIMS");
         const headers = {
             token: `${Cookies.get("token")}`,
         };
@@ -91,7 +94,7 @@ const CoverageDetails = () => {
             headers: headers,
         });
         console.log("claims by coverageID: " +id);
-        console.log(response.data.claims);
+        console.log(response.data);
         return(response.data.claims);
     }
   
@@ -145,6 +148,7 @@ const CoverageDetails = () => {
     useEffect(() => {
 
         getCoverageCustomerAndClaims()
+        console.log("FETCHING POLICY'S COVERAGES")
 
         
         
