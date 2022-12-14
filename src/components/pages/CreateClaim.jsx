@@ -22,7 +22,7 @@ const CreateClaim = () => {
     const [paid, setPaid] = useState(0);
     const [occurrence, setOccurrence] = useState("");
     const [cause, setCause] = useState("");
-    const [claimed, setClaimed] = useState("2000-01-01");
+    const [claimed, setClaimed] = useState("");
 
     //get id from url
     const { id } = useParams();
@@ -146,13 +146,14 @@ const CreateClaim = () => {
     
             if (status === true) {
               alert("Claim created");
+              window.location = "/customers/" + coverage.customer+ "/" + coverage.policy + "/" + coverage.id;
               return;
             }
             console.log(res.data);
-            alert("Claim Created");
-            window.location = "/customers/" + customer.id + + "/" + coverage.policy + "/" + coverage.id;
+            alert("Error");
+            
           }).catch((err)=>{
-            alert("Error Bruh: " + err)
+            alert("Error: " + err)
           })
     }
 
