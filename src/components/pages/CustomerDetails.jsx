@@ -4,6 +4,8 @@ import { Col, Row } from "react-bootstrap";
 
 import { Chart } from "primereact/chart";
 
+import * as Icon from 'react-bootstrap-icons';
+
 import { useState } from "react";
 
 import personLogo from "../../assets/person.png";
@@ -148,7 +150,7 @@ const CustomerDetails = () => {
             {customerDetails.type == 0 ? (
               <>
                 <h1 className="fw-normal cd-first-name">
-                  {customerDetails.firstName}
+                  {customerDetails.firstName} <Link className="text-decoration-none" to={"/customer/update/" + id}> <button className="btn-nothing px-3 flex-row align-items-center gap-2"><Icon.Pen/></button> </Link>
                 </h1>
                 <h1 className="fw-normal cd-surname">
                   {customerDetails.surname}
@@ -162,10 +164,10 @@ const CustomerDetails = () => {
           </div>
         </Col>
 
-        <Col className=" d-flex flex-row gap-2">
-              <button className="btn-primary sign-out-button w-15 px-3" onClick={handleTermination}>Terminate</button>
-              <Link to={"/customer/update/" + id}>
-              <button className="btn-primary sign-out-button w-15 ml-2 px-3">Update Details</button>
+        <Col className=" justify-content-end text-decoration-none d-flex flex-row gap-2 align-content-end">
+              <button className="btn-primary sign-out-button px-3 d-flex flex-row align-items-center gap-2" onClick={handleTermination}><Icon.XLg/>Terminate</button>
+              <Link className="text-decoration-none" to={"/customer/update/" + id}>
+              <button className="btn-primary sign-out-button px-3 d-flex flex-row align-items-center gap-2"><Icon.CloudArrowUp/>Change details</button>
               </Link>
           </Col>
 

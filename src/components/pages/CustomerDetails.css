@@ -45,3 +45,17 @@
     display: flex;
     gap: 5px;
 }
+
+.removeUnderline{
+    text-decoration: none;
+}
+
+.btn-nothing{
+    background-color: none;
+    color: none;
+    border: none;
+    font-weight: 100;
+    cursor: pointer;
+    transition: all ease-in-out;
+    transition-duration: 150ms;
+}
