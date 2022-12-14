@@ -149,7 +149,8 @@ const CreateClaim = () => {
               return;
             }
             console.log(res.data);
-            alert("Claim Created Bitch");
+            alert("Claim Created");
+            window.location = "/customers/" + customer.id + + "/" + coverage.policy + "/" + coverage.id;
           }).catch((err)=>{
             alert("Error Bruh: " + err)
           })

@@ -53,7 +53,7 @@ const CustomerDetails = () => {
       headers: headers,
     });
 
-    setCustomerDetails(response.data.customer);
+    setCustomerDetails(response.data);
 
     //filter out the policies that are not active
     const activePolicies = response.data.policies.filter(

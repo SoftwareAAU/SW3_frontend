@@ -45,8 +45,8 @@ const CusChangeInfo = () => {
         });
         setCusDetails(response.data);
         
-        setFirstName(response.data.firstName);
-        setSurname(response.data.surname);
+        setFirstName(response.datafirstName);
+        setSurname(response.datasurname);
         setName(response.data.companyName);
         setAddress(response.data.address);
 
