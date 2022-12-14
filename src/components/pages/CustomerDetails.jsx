@@ -53,7 +53,7 @@ const CustomerDetails = () => {
       headers: headers,
     });
 
-    setCustomerDetails(response.data);
+    setCustomerDetails(response.data.customer);
 
     //filter out the policies that are not active
     const activePolicies = response.data.policies.filter(
@@ -78,8 +78,6 @@ const CustomerDetails = () => {
 
   //termin
   const handleTermination = (e) => {
-    const audio = new Audio(moan);
-        audio.play();
     //e.preventDefault();
     console.log("form submitted");
 
@@ -121,11 +119,10 @@ const CustomerDetails = () => {
           return;
         }
         console.log(res.data);
-        alert("Hasta la vista. Baby");
+        alert("Customer has been terminated");
       }).catch((err)=>{
-        alert("Error Bruh: " + err)
+        alert("Something when wrong: " + err)
       }).then(()=>{
-        
         window.location = "/customers"
         
       })
@@ -138,7 +135,7 @@ const CustomerDetails = () => {
     {customerDetails.id ? (
     <div className="page">
 
-      <Row className="mx-1 justify-content-center align-items-center">
+      <Row className="mx-1 justify-content-between align-items-center">
         <Col className="col-1">
           <img
             src={customerDetails.type == 0 ? personLogo : firmLogo}
@@ -165,15 +162,18 @@ const CustomerDetails = () => {
           </div>
         </Col>
 
-      </Row>
-      <Row>
-          <Col>
-              <button className="btn-primary sign-out-button w-15" onClick={handleTermination}>Terminate Customer</button>
+        <Col className=" d-flex flex-row gap-2">
+              <button className="btn-primary sign-out-button w-15 px-3" onClick={handleTermination}>Terminate</button>
               <Link to={"/customer/update/" + id}>
-              <button className="btn-primary sign-out-button w-15">Update Customer</button>
+              <button className="btn-primary sign-out-button w-15 ml-2 px-3">Update Details</button>
               </Link>
           </Col>
-        </Row>
+
+
+      </Row>
+
+         
+
 
         
 
@@ -190,7 +190,7 @@ const CustomerDetails = () => {
             <p className="fw-light customer-details-label">
               {customerDetails.type == 0
                 ? customerDetails.cprNumber
-                : customerDetails.cvr}
+                : customerDetails.CVR}
             </p>
           </div>
           </Col >
