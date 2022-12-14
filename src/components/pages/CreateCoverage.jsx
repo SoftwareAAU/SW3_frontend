@@ -114,11 +114,11 @@ const CreateCoverage = () => {
               return;
             }
             console.log(res.data);
-            alert("Coverage Created Bitch");
+            alert("Coverage Created");
           }).catch((err)=>{
-            alert("Error Bruh: " + err)
+            alert("An error occurred: " + err)
           }).then(()=>{
-            window.location='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+            window.location="/customers/" + policy.customer + "/" + policy.id
           })
     }
 
