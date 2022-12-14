@@ -51,11 +51,11 @@
 }
 
 .btn-nothing{
-    background-color: none;
-    color: none;
+    background-color: transparent;
     border: none;
     font-weight: 100;
-    cursor: pointer;
+    cursor: text;
+    padding-left: 0;
     transition: all ease-in-out;
     transition-duration: 150ms;
 }

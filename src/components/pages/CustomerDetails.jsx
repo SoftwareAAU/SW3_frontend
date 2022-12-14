@@ -139,7 +139,7 @@ const CustomerDetails = () => {
 
       <Row className="mx-1 justify-content-between align-items-center">
         <Col className="col-1">
-          <img
+          <img className="border border-3 border-light rounded-circle"
             src={customerDetails.type == 0 ? personLogo : firmLogo}
             height={80}
             alt="Logo"
@@ -150,7 +150,10 @@ const CustomerDetails = () => {
             {customerDetails.type == 0 ? (
               <>
                 <h1 className="fw-normal cd-first-name">
-                  {customerDetails.firstName} <Link className="text-decoration-none" to={"/customer/update/" + id}> <button className="btn-nothing px-3 flex-row align-items-center gap-2"><Icon.Pen/></button> </Link>
+                <Link
+                className="text-decoration-none" to={"/customer/update/" + id}> 
+                <button className="btn-nothing flex-row align-items-center icon-size-small"> {customerDetails.firstName} <Icon.PencilSquare className="fs-6 align-items-center"></Icon.PencilSquare></button> 
+                </Link>
                 </h1>
                 <h1 className="fw-normal cd-surname">
                   {customerDetails.surname}
