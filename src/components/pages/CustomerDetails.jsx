@@ -117,7 +117,10 @@ const CustomerDetails = () => {
         const { status } = res.data;
   
         if (status === true) {
-          alert("I will be back");
+          //dialogue box asking "are you sure?" the user can press yes or no
+
+          console.log("Customer has been terminated");
+          alert("Customer terminated");
           return;
         }
         console.log(res.data);
@@ -168,7 +171,8 @@ const CustomerDetails = () => {
         </Col>
 
         <Col className=" justify-content-end text-decoration-none d-flex flex-row gap-2 align-content-end">
-              <button className="btn-primary sign-out-button px-3 d-flex flex-row align-items-center gap-2" onClick={handleTermination}><Icon.XLg/>Terminate</button>
+              {/* <button className="btn-primary sign-out-button px-3 d-flex flex-row align-items-center gap-2" onClick={handleTermination}><Icon.XLg/>Terminate</button> */}
+              <button className="btn-primary sign-out-button px-3 d-flex flex-row align-items-center gap-2"onClick={(e) => { if (window.confirm('Are you sure you want to terminate customer with id: ' + customerDetails.id + "?")){handleTermination()}}}><Icon.XLg/>Terminate</button>
               <Link className="text-decoration-none" to={"/customer/update/" + id}>
               <button className="btn-primary sign-out-button px-3 d-flex flex-row align-items-center gap-2"><Icon.CloudArrowUp/>Change details</button>
               </Link>

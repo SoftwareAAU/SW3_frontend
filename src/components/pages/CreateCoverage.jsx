@@ -151,7 +151,7 @@ const CreateCoverage = () => {
                     <input required type="double" className="form-control" placeholder="deductible" onChange={(e) => setDeductible(e.target.value) }  />
                     <br />
                     <h3 className="link d-flex flex-row align-items-center gap-2 custom-form-label"> <Icon.FileEarmarkLock/>Max Coverage</h3>
-                    <input required type="double" className="form-control" placeholder="maxCoverage" onChange={(e) => setMaxCoverage(e.target.value) }  />
+                    <input maxLength={6} required type="double" className="form-control" placeholder="maxCoverage" onChange={(e) => setMaxCoverage(e.target.value) }  />
                     <br />
 
                 </Col>

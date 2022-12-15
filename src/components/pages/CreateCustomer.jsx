@@ -102,12 +102,13 @@ const CreateCustomer = () => {
     
             if (status === true) {
               alert("Customer created");
+              window.location = "/customers";
               return;
             }
     
             console.log(res.data);
     
-            alert("Something went wrong");
+            alert("An error occurred whilst trying to create customer");
           });
       
        
@@ -158,7 +159,7 @@ const CreateCustomer = () => {
                     </Row>
                     <Row className="mx-2 mt-4">
                     <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.Lock />CPR</h3>
-                    <input required maxLength={10} type="number"  className="form-control" placeholder="Cpr" onChange={(e)=> setCpr(e.target.value)} />
+                    <input required type="number"  className="form-control" placeholder="Cpr" onChange={(e)=> setCpr(e.target.value)} />
                     </Row>
                     <Row className="mx-2 mt-4">
                     <h3 className="link d-flex flex-row align-items-center gap-2 active custom-form-label"><Icon.House />Address</h3>

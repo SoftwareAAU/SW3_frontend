@@ -65,7 +65,7 @@ const CreatePolicy = () => {
 
 
     const handleSubmit = (e) => {
-        //e.preventDefault();
+        e.preventDefault();
         console.log("form submitted");
 
         //get id from create/policy/id
@@ -80,9 +80,6 @@ const CreatePolicy = () => {
         console.log("type = " + e.target.type.value);
         
         createPolicy(bodyFormData);
-
-        e.preventDefault();
-        window.location='/customers/' + id;
     }
 
     //create customer in db
@@ -99,6 +96,7 @@ const CreatePolicy = () => {
     
             if (status === true) {
               alert("Policy created");
+              window.location = "/customers/" + id;
               return;
             }
     

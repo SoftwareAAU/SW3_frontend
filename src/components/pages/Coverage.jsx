@@ -153,7 +153,7 @@ return (
         </Row>
         <Row>
           <Col>
-              <button className="btn-primary sign-out-button w-25" onClick={handleTermination}>Delete Policy</button>
+              <button className="btn-primary sign-out-button w-25" onClick={(e) => { if (window.confirm('Are you sure you want to terminate policy with id: ' + policyID + "?")){handleTermination()}}}>Terminate</button>
           </Col>
         </Row>
 

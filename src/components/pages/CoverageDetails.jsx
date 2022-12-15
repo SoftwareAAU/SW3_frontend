@@ -192,7 +192,7 @@ const CoverageDetails = () => {
       </Row>
       <Row>
           <Col>
-              <button className="btn-primary sign-out-button w-25" onClick={handleTermination}>Delete Coverage</button>
+              <button className="btn-primary sign-out-button w-25" onClick={(e) => { if (window.confirm('Are you sure you want to terminate coverage with id: ' + coverage.id + "?")){handleTermination()}}}>Terminate</button>
           </Col>
         </Row>
       
